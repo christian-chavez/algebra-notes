@@ -9,8 +9,6 @@
 
 \section{Basic properties of the integers}
 
-fi
-
 In this lesson and onwards, we consider $\Z$ to be the set of integers numbers, whereas $\Z^{+}$ is the set of strictly positive integers numbers.
 
 \begin{defi}
@@ -37,5 +35,146 @@ Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an int
     Why does $(a,b)$ always exist for $a,b\in \Z\setminus\{0\}$?
 \end{que}
 
+
+\begin{teo}
+    If \(a,b\in \Z\setminus\{0\}\), 
+    there are unique \(q,r\in Z\)
+    such that 
+    \[a= qb +r \qand 0\leq r < |b|.\]
+    We call \(q\) the quotient and \(r\) the remainder.
+\end{teo}
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+\begin{teo}[Euclidean Algortihm]
+    
+\end{teo}
+
+
+\begin{eje}
+    Compute \((1716, 1657)\) and write this integer as a linear combination of \(1716\) and \(1657\).
+\end{eje}
+
+\begin{defi}
+    An integer \(p\) is prime iff 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(p>1\), and
+        \item the only positive divisors of \(p\) are \(p\) and \(1\).
+    \end{enumerate}
+    An integer is \textit{composite} iff it not prime.
+\end{defi}
+
+
+\begin{rem}
+    If $p$ is a prime and $b \in \mathbb{Z}\setminus \{0\}$ then
+\[
+(p, b)= \begin{cases}p & \text { if } p | b \\ s & \text { othemerre }\end{cases}
+\]
+Prove this claim.
+\end{rem}
+
+\begin{eje}
+    Let \(I\subseteq \Z\) be such that 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(0\in I\),
+        \item if  \(a,b\in I\), then \(a-b\in I\), 
+        \item if \(a\in I\) and \(q\in I\), then  \(aq\subseteq I\).
+    \end{enumerate}
+    Then, there is some nonnegative integer \(d\in I\) such that  \[I = \left\{ dk: k \in \Z \right\}.\]
+\end{eje}
+
+\begin{rem}
+    If \(A\subseteq \Z\) and \(n\in \Z\), we denote 
+    \(nA = \left\{n a : a\in A \right\}\).
+    If \(A=\Z\), then \((n) = n\Z\).
+    Thus, this result states that \(I=(d)\) for some \(d\in I\).
+\end{rem}
+
+\begin{sol}
+    
+\end{sol}
+
+
+\begin{teo}[Euclid's lemma]
+    Let \(a,b\in \Z\).
+    If \(p\) is prime and \(p\mid ab\), then \(p\mid a\) or \(p\mid b\).
+\end{teo}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{eje}
+    Let \(a_1 a_2 \cdots a_n\in \Z\).
+    Prove, by induction, that if \(p\) is prime and \(p\mid a_1 a_2 \cdots a_n\), then there is \(i\in \{1,\ldots,n\}\) such that \(p\mid a_i\), i.e., \(p\) must divide at least one integer in the product.
+\end{eje}
+
+The converse of Euclid's lemma is also true.
+
+\begin{prop}
+    Let \(p>1\).
+    If 
+    \[\forall a,b\in \Z  : p\mid ab\implies p\mid a \text{ or } p\mid b,\]
+    then \(p\) is prime.
+\end{prop}
+
+\begin{proof}
+    By contradiction.
+\end{proof}
+
+
+\begin{prop}
+    Let \(a,b,c\in Z\).
+    If 
+    \begin{enumerate}[label=(\roman*)]
+        \item \((a,c) = 1\), and
+        \item \(c\mid ab\)
+    \end{enumerate}
+    then \(c\mid b\).
+\end{prop}
+
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+\begin{defi}
+    Let \(a,b\in \Z\) with \(b\neq 0\). We say \(\frac{a}{b}    \) is in lowest terms if \((a,b) = 1\).
+\end{defi}
+
+\begin{lem}
+    Every nonzero rational number equals a fraction in lowest terms.
+\end{lem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{prop}
+    \(\sqrt{2}\) is irrational.
+\end{prop}
+
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{teo}[Fundamental Theorem of Arithmetic]
+    
+\end{teo}
+
+The following function  computes the amount of smaller integers that are coprime to a given integer.
+\begin{defi}[Euler's totient function \(\varphi\)]
+    Define \(\varphi \colon \Z^+\to \Z\) by 
+    \[\varphi(n) = |\left\{ a\leq n : (a,n) = 1 \right\}|.\]
+\end{defi}
+
+\paragraph{Properties.} 
 
 \end{document}

@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preambulo}
+
+\begin{document}
+
+\def\contador{1}
+\input{titulo}
+
+\section{Basic properties of the integers}
+
+fi
+
+In this lesson and onwards, we consider $\Z$ to be the set of integers numbers, whereas $\Z^{+}$ is the set of strictly positive integers numbers.
+
+\begin{defi}
+Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an integer $c$ such that $a\cdot c=b$. We denote this by $a\mid b.$ 
+\end{defi}
+
+\begin{rem}
+    If $a$ does not divide $b$, we write $a\nmid b$.
+\end{rem}
+
+\begin{teo}
+    Let $a,b\in \Z\setminus\{0\}$, there is a unique positive integer $d$, called the \textbf{greatest common divisor of $a$ and $b$}, satisfying 
+    \begin{enumerate}
+        \item $d\mid a$ and $d\mid b.$
+        \item If $e\mid a$ and $e\mid b$ then $e\mid d.$
+    \end{enumerate}
+\end{teo}
+
+\begin{rem}
+    If $d$ is the greatest common divisor of $a$ and $b$, we write $d=(a,b).$ In particular, if $(a,b)=1$, then $a$ and $b$ are called coprimes.
+\end{rem}
+
+\begin{que}
+    Why does $(a,b)$ always exist for $a,b\in \Z\setminus\{0\}$?
+\end{que}
+
+
+\end{document}

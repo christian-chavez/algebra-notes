@@ -1,0 +1,81 @@
+% PAQUETES
+
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage[left=1.54cm,right=1.54cm,top=1.54cm,bottom=1.54cm]{geometry}
+\usepackage{xfrac}  
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\usepackage{rotating}
+\usepackage{mathpazo}
+\usepackage{charter}
+\usetikzlibrary{babel}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tikz-cd}
+\usepackage{tasks}
+\usepackage{color}
+
+
+%OPERADORES
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\id}{id}
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\B}{\mbox{Ob}}
+\newcommand{\M}{\mbox{Mo}}
+\newcommand{\del}{\Delta}
+\newcommand{\odel}[1]{\left[#1\right]}
+\newcommand{\Hom}[1]{\text{Hom}(#1)}
+\newcommand{\adel}[1]{\left\lbrace #1 \right\rbrace}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\newcommand{\funcion}[5]{%
+{\setlength{\arraycolsep}{2pt}
+\begin{array}{r@{}ccl}
+#1\colon \hspace{0pt}& #2 & \longrightarrow & #3\\
+& #4 & \longmapsto & #5
+\end{array}}}
+
+\newcommand{\func}[3]{#1\colon  #2  \to  #3}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+%ENTORNOS
+
+\theoremstyle{theorem}
+\newtheorem{teo}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{rem}{Remark}
+\newtheorem{eje}{Exercise}
+\newtheorem{sol}{\textit{Solution}}
+\newtheorem{que}{Question}
+
+
+\def\contador{}

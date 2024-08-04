@@ -8,7 +8,6 @@
 \input{titulo}
 
 \section{Basic properties of the integers}
-1
 
 In this lesson and onwards, we consider $\Z$ to be the set of integers numbers, whereas $\Z^{+}$ is the set of strictly positive integers numbers.
 
@@ -201,18 +200,21 @@ The converse of Euclid's lemma is also true.
 
 
 \begin{prop}
-    Let \(a,b,c\in Z\).
-    If 
+    Let \(a,b,c\in \Z\).
+    Suppose
     \begin{enumerate}[label=(\roman*)]
         \item \((a,c) = 1\), and
-        \item \(c\mid ab\)
+        \item \(c\mid ab\).
     \end{enumerate}
-    then \(c\mid b\).
+    Then \(c\mid b\).
 \end{prop}
 
 
 \begin{proof}
-    
+    By (ii), \(ab=cd\) for some \(d\in\Z\).
+    Using (i), write \(1 = ax+cy\) for some \(x,y\in \Z\). Multiplying by \(b\) we get 
+    \[b = abx + cby = cdx + cby = (dx + by)c.\]
+    Thus \(c\mid b\).
 \end{proof}
 
 

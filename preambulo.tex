@@ -69,7 +69,7 @@
 
 %ENTORNOS
 
-\theoremstyle{theorem}
+% \theoremstyle{theorem}
 \newtheorem{teo}{Theorem}[section]
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{lem}{Lemma}[section]
@@ -86,3 +86,8 @@
 \def\contador{}
 \graphicspath{{./figures/}}
 \newcommand{\qand}{\quad\text{and}\quad}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,    % false: boxed links; true: colored links
+    allcolors=blue,
+}

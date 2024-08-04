@@ -60,25 +60,31 @@ If \(a\) and \(b\) are nonzero integers, then by the division algorithm we get \
 Let \(q_0=q\) and \(r_0=r\).
 By applying the division algorithm again with \(q_0\) and \(r_0\) we obtain a new quotient \(q_1\)   and a new remainder \(r_1\).
 The idea of this procedure is to continue applying the division algorithm until we reach a zero remainder. From one step to the next,  the divisor becomes the dividend and the remainder the divisor, as follows:
-\begin{align*}
-a & =q_0 b+r_0 \\
-b & =q_1 r_0+r_1 \\
-r_0 & =q_2 r_1+r_2 \\
-r_1 & =q_3 r_2+r_3 \\
-&\;\; \vdots \\
-r_{n-2} & =q_n r_{n-1}+r_n \\
-r_{n-1} & =q_{n+1} r_n
-\end{align*}
+\begin{equation}\label{eqtn:sequence.euclidean.algorithm}
+\begin{aligned}
+    a & =q_0 b+r_0 \\
+    b & =q_1 r_0+r_1 \\
+    r_0 & =q_2 r_1+r_2 \\
+    r_1 & =q_3 r_2+r_3 \\
+    &\;\; \vdots \\
+    r_{n-2} & =q_n r_{n-1}+r_n \\
+    r_{n-1} & =q_{n+1} r_n
+\end{aligned}
+\end{equation}
 
-\begin{rem}
-    Keep in mind the condition \(0\leq r < |b|\) in the division algorithm.
-    This means the remainder always gets smaller.
-\end{rem}
 
 \begin{que}
     Why the Euclidean algorithm always terminates? In other words,
-    why we always get a zero remainder at the end of the Euclidean algorithm?
+    why we always get a zero remainder at the end of the Euclidean algorithm? 
+    Keep in mind the condition \(0\leq r < |b|\) in the division algorithm.
 \end{que}
+
+As a consequence of the Euclidean algorithm,
+the greatest common divisor of two integers can be written as a linear combination of those integers. This can be done by backward substitution in \eqref{eqtn:sequence.euclidean.algorithm}.
+
+\begin{teo}[Bézout's identity]
+    Let $a$ and $b$ be integers with $d=(a,b)$. Then there exist integers $x$ and $y$ such that $a x+b y=d$. 
+\end{teo}
 
 \begin{eje}
     Compute \((1761, 1567)\) and write this integer as a linear combination of \(1761\) and \(1567\).
@@ -92,7 +98,7 @@ r_{n-1} & =q_{n+1} r_n
     15   &= 1\cdot 14 + 1 \\
     14   &= 14\cdot 1 + 0.
    \end{align*}
-   From the next to laxt line we get \((1761,1567) = 1\).
+   From the next to last line we get \((1761,1567) = 1\).
 \end{sol}
 
 \begin{defi}
@@ -101,14 +107,15 @@ r_{n-1} & =q_{n+1} r_n
         \item \(p>1\), and
         \item the only positive divisors of \(p\) are \(p\) and \(1\).
     \end{enumerate}
-    An integer is \textit{composite} iff it not prime.
+    A \textit{composite} integer is an integer greater than \(1\) that is not prime.
 \end{defi}
 
+Thus, every positive integer is composite, prime, or the unit 1.
 
 \begin{rem}\label{rmk:gcd.of.prime.and.integer}
     If $p$ is a prime and $b \in \mathbb{Z}\setminus \{0\}$ then
 \[
-(p, b)= \begin{cases}p & \text { if } p \mid b \\ 1 & \text { else }\end{cases}
+(p, b)= \begin{cases}p & \text { if } p \mid b, \\ 1 & \text { else.}\end{cases}
 \]
 Prove this claim.
 \end{rem}
@@ -140,7 +147,7 @@ Prove this claim.
     Take \(d\) as this  integer.
     By \ref{lab:iii.exercise.ideal.of.Z}, we have \((d)\subseteq I\).
     Let's see the other inclusion.
-    If \(a\in I\), then by the division algorithm, \(a=qd+r\) for some \(q,r\in Z\) with \(0\leq r < d\).
+    If \(a\in I\), then by the division algorithm, \(a=qd+r\) for some \(q,r\in \Z\) with \(0\leq r < d\).
     By \ref{lab:ii.exercise.ideal.of.Z}, \(r=a-qd\in I\).
     However, \(d\)  is the smallest positive integer contained in \(I\).
     Since \(0\leq r <d\), the only possibility for this inequality to be true is when  \(r=0\).
@@ -167,7 +174,7 @@ Prove this claim.
 
 \begin{cor}
     Let \(a\in \Z\).
-    If \(p\) is  prime and  \(p\mid a^n\), then \(p\mid a\).
+    If \(p\) is  prime and  \(p\mid a^n\) for some \(n\in\Z^+\), then \(p\mid a\).
 \end{cor}
 
 \begin{eje}
@@ -179,13 +186,17 @@ The converse of Euclid's lemma is also true.
 
 \begin{prop}
     Let \(p>1\).
-    If 
-    \[\forall a,b\in \Z  :\quad p\mid ab\implies p\mid a \text{  or  } p\mid b,\]
-    then \(p\) is prime.
+    Suppose
+    \[\forall a,b\in \Z  :\quad p\mid ab\implies p\mid a \text{  or  } p\mid b.\]
+    Then \(p\) is prime.
 \end{prop}
 
 \begin{proof}
-    By contradiction.
+    Assume, for the sake of contradiction, that \(p\) is not prime.
+    Then \(p\) is composite, which means \(p=ab\) for some \(a,b\in \left\{ 2,\ldots, p-1 \right\}\).
+    Since \(p\mid ab\), the hypothesis implies \(p\mid a\) or \(p\mid b\).
+    However, both cases are impossible because \(p\) is greater than \(a\) and \(b\).
+    This contradiction proves \(p\) is prime.
 \end{proof}
 
 

@@ -105,10 +105,10 @@ r_{n-1} & =q_{n+1} r_n
 \end{defi}
 
 
-\begin{rem}
+\begin{rem}\label{rmk:gcd.of.prime.and.integer}
     If $p$ is a prime and $b \in \mathbb{Z}\setminus \{0\}$ then
 \[
-(p, b)= \begin{cases}p & \text { if } p \mid b \\ s & \text { else }\end{cases}
+(p, b)= \begin{cases}p & \text { if } p \mid b \\ 1 & \text { else }\end{cases}
 \]
 Prove this claim.
 \end{rem}
@@ -155,7 +155,14 @@ Prove this claim.
 \end{teo}
 
 \begin{proof}
-    
+    Suppose \(p\) is prime and \(p\mid ab\). We have to prove that \(p\mid a\) or \(p\mid b\). However, this is equivalent to \[p\nmid a\implies p\mid b.\]
+    Thus, suppose also \(p\nmid a\).
+    Then \((p,a) = 1\) by Remark \ref{rmk:gcd.of.prime.and.integer}.
+    By the division algorithm, there are \(x,y\in\Z\) such that \(1=xp+ya\), so \(b=xpb + yab\).
+    Because \(p\mid ab\), there is \(c\in \Z\) such that \(ab=cp\).
+    Thus \(b=xpb + ycp = (xb+yc)p\), i.e., \(b\) is a multiple of \(p\).
+    In other words \(p\mid b\), as desired. 
+    The proof is complete.
 \end{proof}
 
 \begin{cor}

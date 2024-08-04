@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a5paper]{article}
 
 \input{preambulo}
 
@@ -8,11 +8,12 @@
 \input{titulo}
 
 \section{Basic properties of the integers}
+1
 
 In this lesson and onwards, we consider $\Z$ to be the set of integers numbers, whereas $\Z^{+}$ is the set of strictly positive integers numbers.
 
 \begin{defi}
-Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an integer $c$ such that $a\cdot c=b$. We denote this by $a\mid b.$ 
+Let $a,b\in \Z$, with $a\neq 0$. We say  $a$ is a divisor of $b$ if there is an integer $c$ such that $a\cdot c=b$. In this case, we write $a\mid b.$ 
 \end{defi}
 
 \begin{rem}
@@ -28,7 +29,8 @@ Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an int
 \end{teo}
 
 \begin{rem}
-    If $d$ is the greatest common divisor of $a$ and $b$, we write $d=(a,b).$ In particular, if $(a,b)=1$, then $a$ and $b$ are called coprimes.
+    If $d$ is the greatest common divisor of $a$ and $b$, we write $d=(a,b).$
+    In the  particular case when  $(a,b)=1$, we say  $a$ and $b$ are coprimes.
 \end{rem}
 
 \begin{que}
@@ -36,7 +38,7 @@ Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an int
 \end{que}
 
 
-\begin{teo}
+\begin{teo}[Division algorithm]
     If \(a,b\in \Z\setminus\{0\}\), 
     there are unique \(q,r\in Z\)
     such that 
@@ -50,14 +52,48 @@ Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an int
 
 
 
-\begin{teo}[Euclidean Algortihm]
-    
-\end{teo}
+\paragraph{Euclidean Algortihm.} This is an efficient method to compute the gcd of any  two integers.
+It is based on the division algorithm.
+(Keep in mind that, despite the name, the \textit{division algorithm} is a theorem whereas the \textit{euclidean algorithm} is a procedure.)
 
+If \(a\) and \(b\) are nonzero integers, then by the division algorithm we get \(q,r\in \Z\) such that \(a= qb+r\).
+Let \(q_0=q\) and \(r_0=r\).
+By applying the division algorithm again with \(q_0\) and \(r_0\) we obtain a new quotient \(q_1\)   and a new remainder \(r_1\).
+The idea of this procedure is to continue applying the division algorithm until we reach a zero remainder. From one step to the next,  the divisor becomes the dividend and the remainder the divisor, as follows:
+\begin{align*}
+a & =q_0 b+r_0 \\
+b & =q_1 r_0+r_1 \\
+r_0 & =q_2 r_1+r_2 \\
+r_1 & =q_3 r_2+r_3 \\
+&\;\; \vdots \\
+r_{n-2} & =q_n r_{n-1}+r_n \\
+r_{n-1} & =q_{n+1} r_n
+\end{align*}
+
+\begin{rem}
+    Keep in mind the condition \(0\leq r < |b|\) in the division algorithm.
+    This means the remainder always gets smaller.
+\end{rem}
+
+\begin{que}
+    Why the Euclidean algorithm always terminates? In other words,
+    why we always get a zero remainder at the end of the Euclidean algorithm?
+\end{que}
 
 \begin{eje}
-    Compute \((1716, 1657)\) and write this integer as a linear combination of \(1716\) and \(1657\).
+    Compute \((1761, 1567)\) and write this integer as a linear combination of \(1761\) and \(1567\).
 \end{eje}
+
+\begin{sol} By the Euclidean algorithm,
+   \begin{align*}
+    1761 &= 1\cdot 1567 + 194\\
+    1567 &= 8\cdot194 + 15\\
+    194  &= 12\cdot 15 + 14\\
+    15   &= 1\cdot 14 + 1 \\
+    14   &= 14\cdot 1 + 0.
+   \end{align*}
+   From the next to laxt line we get \((1761,1567) = 1\).
+\end{sol}
 
 \begin{defi}
     An integer \(p\) is prime iff 
@@ -72,20 +108,20 @@ Let $a,b\in \Z$, with $a\neq 0,$ then $a$ is a divisor of $b$ if there is an int
 \begin{rem}
     If $p$ is a prime and $b \in \mathbb{Z}\setminus \{0\}$ then
 \[
-(p, b)= \begin{cases}p & \text { if } p | b \\ s & \text { othemerre }\end{cases}
+(p, b)= \begin{cases}p & \text { if } p \mid b \\ s & \text { else }\end{cases}
 \]
 Prove this claim.
 \end{rem}
 
-\begin{eje}
+\begin{prop}
     Let \(I\subseteq \Z\) be such that 
     \begin{enumerate}[label=(\roman*)]
         \item \(0\in I\),
-        \item if  \(a,b\in I\), then \(a-b\in I\), 
-        \item if \(a\in I\) and \(q\in I\), then  \(aq\subseteq I\).
+        \item\label{lab:ii.exercise.ideal.of.Z} if  \(a,b\in I\), then \(a-b\in I\), 
+        \item\label{lab:iii.exercise.ideal.of.Z} if \(a\in I\) and \(q\in I\), then  \(aq\subseteq I\).
     \end{enumerate}
     Then, there is some nonnegative integer \(d\in I\) such that  \[I = \left\{ dk: k \in \Z \right\}.\]
-\end{eje}
+\end{prop}
 
 \begin{rem}
     If \(A\subseteq \Z\) and \(n\in \Z\), we denote 
@@ -94,9 +130,22 @@ Prove this claim.
     Thus, this result states that \(I=(d)\) for some \(d\in I\).
 \end{rem}
 
-\begin{sol}
-    
-\end{sol}
+\begin{proof}
+   If \(I = \left\{ 0 \right\}\), take \(d=0\).
+   Suppose \(I\neq \left\{ 0 \right\}\)  and \(a\in I\). 
+   By \ref{lab:ii.exercise.ideal.of.Z}, 
+   if \(a\in I\), then \(-a\in I\), so \(I\) contains both positive and negative integers.
+   Since \(I\cap \Z^+\neq \varnothing\), the Well Ordering Principle (W.O.P.) implies there is a smallest positive integer in \(I\).
+    Take \(d\) as this  integer.
+    By \ref{lab:iii.exercise.ideal.of.Z}, we have \((d)\subseteq I\).
+    Let's see the other inclusion.
+    If \(a\in I\), then by the division algorithm, \(a=qd+r\) for some \(q,r\in Z\) with \(0\leq r < d\).
+    By \ref{lab:ii.exercise.ideal.of.Z}, \(r=a-qd\in I\).
+    However, \(d\)  is the smallest positive integer contained in \(I\).
+    Since \(0\leq r <d\), the only possibility for this inequality to be true is when  \(r=0\).
+    Therefore \(a=qd\).
+    It follows \(I =  (d)\), and the proof is complete.
+\end{proof}
 
 
 \begin{teo}[Euclid's lemma]
@@ -118,7 +167,7 @@ The converse of Euclid's lemma is also true.
 \begin{prop}
     Let \(p>1\).
     If 
-    \[\forall a,b\in \Z  : p\mid ab\implies p\mid a \text{ or } p\mid b,\]
+    \[\forall a,b\in \Z  : p\mid ab\implies p\mid a \text{  or  } p\mid b,\]
     then \(p\) is prime.
 \end{prop}
 

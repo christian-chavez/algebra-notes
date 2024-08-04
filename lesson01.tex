@@ -1,4 +1,4 @@
-\documentclass[11pt,a5paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 \input{preambulo}
 
@@ -116,7 +116,7 @@ Prove this claim.
 \begin{prop}
     Let \(I\subseteq \Z\) be such that 
     \begin{enumerate}[label=(\roman*)]
-        \item \(0\in I\),
+        \item\label{lab:i.exercise.ideal.of.Z} \(0\in I\),
         \item\label{lab:ii.exercise.ideal.of.Z} if  \(a,b\in I\), then \(a-b\in I\), 
         \item\label{lab:iii.exercise.ideal.of.Z} if \(a\in I\) and \(q\in I\), then  \(aq\subseteq I\).
     \end{enumerate}
@@ -131,6 +131,7 @@ Prove this claim.
 \end{rem}
 
 \begin{proof}
+    Condition \ref{lab:i.exercise.ideal.of.Z} states \(I\neq \varnothing\).
    If \(I = \left\{ 0 \right\}\), take \(d=0\).
    Suppose \(I\neq \left\{ 0 \right\}\)  and \(a\in I\). 
    By \ref{lab:ii.exercise.ideal.of.Z}, 
@@ -157,6 +158,11 @@ Prove this claim.
     
 \end{proof}
 
+\begin{cor}
+    Let \(a\in \Z\).
+    If \(p\) is  prime and  \(p\mid a^n\), then \(p\mid a\).
+\end{cor}
+
 \begin{eje}
     Let \(a_1 a_2 \cdots a_n\in \Z\).
     Prove, by induction, that if \(p\) is prime and \(p\mid a_1 a_2 \cdots a_n\), then there is \(i\in \{1,\ldots,n\}\) such that \(p\mid a_i\), i.e., \(p\) must divide at least one integer in the product.
@@ -167,7 +173,7 @@ The converse of Euclid's lemma is also true.
 \begin{prop}
     Let \(p>1\).
     If 
-    \[\forall a,b\in \Z  : p\mid ab\implies p\mid a \text{  or  } p\mid b,\]
+    \[\forall a,b\in \Z  :\quad p\mid ab\implies p\mid a \text{  or  } p\mid b,\]
     then \(p\) is prime.
 \end{prop}
 
@@ -215,8 +221,73 @@ The converse of Euclid's lemma is also true.
 
 
 \begin{teo}[Fundamental Theorem of Arithmetic]
-    
+   For every integer $n>1$, there are unique distinct primes $p_1, \ldots, p_k $ and unique positive integers $a_1, \ldots, a_k $ such that
+\[
+n=p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}.
+\] 
+Moreover, this factorization is unique up to reordering. That is, the product  can be rearranged in any  different order, but these primes and their powers are always the same.
 \end{teo}
+
+\begin{proof}
+\begin{enumerate}[left=2cm]
+    \item[(Existence)] By (strong) induction on $n$. Define
+\[
+A=\{n \in \mathbb{N}: P(n) \text { is true }\} .
+\]
+
+For $n=2$, it is clear that $n \in A$ as $n=2^1$ and 2 is prime. Now, fix $m \in \mathbb{N}$ and assume that $2, \ldots, m \in A$. Lets see that $m+1 \in A$. There are two cases. Either $m+1$ is prime or it is not.
+If $m+1$ is prime, there is nothing to show.
+If $m+1$ is not prime, then it is composite. Thus, there are $m_1, m_2 \in \mathbb{N}$ such that $m+1=m_1 m_2$. But, given that $m_1, m_2 \in\{2, \ldots, m\}$, it follows that $m_1, m_2 \in A$, by the (inductive) hypothesis. Hence $m+1$ can be expressed as the product of prime numbers, i.e., $m+1 \in A$.
+
+By the principle of mathematical induction, $n \in A$ for every $n \geq 2$.
+
+\item[(Uniqueness)] Suppose that a natural number $n \geq 2$ has two distinct prime decompositions, e.g.,
+\[
+p_1^{a_1} \cdots p_k^{a_k}=n=q_1^{a_1} \cdots q_l^{a_1} .
+\]
+where $p_i, q_j \in \mathbb{P}$ and $a_i, b_j \in \mathbb{N}^*$ for $i \in I:=\{1, \ldots, k\}$ and $j \in J:=\{1, \ldots, l\}$. We prove first that the prime numbers on the left are the same as those on the right side of (1). Let $i_0 \in I$. Since $p_{i_0}$ appears at least once in $p_1^{a_1} \cdots p_k^{a_k}$, we have that $p_{b_6} \mid p_1^{a_1} \cdots p_k^{a_k}$ Thus,
+\[
+p_{i_0} \mid q_1^{a_1} \cdots q_1^{a_1} .
+\]
+
+This means that for some $j_0 \in J, q_{j_0}^{b_{j_0}}$ is multiple of $p_{i_0}$. So, $p_{i_0} \mid q_{j_0}^{b_{10}}$.
+
+By Lemma $1, p_{i 0} \mid q_{j 0}$. But $q_{j 0}$ is prime, so it can only be divided by 1 or by itself. Since $p_{i_0} \neq 1, p_{i_0}=q_{i_0}$. As $i_0 \in I$ was arbitrary, we deduce that
+\[
+\forall i \in I, \exists j_i \in J: p_i=q_i \text {. }
+\]
+
+Conversely, let $j_0 \in J$. Since $q_{j 0}$ appears at least once in $q_1^{b_1} \cdots q_l^{b_1}$, we have that $q_{j 0} \mid q_1^{b_1} \cdots q_l^{b_1}$. Thus,
+\[
+q_{j 0} \mid p_1^{a_1} \cdots p_k^{a_k} .
+\]
+
+This means that for some $i_0 \in I, p_{i 0}^{a_{i 0}}$ is multiple of $q_{j 0}$. So, $q_{j 0} \mid p_{i 0}^{a_{i 0}}$. By Lemma $1, q_{j b} \mid p_{i b}$. By the same reasoning as above,
+\[
+\forall j \in J, \exists i_j \in I: q_j=p_{i j} .
+\]
+Both (2) and (3) imply that $k=I$, which implies $I=J$, and further that
+\[
+p_1^{a_1} \cdots p_k^{a_k}=p_1^{b_1} \cdots p_k^{b_k} .
+\]
+
+Let's see finally that the corresponding exponents are equal. Suppose, f.s.c., that there is $i \in I$ such that $a_i \neq b_i$. Thus, either $a_i<b_i$ or $b_i<a_i$.
+(I) If $a_i<b_i$, then $p_i^{a_i}<p_i^{b_i}$. So, $p_i^{a_i-b_i}<1$ and further
+\[
+p_i^{b_i} \nmid p_1^{a_1} \cdots p_k^{a_k}, \quad p_i^{b_i} \mid p_1^{b_1} \cdots p_k^{b_k} .
+\]
+
+This is a contradiction to (4).
+
+(II) If $b_i<a_i$, then $p_i^{b_i}<p_i^{a_i}$. So, $p_i^{b_i-a_i}<1$ and further
+\[
+p_i^{a_i} \mid p_1^{a_1} \cdots p_k^{a_k}, \quad p_i^{a_i} \nmid p_1^{b_1} \cdots p_k^{b_k} .
+\]
+
+This is a contradiction to (4). (Roughly speaking, when diving the right hand side by $p_i^{a_i}$, there aren't enough $p_i^{b_i}$ to cancell.)
+In any case we get a contradiction. Thereby, the assumption is false. That is, $a_i=b_i$ for every $i \in I$. Therefore, both decompositions are, in fact, the same. We have proved that every natural number $n \geq 2$ has a unique prime factorization.
+\end{enumerate}
+\end{proof}
 
 The following function  computes the amount of smaller integers that are coprime to a given integer.
 \begin{defi}[Euler's totient function \(\varphi\)]

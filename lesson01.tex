@@ -220,11 +220,11 @@ The converse of Euclid's lemma is also true.
 
 
 \begin{defi}
-    Let \(a,b\in \Z\) with \(b\neq 0\). We say \(\frac{a}{b}    \) is in lowest terms if \((a,b) = 1\).
+    Let \(a,b\in \Z\) with \(b\neq 0\). We say \(\dfrac{a}{b}    \) is in lowest terms if \((a,b) = 1\).
 \end{defi}
 
 \begin{lem}
-    Every nonzero rational number equals a fraction in lowest terms.
+    Every nonzero rational number can be written as the quotient of two integer  in lowest terms.
 \end{lem}
 
 \begin{proof}
@@ -236,7 +236,16 @@ The converse of Euclid's lemma is also true.
 \end{prop}
 
 \begin{proof}
-    
+    Suppose \(\sqrt{2}\) is rational. 
+    Then \(\sqrt{2}=a/b\) for some \(a,b\in \Z\) in lowest terms.
+    Write \(\sqrt{2} b = a\) to get \(2b^2 = a^2\).
+    Hence \(2\mid a^2\),
+    whence \(2\mid a\) by Euclid's lemma, meaning  \(a=2k\) for some \(k\in\Z\).
+    By substitution, \(2b^2 = 4k^2\), and so \(b^2= 2k^2\).
+    As before, this implies  \(b\) is even.
+    Therefore,  both \(a\) and \(b\) share \(2\) as a common factor. 
+    However, this  contradicts \((a,b) = 1\).
+    This shows our initial assumption was false, meaning \(\sqrt{2}\) is irrational.
 \end{proof}
 
 

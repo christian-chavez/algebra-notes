@@ -1,4 +1,6 @@
 % PAQUETES
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
 
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -71,22 +73,28 @@
 
 % \theoremstyle{theorem}
 \newtheorem{teo}{Theorem}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{lem}{Lemma}[section]
-\newtheorem{cor}{Corollary}[section]
+\newtheorem{prop}[teo]{Proposition}
+\newtheorem{lem}[teo]{Lemma}
+\newtheorem{cor}[teo]{Corollary}
 
 \theoremstyle{definition}
-\newtheorem{defi}{Definition}[section]
-\newtheorem{rem}{Remark}
+\newtheorem{defi}[teo]{Definition}
+\newtheorem{rem}{Remark}[teo]
 \newtheorem{eje}{Exercise}
-\newtheorem{sol}{\textit{Solution}}
 \newtheorem{que}{Question}
+
+\newenvironment{sol}
+  {\begin{proof}[\textbf{Solution}]}
+  {\end{proof}}
+
 
 
 \def\contador{}
 \graphicspath{{./figures/}}
 \newcommand{\qand}{\quad\text{and}\quad}
-\usepackage{microtype}
+\usepackage{microtype,parskip}
+\setlength{\parindent}{15pt}
+\linespread{1.15}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,    % false: boxed links; true: colored links

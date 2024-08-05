@@ -4,37 +4,44 @@
 
 \begin{document}
 
-\def\contador{1}
+\def\contador{25}
 \input{titulo}
 
 \section{Basic properties of the integers}
 
-In this lesson and onwards, we consider $\Z$ to be the set of integers numbers, whereas $\Z^{+}$ is the set of strictly positive integers numbers.
+In this lesson and onwards,   $\Z$ denotes  the set of integers and  $\Z^{+}$  the set of positive integers.
 
 \begin{defi}
-Let $a,b\in \Z$, with $a\neq 0$. We say  $a$ is a divisor of $b$ if there is an integer $c$ such that $a\cdot c=b$. In this case, we write $a\mid b.$ 
+Let $a,b\in \Z$, with $a\neq 0$. We say  $a$ is a \textbf{divisor} of $b$ if there is an integer $c$ such that $a\cdot c=b$. In this case, we write $a\mid b.$ 
+If $a$ does not divide $b$, we write $a\nmid b$.
 \end{defi}
 
-\begin{rem}
-    If $a$ does not divide $b$, we write $a\nmid b$.
-\end{rem}
+Note the statement \(a\mid b\) is equivalent to \textit{\(b\) is a multiple of \(a\)}.
 
-\begin{teo}
-    Let $a,b\in \Z\setminus\{0\}$, there is a unique positive integer $d$, called the \textbf{greatest common divisor of $a$ and $b$}, satisfying 
+\begin{defi}
+    Let $a,b\in \Z\setminus\{0\}$.
+    The \textbf{greatest common divisor of $a$ and $b$}, denoted \((a,b)\), is the  largest positive integer \(d\) such that 
     \begin{enumerate}
         \item $d\mid a$ and $d\mid b.$
         \item If $e\mid a$ and $e\mid b$ then $e\mid d.$
     \end{enumerate}
-\end{teo}
-
-\begin{rem}
-    If $d$ is the greatest common divisor of $a$ and $b$, we write $d=(a,b).$
-    In the  particular case when  $(a,b)=1$, we say  $a$ and $b$ are coprimes.
-\end{rem}
+    If  $(a,b)=1$, we say  $a$ and $b$ are \textbf{coprime} or \textbf{relatively prime}.
+\end{defi}
 
 \begin{que}
     Why does $(a,b)$ always exist for $a,b\in \Z\setminus\{0\}$?
 \end{que}
+
+
+
+\begin{eje}
+    \begin{enumerate}[label=(\roman*)]
+        \item Prove the greatest common divisor of two integers is indeed unique.
+        \item Define  least common multiple.
+    \end{enumerate}
+    
+\end{eje}
+
 
 
 \begin{teo}[Division algorithm]
@@ -51,9 +58,9 @@ Let $a,b\in \Z$, with $a\neq 0$. We say  $a$ is a divisor of $b$ if there is an 
 
 
 
-\paragraph{Euclidean Algortihm.} This is an efficient method to compute the gcd of any  two integers.
-It is based on the division algorithm.
-(Keep in mind that, despite the name, the \textit{division algorithm} is a theorem whereas the \textit{euclidean algorithm} is a procedure.)
+\paragraph{Euclidean Algorithm.} This is an efficient method to compute the gcd of any  two integers.
+It is based on the division algorithm.\footnote{Keep in mind that, despite the name, the \textit{division algorithm} is a theorem whereas the \textit{euclidean algorithm} is a procedure.}
+
 
 If \(a\) and \(b\) are nonzero integers, then by the division algorithm we get \(q,r\in \Z\) such that \(a= qb+r\).
 Let \(q_0=q\) and \(r_0=r\).
@@ -101,12 +108,12 @@ the greatest common divisor of two integers can be written as a linear combinati
 \end{sol}
 
 \begin{defi}
-    An integer \(p\) is prime iff 
+    An integer \(p\) is \textbf{prime} iff 
     \begin{enumerate}[label=(\roman*)]
         \item \(p>1\), and
         \item the only positive divisors of \(p\) are \(p\) and \(1\).
     \end{enumerate}
-    A \textit{composite} integer is an integer greater than \(1\) that is not prime.
+    A \textbf{composite} integer is an integer greater than \(1\) that is not prime.
 \end{defi}
 
 Thus, every positive integer is composite, prime, or the unit 1.
@@ -220,7 +227,7 @@ The converse of Euclid's lemma is also true.
 
 
 \begin{defi}
-    Let \(a,b\in \Z\) with \(b\neq 0\). We say \(\dfrac{a}{b}    \) is in lowest terms if \((a,b) = 1\).
+    Let \(a,b\in \Z\) with \(b\neq 0\). The rational number  \(\dfrac{a}{b}    \) is in \textbf{lowest terms} iff \((a,b) = 1\).
 \end{defi}
 
 \begin{lem}

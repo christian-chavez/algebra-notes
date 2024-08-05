@@ -1,11 +1,11 @@
 \documentclass[11pt,a4paper]{article}
 
-\input{preambulo}
+\input{preamble}
 
 \begin{document}
 
-\def\contador{25}
-\input{titulo}
+\def\contador{Lesson 1}
+\input{title}
 
 \section{Basic properties of the integers}
 
@@ -261,73 +261,68 @@ The converse of Euclid's lemma is also true.
 \[
 n=p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}.
 \] 
-Moreover, this factorization is unique up to reordering. That is, the product  can be rearranged in any  different order, but these primes and their powers are always the same.
+Moreover, this factorization is unique up to reordering.\footnote{ This means that the product  can be rearranged in any  different order, but these primes and their powers are always the same.}
 \end{teo}
 
 \begin{proof}
 \begin{enumerate}[left=2cm]
-    \item[(Existence)] By (strong) induction on $n$. Define
+    \item[(Existence)] By (strong) induction on $n$. Lets us denote the set of prime numbers by \(\mathbb{P}\) Define
 \[
-A=\{n \in \mathbb{N}: P(n) \text { is true }\} .
+A=\{n \in \Z^+ \mid \exists p_1, \ldots, p_k \in \mathbb{P}, \exists a_1, \ldots, a_k \in \Z^+: n=p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}\} .
 \]
 
-For $n=2$, it is clear that $n \in A$ as $n=2^1$ and 2 is prime. Now, fix $m \in \mathbb{N}$ and assume that $2, \ldots, m \in A$. Lets see that $m+1 \in A$. There are two cases. Either $m+1$ is prime or it is not.
+For $n=2$, it is clear that $n \in A$ as $n=2^1$ and 2 is prime. Now, fix $m \in \Z^+$ and assume that $2, \ldots, m \in A$. Lets see that $m+1 \in A$. There are two cases. Either $m+1$ is prime or it is not.
 If $m+1$ is prime, there is nothing to show.
-If $m+1$ is not prime, then it is composite. Thus, there are $m_1, m_2 \in \mathbb{N}$ such that $m+1=m_1 m_2$. But, given that $m_1, m_2 \in\{2, \ldots, m\}$, it follows that $m_1, m_2 \in A$, by the (inductive) hypothesis. Hence $m+1$ can be expressed as the product of prime numbers, i.e., $m+1 \in A$.
+If $m+1$ is not prime, then it is composite. Thus, there are $m_1, m_2 \in \Z^+$ such that $m+1=m_1 m_2$. But, given that $m_1, m_2 \in\{2, \ldots, m\}$, it follows that $m_1, m_2 \in A$, by the (inductive) hypothesis. Hence $m+1$ can be expressed as the product of prime numbers, i.e., $m+1 \in A$.
 
 By the principle of mathematical induction, $n \in A$ for every $n \geq 2$.
 
-\item[(Uniqueness)] Suppose that a natural number $n \geq 2$ has two distinct prime decompositions, e.g.,
+\item[(Uniqueness)] Suppose an integer $n \geq 2$ has two  prime decompositions, e.g.,
+\begin{equation}\label{eqtn:fta.uniqueness}
+p_1^{a_1} \cdots p_k^{a_k}=n=q_1^{b_1} \cdots q_l^{b_l} .
+\end{equation}
+where $p_i, q_j \in \mathbb{P}$ and $a_i, b_j \in \Z^+$ for $i \in [k]$ and $j \in [l]$. We prove first that the prime numbers on the left are the same as those on the right.
+Let $i_0 \in [k]$. Since $p_{i_0}$ appears at least once in $p_1^{a_1} \cdots p_k^{a_k}$, we have  $p_{i_0} \mid p_1^{b_1} \cdots p_k^{b_k}$.
+Thus,
+\(
+p_{i_0} \mid q_1^{b_1} \cdots q_1^{b_1} .
+\)
+By Euclid's lemma, 
+there is some  $j_0 \in [l]$ such that  $p_{i_0} \mid q_{j_0}^{b_{j_0}}$., whence  $p_{i_0} \mid q_{j_0}$. But $q_{j 0}$ is prime, so it can only be divided by 1 or by itself. Since $p_{i_0} \neq 1, p_{i_0}=q_{i_0}$.
+Since $i_0 \in [k]$ was arbitrary, we deduce that
 \[
-p_1^{a_1} \cdots p_k^{a_k}=n=q_1^{a_1} \cdots q_l^{a_1} .
+\forall i \in [k], \exists j \in J: p_i=q_j.
 \]
-where $p_i, q_j \in \mathbb{P}$ and $a_i, b_j \in \mathbb{N}^*$ for $i \in I:=\{1, \ldots, k\}$ and $j \in J:=\{1, \ldots, l\}$. We prove first that the prime numbers on the left are the same as those on the right side of (1). Let $i_0 \in I$. Since $p_{i_0}$ appears at least once in $p_1^{a_1} \cdots p_k^{a_k}$, we have that $p_{b_6} \mid p_1^{a_1} \cdots p_k^{a_k}$ Thus,
-\[
-p_{i_0} \mid q_1^{a_1} \cdots q_1^{a_1} .
-\]
-
-This means that for some $j_0 \in J, q_{j_0}^{b_{j_0}}$ is multiple of $p_{i_0}$. So, $p_{i_0} \mid q_{j_0}^{b_{10}}$.
-
-By Lemma $1, p_{i 0} \mid q_{j 0}$. But $q_{j 0}$ is prime, so it can only be divided by 1 or by itself. Since $p_{i_0} \neq 1, p_{i_0}=q_{i_0}$. As $i_0 \in I$ was arbitrary, we deduce that
-\[
-\forall i \in I, \exists j_i \in J: p_i=q_i \text {. }
-\]
-
-Conversely, let $j_0 \in J$. Since $q_{j 0}$ appears at least once in $q_1^{b_1} \cdots q_l^{b_1}$, we have that $q_{j 0} \mid q_1^{b_1} \cdots q_l^{b_1}$. Thus,
-\[
-q_{j 0} \mid p_1^{a_1} \cdots p_k^{a_k} .
-\]
-
-This means that for some $i_0 \in I, p_{i 0}^{a_{i 0}}$ is multiple of $q_{j 0}$. So, $q_{j 0} \mid p_{i 0}^{a_{i 0}}$. By Lemma $1, q_{j b} \mid p_{i b}$. By the same reasoning as above,
-\[
-\forall j \in J, \exists i_j \in I: q_j=p_{i j} .
-\]
-Both (2) and (3) imply that $k=I$, which implies $I=J$, and further that
+This shows that to every prime on the left of \eqref{eqtn:fta.uniqueness} there corresponds a prime on the right.
+In an entirely anlogous manner, it follows that to every prime on the right of \eqref{eqtn:fta.uniqueness} there corresponds a prime on the left.
+Therefore, \(k=l\).
+Now we can write 
 \[
 p_1^{a_1} \cdots p_k^{a_k}=p_1^{b_1} \cdots p_k^{b_k} .
 \]
+The proof that the  exponents are equal is left as an \textit{easy} exercise to the reader.
+% Suppose, f.s.c., that there is $i \in [k]$ such that $a_i \neq b_i$. Thus, either $a_i<b_i$ or $b_i<a_i$.
+% (I) If $a_i<b_i$, then $p_i^{a_i}<p_i^{b_i}$. So, $p_i^{a_i-b_i}<1$ and further
+% \[
+% p_i^{b_i} \nmid p_1^{a_1} \cdots p_k^{a_k}, \quad p_i^{b_i} \mid p_1^{b_1} \cdots p_k^{b_k} .
+% \]
 
-Let's see finally that the corresponding exponents are equal. Suppose, f.s.c., that there is $i \in I$ such that $a_i \neq b_i$. Thus, either $a_i<b_i$ or $b_i<a_i$.
-(I) If $a_i<b_i$, then $p_i^{a_i}<p_i^{b_i}$. So, $p_i^{a_i-b_i}<1$ and further
-\[
-p_i^{b_i} \nmid p_1^{a_1} \cdots p_k^{a_k}, \quad p_i^{b_i} \mid p_1^{b_1} \cdots p_k^{b_k} .
-\]
+% This is a contradiction to (4).
 
-This is a contradiction to (4).
+% (II) If $b_i<a_i$, then $p_i^{b_i}<p_i^{a_i}$. So, $p_i^{b_i-a_i}<1$ and further
+% \[
+% p_i^{a_i} \mid p_1^{a_1} \cdots p_k^{a_k}, \quad p_i^{a_i} \nmid p_1^{b_1} \cdots p_k^{b_k} .
+% \]
 
-(II) If $b_i<a_i$, then $p_i^{b_i}<p_i^{a_i}$. So, $p_i^{b_i-a_i}<1$ and further
-\[
-p_i^{a_i} \mid p_1^{a_1} \cdots p_k^{a_k}, \quad p_i^{a_i} \nmid p_1^{b_1} \cdots p_k^{b_k} .
-\]
-
-This is a contradiction to (4). (Roughly speaking, when diving the right hand side by $p_i^{a_i}$, there aren't enough $p_i^{b_i}$ to cancell.)
-In any case we get a contradiction. Thereby, the assumption is false. That is, $a_i=b_i$ for every $i \in I$. Therefore, both decompositions are, in fact, the same. We have proved that every natural number $n \geq 2$ has a unique prime factorization.
+% This is a contradiction to (4). (Roughly speaking, when diving the right hand side by $p_i^{a_i}$, there aren't enough $p_i^{b_i}$ to cancell.)
+% In any case we get a contradiction. Thereby, the assumption is false. That is, $a_i=b_i$ for every $i \in [k]$. Therefore, both decompositions are, in fact, the same. We have proved that every natural number $n \geq 2$ has a unique prime factorization.
 \end{enumerate}
+The proof is complete.
 \end{proof}
 
-The following function  computes the amount of smaller integers that are coprime to a given integer.
-\begin{defi}[Euler's totient function \(\varphi\)]
-    Define \(\varphi \colon \Z^+\to \Z\) by 
+The following function  computes the amount of smaller positive integers that are coprime to a given positive integer.
+\begin{defi}%[Euler's totient function \(\varphi\)]
+    Euler's totient function is the map  \(\varphi \colon \Z^+\to \Z\) defined by 
     \[\varphi(n) = |\left\{ a\leq n : (a,n) = 1 \right\}|.\]
 \end{defi}
 
@@ -339,5 +334,15 @@ The following function  computes the amount of smaller integers that are coprime
     \item \(\varphi(ab) = \varphi(a)\varphi(b) = \) if \((a,b) = 1\)
     \item \(\varphi(n) = \varphi(p_1^{a_1})\cdots\varphi(p_k^{a_k})\) if \(n > 1\) has the prime factorization \(p_1^{a_1}\cdots p_k^{a_k}\)
 \end{enumerate}
+
+Note that \[\varphi(n)=\big|\{a \leq n \mid(a, n)=1\}\big|\]
+
+\begin{exa}
+    \(\varphi(12) = 4\)
+\end{exa}
+
+\begin{eje}
+    Compute \(\varphi(30)\).
+\end{eje}
 
 \end{document}

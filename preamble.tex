@@ -27,10 +27,10 @@
 \usepackage{multirow}
 \usepackage{tikz-cd}
 \usepackage{tasks}
-\usepackage{color}
+\usepackage{xcolor}
 
 % Christian
-\usepackage{enumitem}
+\usepackage{enumitem,etoolbox,titlesec}
 
 
 %OPERADORES
@@ -39,7 +39,7 @@
 \DeclareMathOperator{\cod}{cod}
 \DeclareMathOperator{\id}{id}
 
-
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\im}{\text{Im}}
 \newcommand{\R}{\mathbb{R}}
@@ -80,6 +80,7 @@
 \theoremstyle{definition}
 \newtheorem{defi}[teo]{Definition}
 \newtheorem{rem}{Remark}[teo]
+\newtheorem{exa}{Example}
 \newtheorem{eje}{Exercise}
 \newtheorem{que}{Question}
 
@@ -87,7 +88,7 @@
   {\begin{proof}[\textbf{Solution}]}
   {\end{proof}}
 
-
+\titlelabel{\thetitle.\quad}
 
 \def\contador{}
 \graphicspath{{./figures/}}
@@ -97,6 +98,30 @@
 \linespread{1.15}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,    % false: boxed links; true: colored links
+    colorlinks=true,  
     allcolors=blue,
+    pdfproducer={Christian Chávez},
+}
+
+\makeatletter
+\@ifclassloaded{exam}{
+    \footer{}{\thepage}{}
+    \renewcommand{\thequestion}{\bfseries\arabic{question}}
+    \renewcommand{\solutiontitle}{\noindent\textit{Solution.}\enspace}
+    \unframedsolutions
+}{}
+\makeatother
+
+
+\newenvironment{theproof}
+{
+    \renewcommand{\solutiontitle}{}
+    \begin{solution}
+    \vspace*{-\baselineskip}
+    \begin{proof}
+}
+{
+    \end{proof}
+    \end{solution}
+    \renewcommand{\solutiontitle}{\noindent\textit{Solution.} }
 }

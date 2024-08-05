@@ -52,10 +52,6 @@ Note the statement \(a\mid b\) is equivalent to \textit{\(b\) is a multiple of \
     We call \(q\) the quotient and \(r\) the remainder.
 \end{teo}
 
-\begin{proof}
-    
-\end{proof}
-
 
 
 \paragraph{Euclidean Algorithm.} This is an efficient method to compute the gcd of any  two integers.
@@ -92,9 +88,9 @@ the greatest common divisor of two integers can be written as a linear combinati
     Let $a$ and $b$ be integers with $d=(a,b)$. Then there exist integers $x$ and $y$ such that $a x+b y=d$. 
 \end{teo}
 
-\begin{eje}
+\begin{exa}
     Compute \((1761, 1567)\) and write this integer as a linear combination of \(1761\) and \(1567\).
-\end{eje}
+\end{exa}
 
 \begin{sol} By the Euclidean algorithm,
    \begin{align*}
@@ -235,7 +231,7 @@ The converse of Euclid's lemma is also true.
 \end{lem}
 
 \begin{proof}
-    
+    Exercise.
 \end{proof}
 
 \begin{prop}
@@ -326,6 +322,10 @@ The following function  computes the amount of smaller positive integers that ar
     \[\varphi(n) = |\left\{ a\leq n : (a,n) = 1 \right\}|.\]
 \end{defi}
 
+Note that \[\varphi(n)=\big|\{a \leq n \mid(a, n)=1\}\big|\]
+
+
+
 \paragraph{Properties.} 
 
 \begin{enumerate}[label=(\roman*)]
@@ -335,7 +335,6 @@ The following function  computes the amount of smaller positive integers that ar
     \item \(\varphi(n) = \varphi(p_1^{a_1})\cdots\varphi(p_k^{a_k})\) if \(n > 1\) has the prime factorization \(p_1^{a_1}\cdots p_k^{a_k}\)
 \end{enumerate}
 
-Note that \[\varphi(n)=\big|\{a \leq n \mid(a, n)=1\}\big|\]
 
 \begin{exa}
     \(\varphi(12) = 4\)

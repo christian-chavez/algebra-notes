@@ -1,0 +1,145 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\def\contador{Lesson 1}
+\input{title}
+
+\section[]{\(\Z/ n\Z\): The integers modulo \(n\)}
+
+\begin{defi}[Equivalence relation]
+    Let $X$ and $Y$ be sets.
+    A relation from \(X\) to \(Y\) is a subset $R \subseteq X {\times} Y$.
+    If \(X= Y\), we say \(R\) is a relation on \(X\).
+\end{defi}
+
+Alternative ways to denote the statament \((x,y)\in R\) are 
+\[x R y,\qquad x\equiv y\! \mod R,\qquad x\equiv_R y,\qquad x\sim y .\]
+Note the  last one is the exactly the same as the first, but the symbol \(\sim\) has be chosen instead. 
+
+
+
+Def: Given sets $X$ and $Y$, a elation $R$ from $X$ to $Y$  If $X=Y$ we say that $n$ is a elation on $X$
+
+
+
+\begin{defi}
+    A partition of a set \(X\) is a subset \(P\subset \mathcal{P}(X)\) such that 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(X = \bigcup_{A\in P} A\), and 
+        \item if \(A,B\in P\), then \(A\cap B = \varnothing\)
+    \end{enumerate}
+\end{defi}
+
+Basically, a partition of a set \(X\) is a cover of \(X\) by pairwise disjoint sets.
+Let us present some of the most basic types  relations you will encounter in your studies.
+
+\begin{defi}
+    Let \(\sim\) be a relation on a set \(X\).
+    Then 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\sim\) is \textbf{reflexive} iff \(x\sim x\) for all \(x\in X\).
+        \item \(\sim\) is \textbf{symmetric} iff \(x\sim y\) implies \(y\sim x\) for all \(x,y\in X\).
+        \item \(\sim\) is \textbf{transitive} iff \(x\sim y\) and \(y\sim z\) imply \(x\sim z\) for all \(x,y,z\in X\).
+        \item \(\sim\) is an  \textbf{equivalence relation} on \(X\) iff \(\sim\) is reflexive, symmetric, and transitive.
+    \end{enumerate}
+\end{defi}
+
+
+\begin{eje}\label{ej:eqv.rel.on.z2.gives.q}
+    Let \(X = \left\{ (a,b  )\in \Z\times \Z     \mid b\neq 0 \right\}\)
+    and  \[\sim\;\, = \left\{ ((a,b), (c,d)) \in X^2 \mid ad=bc \right\}.\]
+    Prove \(\sim\) is an equivalence relation on \(X\). How does this relates to the equality of two rational numbers?
+\end{eje}
+
+\begin{defi}
+    Let \(\sim\) be an equivalence relation on a set \(X\).
+    The \textbf{equivalence class} of an element \(x\in X\)   under \(\sim\) is the set 
+    \[ \left\{ x' \in X \mid x\sim x' \right\}\]
+    denoted by \([x]_\sim \) or simply \([x]\) if \(\sim\) is understood from the context.
+    An element of \([x]_\sim\) is said to be equivalent to \(x\). 
+    If \(x' \in [x]_\sim\), we say \(x'\) is a representative of \([x]_\sim\).
+\end{defi}
+
+Any  element of a class
+can be used as a representative of such class.
+Evidently, \(x\in [x]\) for any \(x\).
+There is nothing special about the particular
+element chosen as its representative.
+
+\begin{eje}
+    Let \(\sim\) be an equivalence relation on a set \(X\).
+    \begin{enumerate}[label=(\roman*)]
+        \item Prove \[x\sim y \iff [x] = [y] \iff [x]\cap [y] \neq \varnothing,\]
+    for any \(x,y\in X\).
+        
+        \item Prove 
+        \[\bigcup_{a\in X} [a] = X\quad \text{and} \quad [x]\cap [y] = \varnothing\]
+        whenever \(x\nsim y \).
+    \end{enumerate}
+    
+\end{eje}
+
+The last exercise shows that an equivalence relation on a set  gives rise to a partition of such a set.
+The elements of this partition are precisely the equivalence classes induced by the equivalence relation.
+Conversely, any partition induces an equivalence relation in a natural way.
+Prove this assertion.
+
+% \begin{eje}
+%     Let \(P\) be a partition of a set \(X\).
+%     Define an equivalence relation on \(X\)  using \(P\).
+% \end{eje}
+ 
+
+\begin{defi}
+    Let \(\sim\) be an equivalence relation on a set \(X\).
+    The quotient set of \(X\) by \(\sim\) is the set 
+    \[\left\{ [x] : x \in X \right\},\]
+    denoted \(X/ \!\!\sim\).
+
+\end{defi}
+
+
+\begin{exa}
+    In Exercise \ref{ej:eqv.rel.on.z2.gives.q}.
+    we saw the relation \(\sim\) on \(\Z^2\) defined by 
+    \[(a,b) \sim (c,d) \iff ad = bc\]
+    is an equivalence relation on \( \Z^2\).
+    It turns out 
+    \(\mathbb{Q} = \Z^2 / \!\! \sim\).
+    In other words, the rational numbers can be constructed from integers by means of \(\sim\).
+\end{exa}
+
+\subsection[]{Partitioning \(\Z\)}
+
+Let \(n\in \Z^+\).
+The relation  on \(\Z\) defined by 
+\[a\sim_n b\iff n\mid (b-a)\]
+is an equivalence relation on \(\Z\).
+We write \(a \equiv b \bmod n\)
+whenever \(a \sim_n b\).
+% We speak of es instead of equivalence classes.
+The equivalence class of an integer \(a\) under \(\sim_n\) is denoted \(\overline{a}\) and it is called the congruence class of \(a\bmod n\).
+
+\begin{defi}
+    The set of integers modulo \(n\) is the set of congruence classes of \(\Z\) under \(\sim_n\).
+    It is denoted \(\Z/ n \Z\).
+\end{defi}
+
+You will see why we have chosen this notation when we discuss ideals in ring theory.
+There are precisely \(n\) congruence classes,
+namely 
+\([0],[1],\ldots,[n-1].\)
+Why \([0] = [n]\)?
+
+
+\begin{eje}
+    List all the elements of \(\Z/ 4 \Z\).
+\end{eje}
+
+
+\subsection[]{Modular operations in \(\Z/ n \Z\)}
+
+\end{document}

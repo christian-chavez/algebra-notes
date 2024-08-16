@@ -95,7 +95,7 @@ Prove this assertion.
 
 \begin{defi}
     Let \(\sim\) be an equivalence relation on a set \(X\).
-    The quotient set of \(X\) by \(\sim\) is the set 
+    The \textbf{quotient set} of \(X\) by \(\sim\) is the set 
     \[\left\{ [x] : x \in X \right\},\]
     denoted \(X/ \!\!\sim\).
 
@@ -109,7 +109,7 @@ Prove this assertion.
     is an equivalence relation on \( \Z^2\).
     It turns out 
     \(\mathbb{Q} = \Z^2 / \!\! \sim\).
-    In other words, the rational numbers can be constructed from integers by means of \(\sim\).
+    In other words, the rational numbers can be constructed from integers by means of \(\sim\).\footnote{Actually, there may be more than one way to build the rational numbers, but whatever the way we chose to do so, we always end up with  a set isomorphic  to \( \Z^2 / \!\! \sim\).}
 \end{exa}
 
 \subsection[]{Partitioning \(\Z\)}
@@ -134,6 +134,19 @@ namely
 \([0],[1],\ldots,[n-1].\)
 Why \([0] = [n]\)?
 
+\begin{eje}
+    Prove or disprove \(\Z/n\Z \subseteq \Z/m \Z\) for integers \(n< m\).
+    Find a necessary and sufficient condition so that \(\Z/n\Z =  \Z/m \Z\).
+\end{eje}
+
+Note
+there is always  a smallest nonnegative integer contained in \([k]\).
+In order to find such representative, we use the division algorithm.
+Recall \(n\) is fixed.
+There are integers \(q,r\in \Z\) such that 
+\[k = nq + r\qquad\text{with } 0\leq r <n.\]
+Then \(nq = k-r\), and so \(n \mid k-r\).
+Therefore \(\overline{k} = \overline{r}\).
 
 \begin{eje}
     List all the elements of \(\Z/ 4 \Z\).
@@ -141,5 +154,82 @@ Why \([0] = [n]\)?
 
 
 \subsection[]{Modular operations in \(\Z/ n \Z\)}
+
+There are two basic operations we can do in \(\Z\), namely add and multiply integers.
+Based up on these operations we can endow \(\Z/n \Z\) with an addition and a multiplication too.
+Define \(+,\cdot\colon \Z/n\Z \to \Z/n\Z\) by 
+\[\overline{a} + \overline{b} = \overline{a+b}
+ \quad \text{and}\quad \overline{a} \cdot \overline{b} = \overline{a\cdot b}\]
+for any \(a,b\in \Z\).
+Note, for instance, the sum of the congruence classes two integers is  the congruence class of their sum.
+Likewise for the multiplication.
+
+
+\begin{teo}
+    The binary operations \(+\) and \(\cdot\) are well-defined.
+    More precisely,
+    If \(\overline{a}=\overline{a'}\) and \(\overline{b}=\overline{b'}\), then 
+    \[\overline{a} + \overline{b} = \overline{a'} + \overline{b'}\quad\text{and}\quad \overline{a} \cdot \overline{b} = \overline{a'} \cdot \overline{b'}.\]
+
+\end{teo}
+
+\begin{proof}
+    Exercise.
+\end{proof}
+
+
+\subsection{An application in number theory}
+
+Let us see how to compute the last two digits of \(9^{1500}\), using the modular operations we have defined.
+The key observation to make is that computing the last two digits of an integer corresponds to computing its residue   after division by \(100\).
+(Why?)
+
+We have  
+\vspace{-\baselineskip}
+\begin{center}
+    \begin{minipage}{0.3\linewidth}
+        \begin{align*}
+            9 &\cong 9 \mod 100\\
+            9^2 &\cong 81 \mod 100\\
+            9^3 &\cong 29 \mod 100\\
+            9^4 &\cong 61 \mod 100\\
+            9^5 &\cong 49 \mod 100
+        \end{align*}
+        \end{minipage}
+        \begin{minipage}{0.3\linewidth}
+        \begin{align*}
+            9^6 &\cong 41 \mod 100\\
+            9^7 &\cong 69 \mod 100\\
+            9^8 &\cong 21 \mod 100\\
+            9^9 &\cong 89 \mod 100\\
+            9^{10} &\cong 1 \mod 100
+        \end{align*}
+    \end{minipage}
+\end{center}
+    
+
+Each computation is based on the previuos line, after  multiplying by \(9\).
+Finally, note that \[9^{1500} = (9^{10})^{150} = 1.\]
+Thus, the last two digits of \(9^{1500}\) are \(01\).
+
+
+\subsection{The units of \(\Z/n \Z\)}
+
+The congruence classes \(\bmod n\) that have a multiplicative inverse is the set
+\[\left( \Z/n \Z \right)^\times = \left\{ a\in  \Z/n \Z \mid a\cdot b = 1 \text{ for some } c\in \Z/n \Z \right\}\]
+
+\begin{eje}
+    Prove \((\mathbb{Z} / n \mathbb{Z})^{\times}=\{\bar{a} \in \mathbb{Z} / n \mathbb{Z} \mid(a, n)=1\}\).
+\end{eje}
+
+\begin{eje}
+    \begin{enumerate}[label=(\roman*)]
+        \item Compute all the elements of \((\Z/n \Z)^\times\)
+        \item 
+    \end{enumerate}
+    
+\end{eje}
+
+
 
 \end{document}

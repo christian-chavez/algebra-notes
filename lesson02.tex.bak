@@ -15,7 +15,7 @@
     If \(X= Y\), we say \(R\) is a relation \textit{on} \(X\).
 \end{defi}
 
-Alternative ways to denote the statement \((x,y)\in R\) are 
+Alternative ways to denote the statament \((x,y)\in R\) are 
 \[x R y,\qquad x\equiv y\! \mod R,\qquad x\equiv_R y,\qquad x\sim y .\]
 Note the  last one is the exactly the same as the first, but the symbol \(\sim\) has be chosen instead. 
 
@@ -215,14 +215,14 @@ We have
 \end{center}
     
 
-Each computation is based on the previous line, after  multiplying by \(9\).
+Each computation is based on the previuos line, after  multiplying by \(9\).
 Finally, note that \[9^{1500} \cong (9^{10})^{150} \cong 1\mod 100.\]
 Thus, the last two digits of \(9^{1500}\) are \(01\).
 
 
 \subsection{The units of \(\Z/n \Z\)}
 
-The congruence classes \(\bmod n\) that have a \textit{multiplicative inverse}\footnote{We will define precisely what we mean by a multiplicative inverse when we arrive at group theory.} is called the set of units of \(\Z/n \Z\). It is defined by 
+The congruence classes \(\bmod n\) that have a \textit{multiplicative inverse}\footnote{We will define precesily what we mean by a multiplicative inverse when we arrive at group theory.} is called the set of units of \(\Z/n \Z\). It is defined by 
 \[\left( \Z/n \Z \right)^\times := \left\{ a\in  \Z/n \Z \mid a\cdot b = 1 \text{ for some } c\in \Z/n \Z \right\}.\]
 
 \begin{eje} Prove 

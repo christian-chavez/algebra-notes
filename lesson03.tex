@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\def\contador{Lesson 2}
+\input{title}
+
+\section{Introduction to Group Theory}
+
+\begin{defi}
+    A \textbf{group} is a pair  \(\left( G, \cdot \right)\) where \(G\) is a set and \(\cdot\) is a binary  operation on \(G\) such that 
+    \begin{enumerate}[label=(\roman*)]
+        \item for all \(a,b,c\in G\), it holds  \((a\cdot b) \cdot c = a \cdot (b\cdot c) \),
+        \item there is \(e\in G\)  for all \(a\in G\) such that \(e\cdot a = a\cdot e = a\), and 
+        \item for all \(a\in G\), there is \(a^{-1}\in G\) such that \(a\cdot a^{-1} = a^{-1}\cdot a = 1\).
+    \end{enumerate}
+\end{defi}
+
+
+Instead of saying \((G,\cdot)\) is a group, we say \textit{\(G\) is a group under \(\cdot\)}.
+If the operation is understood from the context, we simply say \(G\) is a group.
+
+% If \(G\) is finite, we say  \(\left( G, \cdot \right)\)  is a finite group.
+
+We will study various types of groups.
+Let's begin with one of the most basic.
+An \textbf{Abelian group} is a group \(\left( G, \cdot \right)\) with the aditional property that 
+\[a\cdot b = b\cdot a \]
+for all \(a,b\in G\).
+In this case, we use \(+\) insted of \(\cdot\) for the binary operation of the group, and denote its identity by \(0\).
+A finite group is a a group where the underlying set is finite.
+
+\begin{exa}
+\begin{enumerate}[label=(\roman*)]
+    \item Some Abelian groups: \(\left( \Z, + \right)\), \(\left( \mathbb{Q}, + \right)\), \(\left( \mathbb{R}, + \right)\),   \(\left( \Z/n\Z , +\right)\)
+    \item More Abelian groups: \(\left( \mathbb{R}\setminus\left\{ 0 \right\}, \cdot \right)\), \(\left( \mathbb{Q}\setminus\left\{ 0 \right\}, \cdot \right)\), \(\left( (\Z/n\Z)^\times , \cdot\right)\). Why do we choose to use \(\cdot\) instead of \(+\) in this case?
+    
+    \item \(\left( (\Z/n\Z)^\times , +\right)\) is not a group.
+    \item Let \((A, \bullet)\) and \((B, \circ)\) be groups.
+    Then the set 
+    \[A\times B = \left\{ (a,b)\mid a\in a, b\in B \right\}\]
+    is a group under the operation defined by the rule 
+    \[(a,b)\cdot(c,d)  = (a\bullet c, b\circ d).\]
+    What is the identity of this group? How are inverses defined?
+\end{enumerate}
+\end{exa}
+
+
+\begin{prop}
+    Suppose \((G, \cdot)\) is a group.
+    Then 
+    \begin{enumerate}[label=(\roman*)]
+        \item the identity of \(G\) is unique
+        \item For any \(a\in G\), its inverse \(a^{-1}\) is unique.
+        \item For any \(a,b\in G\), \quad \((ab)^{-1} = b^{-1}a^{-1}\)
+        \item Finite products are well-defined.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item If both \(e\) and \(f\) are identities of \(G\), then \(e= ef = f\). The first equality is due to the fact because \(f\) is identity, the second because  \(e\) is also an identity.
+    \item Let \(a\in G\). If both \(b\) and \(c\) are inverses of \(a\), then
+        \[b = b e = b (ac) = (ba) c = e c = c. \]
+    \item Classwork.
+    \item Classwork.
+\end{enumerate}
+\end{proof}
+
+\paragraph{Notation.} Let \(x\) be any element of a group. The product of \(x\) with itself \(n\) times is denoted \(x^{n}\).
+The product of \(x^{-1}\) with itself \(n\) times is denoted \(x^{-n}\).
+We define \(x^{0} = e\).
+If the group is Abelian, we write \(nx\) instead of \(x^n\) and \(-nx\) instead of \(x^{ {-n}}\).
+Also, \(0x = 0\).
+
+
+\begin{rem}
+    For an Abelian group we denote \(e= 0\), and, for a nonAbelian group, \(e=1.\)
+    When not mentioned, we denote the identity of a group by \(1\).
+\end{rem}
+
+
+\begin{prop}
+    Let $G$ be a group and let $a, b \in G$. The left and right cancellation laws hold in $G$, that is, for any \(u,v\in G\) it holds
+    \begin{enumerate}[label=(\roman*)]
+        \item if $a u=a v$, then $u=v$, and
+        \item if $u b=v b$, then $u=v$.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    Exercise.
+\end{proof}
+
+
+\begin{defi}
+    Let  $G$ be a group and $x \in G$.
+    The \textbf{order} of $x$ is
+    \[\min\left\{ n\in \Z^+ \mid x^n = 1 \right\},\]
+    provided it exists. 
+    If no such integer exists, the order of $x$ is defined to be infinity.
+    We denote the order of \(x\) by $|x|$. 
+\end{defi}
+
+
+\begin{rem}
+    This notation must not be regarded as an absolute value.
+    The use of the bars  should cause no problem because it is used in a different context.
+\end{rem}
+
+
+\begin{eje}
+    Compute \(|\overline{6}|\) in \( \Z/9\Z \) and \(|\overline{2}|\) in \(\left( \Z/7\Z \right)^\times\).
+\end{eje}
+
+
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\def\contador{Lesson 4}
+\input{title}
+
+\section{The dihedral group}
+
+Objects have bilateral
+symmetry if they look the same when flipped over (usually in a specific direction, say vertically).
+The easiest geometric examples of objects
+with both rotational and bilateral symmetry are regular polygons.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{polygons.png}
+    % \caption{}%\label{fig:}
+\end{figure}
+
+Observe that is not necessary to track the movement of all the points that make up a  polygon in order to describe a rigid motion. 
+Instead, we can simply keep track of their vertices.
+This motivates  an important example of groups.
+
+Some definitions first.
+A permutation of a set \(X\) is a bijection from \(X\) onto \(X\).
+A regular polygon with $n$ sides is called an $n$-gon.
+A symmetry of the \(n\)-gon is any rigid motion of of the \(n\)-gon.
+To be precise,  a symmetry of the \(n\)-gon is just a permutation of \(\left\{ 1,\ldots, n \right\}\). From now and on, we will denote \([n] = \left\{ 1,\ldots, n \right\}\).
+
+It turns out, we can associate a group to the \(n\)-gon to study its rigid motions, that is, its symmetries.
+It is called the dihedral group of order \(2n\) and denoted \(D_{2n}\).
+Dihedral groups describe objects that have both rotational and bilateral symmetry.
+
+% For example, 
+
+\begin{exa}
+    Both rotations and horizontal flips respect the shape of an equilateral triangle.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{triangle-rotation.png}
+    % \caption{}%\label{fig:}
+\end{figure}
+
+The first symmetry is decribed by the permutation \(\sigma\colon [3]\to [3]\) defined by 
+\[\sigma(1)=2,\quad\sigma(2)=3,\quad \sigma(3) = 1.\]
+
+The second one is described by \(\tau\colon [3]\to [3]\) where 
+\[\tau(1)=1,\quad\tau(2)=3,\quad \tau(3) = 2.\]
+\end{exa}
+
+\begin{rem}
+    We choose the notation \(D_{2n}\) because there are \(2n\) symmetries associated to a \(n\)-gon. Namely, \(n\) rotations and \(n\) reflections.
+\end{rem}
+
+\begin{teo}
+\begin{enumerate}[label=(\roman*)]
+    \item \(\left\{ 1,r,r^2,\ldots,r^{n-1} \right\}\) are all distinct. Also  \(r^n = 1\) and \(|r| = n\).
+    \item \(|s| =2\)
+    \item \(s\neq r^i\) for all \(i\in [n]_0\).
+    \item \(sr^i = sr^j \) for all \(i,j\in [n-1]\) with \(i\neq j\).
+    \item \(rs = sr^{-1}\)
+    \item \(r^i s = sr^{-i}\) for all \(0\leq i\leq n\)
+\end{enumerate}
+\end{teo}
+
+\begin{eje}
+    Prove or disprove \((sr^9) (sr^6) = r^9\).
+\end{eje}
+
+
+\section{Permutations and the symmetric group}
+
+
+
+
+
+\end{document}

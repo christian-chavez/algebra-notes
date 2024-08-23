@@ -35,7 +35,7 @@ A finite group is a a group where the underlying set is finite.
 \begin{exa}
 \begin{enumerate}[label=(\roman*)]
     \item Some Abelian groups: \(\left( \Z, + \right)\), \(\left( \mathbb{Q}, + \right)\), \(\left( \mathbb{R}, + \right)\),   \(\left( \Z/n\Z , +\right)\)
-    \item More Abelian groups: \(\left( \mathbb{R}\setminus\left\{ 0 \right\}, \cdot \right)\), \(\left( \mathbb{Q}\setminus\left\{ 0 \right\}, \cdot \right)\), \(\left( (\Z/n\Z)^\times , \cdot\right)\). Why do we choose to use \(\cdot\) instead of \(+\) in this case?
+    \item More Abelian groups: \(\left( \mathbb{R}\setminus\left\{ 0 \right\}, \cdot \right)\), \(\left( \mathbb{Q}\setminus\left\{ 0 \right\}, \cdot \right)\), \(\left( (\Z/n\Z)^\times , \cdot\right)\). Why do we  use \(\cdot\) instead of \(+\) in this case?
     
     \item \(\left( (\Z/n\Z)^\times , +\right)\) is not a group.
     \item Let \((A, \bullet)\) and \((B, \circ)\) be groups.
@@ -52,7 +52,7 @@ A finite group is a a group where the underlying set is finite.
     Suppose \((G, \cdot)\) is a group.
     Then 
     \begin{enumerate}[label=(\roman*)]
-        \item the identity of \(G\) is unique
+        \item The identity of \(G\) is unique.
         \item For any \(a\in G\), its inverse \(a^{-1}\) is unique.
         \item For any \(a,b\in G\), \quad \((ab)^{-1} = b^{-1}a^{-1}\)
         \item Finite products are well-defined.
@@ -61,7 +61,7 @@ A finite group is a a group where the underlying set is finite.
 
 \begin{proof}
 \begin{enumerate}[label=(\roman*)]
-    \item If both \(e\) and \(f\) are identities of \(G\), then \(e= ef = f\). The first equality is due to the fact because \(f\) is identity, the second because  \(e\) is also an identity.
+    \item If both \(e\) and \(f\) are identities of \(G\), then \(e= ef = f\). The first equality is due to the fact    \(f\) is an identity, the second because  \(e\) is also an identity.
     \item Let \(a\in G\). If both \(b\) and \(c\) are inverses of \(a\), then
         \[b = b e = b (ac) = (ba) c = e c = c. \]
     \item Classwork.
@@ -100,8 +100,9 @@ Also, \(0x = 0\).
     The \textbf{order} of $x$ is
     \[\min\left\{ n\in \Z^+ \mid x^n = 1 \right\},\]
     provided it exists. 
-    If no such integer exists, the order of $x$ is defined to be infinity.
     We denote the order of \(x\) by $|x|$. 
+    If no such integer exists (i.e., if no positive power of \(x\) is the identity),   \(|x|=\infty\).
+    
 \end{defi}
 
 

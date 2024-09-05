@@ -33,7 +33,7 @@ To be precise,  a symmetry of the \(n\)-gon is just a permutation of \(\left\{ 1
 It turns out, we can associate a group to the \(n\)-gon to study its rigid motions, that is, its symmetries.
 It is called the dihedral group of order \(2n\) and denoted \(D_{2n}\).
 Dihedral groups describe objects that have both rotational and bilateral symmetry.
-Before defining precisely \(D_{2n}\), let us see an example.
+Before defining precesily \(D_{2n}\), let us see an example.
 
 % For example, 
 
@@ -46,7 +46,7 @@ Before defining precisely \(D_{2n}\), let us see an example.
     % \caption{}%\label{fig:}
 \end{figure}
 
-The first symmetry is described by the permutation \(\sigma\colon [3]\to [3]\) defined by 
+The first symmetry is decribed by the permutation \(\sigma\colon [3]\to [3]\) defined by 
 \[\sigma(1)=2,\quad\sigma(2)=3,\quad \sigma(3) = 1.\]
 
 The second one is described by \(\tau\colon [3]\to [3]\) where 
@@ -192,7 +192,7 @@ Note that any \(1\)-cycle is the identity.
              is equivalently written as 
             \((1 \, 2)(3 \, 4 \, 5)\). 
         \item Every permutation has a cycle decomposition.
-        \item The cycle decomposition of \(\sigma^{-1}\) is is obtained by writing the numbers in each cycle of the cycle decomposition of  in reverse order.
+        \item The cylce decomposition of \(\sigma^{-1}\) is is obtained by writing the numbers in each cycle of the cycle decomposition of  in reverse order.
         For instance, if \[
             \sigma = (1 \, 12 \, 8 \, 10 \, 4)(2 \, 13)(5 \, 11 \, 7)(6 \, 9)
             \]
@@ -245,21 +245,21 @@ We have
     1 & 4 & 2 & 3
     \end{pmatrix} 
     \]
-Moreover, their cycle decomposition are \[
+Moreover, their cycle decompositions are \[
     \alpha = (1 \, 2 \, 3), \quad\text{and}\quad  \beta = (1 \, 2)(3 \, 4).
     \]
 \item 
 \end{exa}
 
 
-\section{An additional example  of groups: Matrix Groups}
+\section{An aditional example  of groups: Matrix Groups}
 
 In order to present this example, let us first begin with a preliminary definition.
 
 \begin{defi}
     A \textbf{field} is a set \( F \) together with two binary operations \( + \) and \( \cdot \) on \( F \) such that:
 \begin{enumerate}[label=(\roman*)]
-    \item \( (F, +) \) is an abelian group.
+    \item \( (F, +) \) is an Abelian group.
     \item \( (F \setminus \{0\}, \cdot) \) is an abelian group.
     \item The operations \( + \) and \( \cdot \) are compatible by the distributive law:
     \[
@@ -272,7 +272,7 @@ In order to present this example, let us first begin with a preliminary definiti
 \end{enumerate}
 \end{defi}
 
-Roughly speaking, a field is the \textit{smallest} mathematical structure in which we can perform all the basic arithmetic operations: \( +, -, \times, \div \) (on non-zero elements).
+Roghly speaking, a field is the \textit{smallest} mathematical structure in which we can perform all the basic arithmetic operations: \( +, -, \times, \div \) (on non-zero elements).
 
 \begin{exa}
     \begin{enumerate}[label=(\roman*)]

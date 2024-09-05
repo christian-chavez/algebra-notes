@@ -53,7 +53,7 @@ The second one is described by \(\tau\colon [3]\to [3]\) where
 \[\tau(1)=1,\quad\tau(2)=3,\quad \tau(3) = 2.\]
 \end{exa}
 
-Suppose we have  a regular \(n\)-gon centered at the origin in the plane and label the vertices consecutively from 1 to n, clockwise.
+Suppose we have  a regular \(n\)-gon centered at the origin in the plane and label the vertices consecutively from 1 to \(1\), clockwise.
 \begin{enumerate}[label=(\roman*)]
     \item Let \(r\) be the rotation clockwise about the origin through \(2\pi / n\) radians. 
     \item  Let $s$ be the reflection about the line of symmetry through vertex 1 and the origin.
@@ -210,14 +210,35 @@ Note that any \(1\)-cycle is the identity.
 
 In other words, \(\sigma\) and \(\tau\) are disjoint if every element that one of them fixes is moved by the other.
 
+\begin{rem}
+    If \( \alpha \) and \( \beta \) are disjoint, there are three possibilities for \( i\in [n] \):
+\begin{enumerate}[label=(\roman*)]
+    \item \( i \) is moved by \( \alpha \) and fixed by \( \beta \).
+    \item \( i \) is moved by \( \beta \) and fixed by \( \alpha \).
+    \item \( i \) is fixed by both \( \alpha \) and \( \beta \).
+\end{enumerate}
+\end{rem}
+
+
 \begin{lem}
     Disjoint permutations commute.
 \end{lem}
+
+\begin{proof}
+    Classwork.
+\end{proof}
+
 
 
 \begin{lem}
     Every permutation of \([n]\) is either a cycle or a product of disjoint cycles.
 \end{lem}
+
+\begin{proof}
+    Classwork.
+\end{proof}
+
+
 
 \subsection[]{Computing products in \(S_n\)}
 
@@ -257,7 +278,7 @@ Moreover, their cycle decomposition are \[
 In order to present this example, let us first begin with a preliminary definition.
 
 \begin{defi}
-    A \textbf{field} is a set \( F \) together with two binary operations \( + \) and \( \cdot \) on \( F \) such that:
+    A \textbf{field} is a set \( F \) together with two binary operations \( + \) and \( \cdot \) on \( F \) such that
 \begin{enumerate}[label=(\roman*)]
     \item \( (F, +) \) is an abelian group.
     \item \( (F \setminus \{0\}, \cdot) \) is an abelian group.
@@ -277,7 +298,7 @@ Roughly speaking, a field is the \textit{smallest} mathematical structure in whi
 \begin{exa}
     \begin{enumerate}[label=(\roman*)]
         \item \(\mathbb{F}_p = \mathbb{Z} / p \mathbb{Z}\) is a (finite) field for every prime \(p\).
-        \item \( \mathbb{Q}, \mathbb{R} \) are infinite fields
+        \item \( \mathbb{Q},\text{ and } \mathbb{R} \) are infinite fields
     \end{enumerate}
     
 \end{exa}
@@ -297,13 +318,13 @@ gives  \( GL_n(F) \) a group structure.
 \begin{rem}
     In this group:
 \begin{itemize}
-    \item \( A^{-1} \) exists for any \(A\in GL_n(F)\) nonzero.
-    \item The identity of the group is the identity matrix \(  I_n = \begin{pmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \end{pmatrix}  \).
     \item Since
 \[
 \det(A \cdot B) = \det(A) \cdot \det(B)
 \]
-it follows that the product is defined, so that \(GL_n(F)\) is closed under \(\cdot\).
+it follows that the product is defined, so that \(GL_n(F)\) is closed under \(\cdot\).    
+    \item \( A^{-1} \) exists for any \(A\in GL_n(F)\) nonzero.
+    \item The identity of the group is the identity matrix \(  I_n = \begin{pmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \end{pmatrix}  \).
 \end{itemize}
 
 \end{rem}

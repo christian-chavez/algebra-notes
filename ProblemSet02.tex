@@ -6,13 +6,13 @@
 \input{preamble}
 
 \begin{document}
-\def\contador{Problem Set 1}
+\def\contador{Problem Set 2}
 \input{title}
 
 \begin{center}
     {\bfseries\Large
-        Basic Properties of the Integers}\\
-    (Lesson 1)
+        Groups, Subgroups and Homomorphisms}\\
+    (Lessons 3, 4 and \(5\))
 \end{center}
 
 
@@ -26,8 +26,8 @@
         \item the operation \(\star\) on \(\mathbb{Q}\backslash\left\{ 0 \right\}\) defined by \(a\star b = \dfrac{a}{b} \)
     \end{enumerate}
     
-    \question 
-    Prove that addition of residue classes in \(\Z / n \Z\) is associative. (Assume it is well defined.)
+    % \question 
+    % Prove that addition of residue classes in \(\Z / n \Z\) is associative. (Assume it is well defined.)
     
     
     \question
@@ -60,23 +60,26 @@
     
     
     \question
-    Find the orders of each element of the additive group \(\mathbb{Z} / 12 \mathbb{Z}\).
-    
-    \question
-    Find the orders of the following elements of the multiplicative group \((\mathbb{Z} / 12 \mathbb{Z})^\times\):
+    \begin{enumerate}[label=(\roman*)]
+        \item Find the orders of each element of the additive group \(\mathbb{Z} / 12 \mathbb{Z}\).
+        \item Find the orders of the following elements of the multiplicative group \((\mathbb{Z} / 12 \mathbb{Z})^\times\):
     \[\overline{1}, \overline{-1}, \overline{5}, \overline{7}, \overline{-7}, \overline{13}.\]
     
-    \question
-    Find the orders of the following elements of the additive group \(\mathbb{Z} / 36 \mathbb{Z}\):
+    \item Find the orders of the following elements of the additive group \(\mathbb{Z} / 36 \mathbb{Z}\):
     \[ \overline{1}, \overline{2}, \overline{6}, \overline{9}, \overline{10}, \overline{12}, \overline{-1},\overline{-10},\overline{-18}.\]
     
-    
+
+    \end{enumerate}
+     
     
     \question
-    Let \(x\) be an element of \(G\). Prove that \(x^2=1\) if and only if \(|x|\) is either 1 or 2.
+    Let \(x\) be an element of \(G\). Prove that 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(x^2=1\) if and only if \(|x|\) is either 1 or 2.
+        \item if \(|x|=n\) for some positive integer \(n\) then \(x^{-1}=x^{n-1}\).
+        \item \(x\) and \(x^{-1}\) have the same order.
+    \end{enumerate}
     
-    \question
-    Let \(x\) be an element of \(G\). Prove that if \(|x|=n\) for some positive integer \(n\) then \(x^{-1}=x^{n-1}\).
     
     \question
     Let \(x\) and \(y\) be elements of \(G\). Prove that \(x y=y x\) if and only if \(y^{-1} x y=x\) if and only if \(x^{-1} y^{-1} x y=1\).
@@ -90,8 +93,6 @@
         \item Establish part (a) for arbitrary integers \(a\) and \(b\) (positive, negative or zero).
     \end{enumerate}
     
-    \question
-    For \(x\) an element in \(G\) show that \(x\) and \(x^{-1}\) have the same order.
     
     
     \question 
@@ -127,24 +128,24 @@
     % Quedo en la página 4 del PDF
     
     
-    \question
+    % \question
     
-    Compute the order of each of the elements in the following in (a) \(S_3\) and (b) \(S_4\).
+    % Compute the order of each of the elements in the following in (a) \(S_3\) and (b) \(S_4\).
     
     \question
     Find the order of (1 12 8 10 4)(2 13)(5 11 7)(6 9).
     
     
-    \question
-    Write out the cycle decomposition of each element of order 4 in \(S_4\).
+    % \question
+    % Write out the cycle decomposition of each element of order 4 in \(S_4\).
     
     
-    \question
-    \begin{enumerate}[label=(\alph*)]
-        \item Let \(\sigma\) be the 12-cycle (1 2 3 4 5 6 7 8 9 10 11 12). For which positive integers \(i\) is \(\sigma^i\) also a 12-cycle?
-        \item Let \(\tau\) be the 8-cycle (1 2 3 4 5 6 7 8). For which positive integers \(i\) is \(\tau^i\) also an 8-cycle?
-        \item Let \(w\) be the 14-cycle (1 2 3 4 5 6 7 8 9 10 11 12 13 14). For which positive integers \(i\) is \(\omega^i\) also a 14-cycle?
-    \end{enumerate}
+    % \question
+    % \begin{enumerate}[label=(\alph*)]
+    %     \item Let \(\sigma\) be the 12-cycle (1 2 3 4 5 6 7 8 9 10 11 12). For which positive integers \(i\) is \(\sigma^i\) also a 12-cycle?
+    %     \item Let \(\tau\) be the 8-cycle (1 2 3 4 5 6 7 8). For which positive integers \(i\) is \(\tau^i\) also an 8-cycle?
+    %     \item Let \(w\) be the 14-cycle (1 2 3 4 5 6 7 8 9 10 11 12 13 14). For which positive integers \(i\) is \(\omega^i\) also a 14-cycle?
+    % \end{enumerate}
     
     \question\label{q.10.sec.1.3}
     Prove that if \(\sigma\) is the \(m\)-cycle \(\left(a_1 a_2 \ldots a_m\right)\), then for all \(i \in\{1,2, \ldots, m\}\), it holds \(\sigma^i\left(a_k\right)=a_{k+i}\), where \(k+i\) is replaced by its least residue mod\;\(m\) when \(k+i>m\). Deduce that \(|\sigma|=m\).
@@ -160,7 +161,7 @@
     Prove that the order of an element in \(S_n\) equals the least common multiple of the lengths of the cycles in its cycle decomposition. (Hint: use problem \ref{q.10.sec.1.3}.)
     
     
-    \question
+    % \question
     % Prove that \(\abs{GL_2(\mathbb{F}_2)} = 6\).
     
     
@@ -170,30 +171,33 @@
     Write out all the elements of \(G L_2\left(\mathrm{~F}_2\right)\) and compute the order of each element.
     
     \question
-    3. Show that \(G L_2\left(F_2\right)\) is non-abelian.
+    Show that \(G L_2\left(F_2\right)\) is non-abelian.
     
     \question
-    4. Show that if \(n\) is not prime then \(\mathbb{Z} / n \mathbb{Z}\) is not a field.
+    Show that if \(n\) is not prime then \(\mathbb{Z} / n \mathbb{Z}\) is not a field.
     
     \question
-    5. Show that \(G L_n(F)\) is a finite group if and only if \(F\) has a finite number of elements.
+    Let \(F\) be a field.
+    \begin{enumerate}[label=(\roman*)]
+        \item Show that \(G L_n(F)\) is a finite group if and only if \(F\) has a finite number of elements.
+        \item If \(|F|=q\) is finite prove that \(\left|G L_n(F)\right|<q^{n^2}\).
+    \end{enumerate}
+    
+     
     
     \question
-    6. If \(|F|=q\) is finite prove that \(\left|G L_n(F)\right|<q^{n^2}\).
+    Show that \(G L_n(F)\) is non-abelian for any \(n \geq 2\) and any \(F\).
     
-    \question
-    8. Show that \(G L_n(F)\) is non-abelian for any \(n \geq 2\) and any \(F\).
+    % \hfill\null\par
+    % \hspace*{-1cm}\fbox{\parbox{1.05\linewidth}{
+    % The next exercise introduces the Heisenberg group over the field \(F\) and develops some of its basic properties. When \(F=\mathbb{R}\) this group plays an important role in quantum mechanics and signal theory by giving a group theoretic interpretation (due to H. Weyl) of Heisenberg's Uncertainty Principle. Note also that the Heisenberg group may be defined more generally for example, with entries in \(\mathbf{Z}\).
+    % }}
     
-    \hfill\null\par
-    \hspace*{-1cm}\fbox{\parbox{1.05\linewidth}{
-    The next exercise introduces the Heisenberg group over the field \(F\) and develops some of its basic properties. When \(F=\mathbb{R}\) this group plays an important role in quantum mechanics and signal theory by giving a group theoretic interpretation (due to H. Weyl) of Heisenberg's Uncertainty Principle. Note also that the Heisenberg group may be defined more generally for example, with entries in \(\mathbf{Z}\).
-    }}
+    % \question
+    % Let \(H(F)=\left\{\left.\left(\begin{array}{lll}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{array}\right) \;\right|\; a, b, c \in F\right\}\) --- called the Heisenberg group over \(F\).
+    % Let \(X=\left(\begin{array}{lll}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{array}\right)\) and \(Y=\left(\begin{array}{lll}1 & d & e \\ 0 & 1 & f \\ 0 & 0 & 1\end{array}\right)\) be elements of \(H(F)\).
     
-    \question
-    Let \(H(F)=\left\{\left.\left(\begin{array}{lll}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{array}\right) \;\right|\; a, b, c \in F\right\}\) --- called the Heisenberg group over \(F\).
-    Let \(X=\left(\begin{array}{lll}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{array}\right)\) and \(Y=\left(\begin{array}{lll}1 & d & e \\ 0 & 1 & f \\ 0 & 0 & 1\end{array}\right)\) be elements of \(H(F)\).
-    
-    Compute the matrix product \(X Y\) and deduce that \(H(F)\) is closed under matrix multiplication. Exhibit explicit matrices such that \(X Y \neq Y X\) (so that \(H(F)\) is always non-abelian).
+    % Compute the matrix product \(X Y\) and deduce that \(H(F)\) is closed under matrix multiplication. Exhibit explicit matrices such that \(X Y \neq Y X\) (so that \(H(F)\) is always non-abelian).
     
     
     
@@ -232,17 +236,20 @@
     
     
     \question
-    Let \(G\) and \(H\) be groups and let \(\varphi: G \rightarrow H\) be a homomorphism. Define the kernel of \(\varphi\) to be \(\left\{g \in G \mid \varphi(g)=1_H\right\}\) (so the kernel is the set of elements in \(G\) which map to the identity of \(H\), i.e., is the \textit{fiber} over the identity of \(H\)). Prove that the kernel of \(\varphi\) is a subgroup   of \(G\). Prove that \(\varphi\) is injective if and only if the kernel of \(\varphi\) is the identity subgroup of \(G\).
+    Let \(G\) and \(H\) be groups and let \(\varphi: G \rightarrow H\) be a homomorphism. Define the kernel of \(\varphi\) to be \(\mathrm{ker}\, \varphi = \left\{g \in G \mid \varphi(g)=1_H\right\}\) (so the kernel is   is the \textit{fiber} over the identity of \(H\)). Prove that the kernel of \(\varphi\) is a subgroup   of \(G\). Prove that \(\varphi\) is injective if and only if the kernel of \(\varphi\) is the identity subgroup of \(G\).
     
     \question
-    Define a map \(\pi: \mathbb{R}^2 \rightarrow \mathbb{R}\) by \(\pi((x, y))=x\). Prove that \(\pi\) is a homomorphism and find the kernel of \(\pi\).
+    Define a map \(\pi_1: \mathbb{R}^2 \rightarrow \mathbb{R}\) by \(\pi_1((x, y))=x\). Prove that \(\pi_1\) is a homomorphism and find the kernel of \(\pi_1\).
     
     \question
-    Let \(G\) be any group. Prove that the map from \(G\) to itself defined by \(g \mapsto g^{-1}\) is a homomorphism if and only if \(G\) is abelian.
+    Let \(G\) be any group. Prove that 
+    \begin{enumerate}[label=(\roman*)]
+        \item the map from \(G\) to itself defined by \(g \mapsto g^{-1}\) is a homomorphism if and only if \(G\) is abelian, and
+        \item the map from \(G\) to itself defined by \(g \mapsto g^2\) is a homomorphism if and only if \(G\) is abelian.
+    \end{enumerate}
     
     
-    \question
-    Let \(G\) be any group. Prove that the map from \(G\) to itself defined by \(g \mapsto g^2\) is a homomorphism if and only if \(G\) is abelian.
+     
     
     \question
     Let \(G=\left\{z \in \mathbb{C} \mid z^n=1\right.\) for some \(\left.n \in \mathbb{Z}^{+}\right\}\). Prove that for any fixed integer \(k>1\) the map from \(G\) to itself defined by \(z \mapsto z^k\) is a surjective homomorphism but is not an isomorphism.
@@ -300,7 +307,7 @@
     \[
     S L_n(F)=\left\{A \in G L_n(F) \mid \operatorname{det}(A)=1\right\}
     \]
-    (called the \textit{special linear group}). Prove that \(S L_n(F) \leq G L_n(F)\).
+    (called the \textit{special linear group} over \(F\)). Prove that \(S L_n(F) \leq G L_n(F)\).
     
     
     \question
@@ -330,11 +337,14 @@
     
     
     
-    \question
-    Prove that \(C_G(A)=\left\{g \in G \mid g^{-1} a g=a\right.\) for all \(\left.a \in A\right\}\).
+    \question Let \(G\) be a group.\hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item Prove that \(C_G(A)=\left\{g \in G \mid g^{-1} a g=a\right.\) for all \(\left.a \in A\right\}\).
+        \item Prove that \(C_G(Z(G))=G\) and deduce that \(N_G(Z(G))=G\).
+        \item Prove that \(Z(G) \leq N_G(A)\) for any subset \(A\) of \(G\).
+    \end{enumerate}
     
-    \question
-    Prove that \(C_G(Z(G))=G\) and deduce that \(N_G(Z(G))=G\).
+     
     
     
     \question
@@ -355,18 +365,7 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    \question
-    Prove that \(Z(G) \leq N_G(A)\) for any subset \(A\) of \(G\).
-    
+     
     
     \end{questions}
 

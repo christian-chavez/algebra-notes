@@ -108,7 +108,7 @@ X \arrow[r, "\alpha", two heads, hook] & X \arrow[r, "\omega", two heads, hook] 
 
 We now come to study of groups that live inside larger groups.
 
-Let \((G,\cdot)\) be a group.
+Let \((G,\cdot_G)\) be a group.
 
 \begin{defi}
     A group \((H,\cdot_H)\) is a \textbf{subgroup} of    \((G,\cdot_G)\) if \(H\subseteq G\) and \(\cdot_H = \cdot_G\).
@@ -116,7 +116,6 @@ Let \((G,\cdot)\) be a group.
 \end{defi}
 
 In other words, a subgroup of \(G\) is a subset of \(G\) that it together with the operation of \(G\) is itself a group.
-
 If \(H\) is a subgroup of \(G\) we write \(H\leq G\).
 As an exercise, prove \(\leq \) is a partial order.
 
@@ -132,7 +131,7 @@ As an exercise, prove \(\leq \) is a partial order.
 
 The following result says that the subgroups of \(G\) are precisely the nonempty subsets of \(G\) that are closed under multiplication and inverses.
 
-\begin{lem}[Subgroup criterion]
+\begin{lem}[Subgroup criterion]\label{lem:subgroup.criterion}
     A set \(H\) is a subgroup of \(G\) if and only if 
     \begin{enumerate}[label=(\roman*)]
         \item \(\varnothing\neq  H \subseteq G \), and 
@@ -166,14 +165,16 @@ The following result says that the subgroups of \(G\) are precisely the nonempty
     Let $G$ be a group and  $A \subseteq G$.
     \begin{enumerate}[label=(\roman*)]
         \item \(C_G(A) = \{g \in G \mid g a g^{-1} = a \text{ for all } a \in A\}\) is the \textbf{centralizer} of $A$.
-        \item \(Z(G) = \{g \in G \mid g a = a g \text{ for all } a \in G\}\) is the center of $G$.
+        \item \(Z(G) = \{g \in G \mid g a = a g \text{ for all } a \in G\}\) is the \textbf{center} of $G$.
         \item \(N_G(A) = \{g \in G \mid g A g^{-1} = A\}
-\) is the normalizer of $A$, where $g A g^{-1} = \{g x g^{-1} \mid x \in A\}$.
+\) is the \textbf{normalizer} of $A$, where $g A g^{-1} = \{g x g^{-1} \mid x \in A\}$.
  
     \end{enumerate}
 \end{defi}
 
-In words, the {centralizer} of a subset \( S \) in a group \( G \) is the set of elements in \( G \) that commute with all elements of \( S \). The {normalizer} is the set of elements that leave \( S \) fixed under conjugation. Both are subgroups of \( G \).
+In words, the {centralizer} of a subset \( A \) in a group \( G \) is the set of elements in \( G \) that commute with all elements of \( A \). 
+The center of \(G\) is the centralizer of \(G\).
+The {normalizer} is the set of elements that leave \( A \) fixed under conjugation. Both the centralizer and the normalizer are subgroups of \( G \).
 
 \begin{prop}\hfill\null
     \begin{enumerate}[label=(\roman*)]
@@ -188,13 +189,18 @@ In words, the {centralizer} of a subset \( S \) in a group \( G \) is the set of
     \item Let us prove \(N_G(A) \leq G\).
     First note \(N_G(A)\neq \varnothing\) as \(1\in N_G(A)\).
     Now let \(x,y\in N_G(A)\).
-    We have 
-    Using \ref{}, we get 
+    We want to prove that \(xy^{-1}\in N_G(A)\), i.e., 
+    \[(xy^{-1})A(xy^{-1})^{-1} = A\quad\text{or}\quad xy^{-1}Ayx^{-1} = A.\]
+    Note \(gAg^{-1} = A\) if and only if \(g^{-1}Ag=A\).
+    Thus we have \(y^{-1}Ay = A\).
+    Now the equality above reduces to 
+    \(xAx^{-1}=A\). This is  true because \(x\in N_G(A)\).
+    Hence we reach our goal.
+    By the subgroup criterion (Lemma \ref{lem:subgroup.criterion}), we conclude \(N_G(A)\leq G\).
 
 
     \item The rest of the proof is trivial and is left to the reader.
 \end{enumerate}
-    Exercise.
 \end{proof}
 
 \begin{eje}[Classwork]

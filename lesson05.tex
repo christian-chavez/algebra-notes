@@ -7,6 +7,9 @@
 \def\contador{Lesson 5}
 \input{title}
 
+In this lecture, we meet two concepts that help us study groups and their properties.
+The objective is not only  to learn this concepts, but mainly to  use them to study the principal objects of group theory.
+
 \section{Homomorphisms and isomorphisms}
 
 When studying an algebraic structure, we are not only interested in the objects that possess this structure, but also in the morphisms between objects of the same type that preserve such structure. 
@@ -101,25 +104,106 @@ X \arrow[r, "\alpha", two heads, hook] & X \arrow[r, "\omega", two heads, hook] 
 \section{Subgroups}
 
 
-The objective is not to learn this concepts only, but mainly to learn to use them to study the principal objects of group theory.
+
 
 We now come to study of groups that live inside larger groups.
 
 Let \((G,\cdot)\) be a group.
 
 \begin{defi}
-    % Let \((G,\cdot)\) be a group.
-    % A subset \(H\) of  \(G\) is a \textbf{subgroup} of \(G\) if \((H,\cdot)\) is a group. 
-    % A  \textbf{subgroup} of a group \((G,\cdot)\) is a subset of \(G\) such that 
-    A group \((H,\cdot_H)\) is a subgroup of a  \((G,\cdot_G)\) if \(H\subseteq G\) and \(\cdot_H = \cdot_G\).
-    % A subgroup \(H\) of \(G\) is a subset of \(G\) such that 
-    % \begin{enumerate}[label=(\roman*)]
-    %     \item \(H\neq \varnothing\)
-    %     \item \(ab\in H\) and \(a^{-1}\in H\) for all \(a,b\in H\)
-    % \end{enumerate}
-    % If \(H\) is a subgroup of \(G\), we write \(H\leq G\).
+    A group \((H,\cdot_H)\) is a \textbf{subgroup} of    \((G,\cdot_G)\) if \(H\subseteq G\) and \(\cdot_H = \cdot_G\).
+    
 \end{defi}
 
 In other words, a subgroup of \(G\) is a subset of \(G\) that it together with the operation of \(G\) is itself a group.
 
+If \(H\) is a subgroup of \(G\) we write \(H\leq G\).
+As an exercise, prove \(\leq \) is a partial order.
+
+\begin{exa}
+\begin{enumerate}[label=(\roman*)]
+    \item Under addition, \(\Z\leq  \mathbb{Q} \leq  \R \).
+    \item There are always two noninteresting subgroups of any group \(G\), namely \(\left\{ 1_G \right\}\) and \(G\) itself.
+    We call the former the \textit{trivial subgroup} of \(G\).
+    \item If $G=D_{2 n}$ is the dihedral group of order $2 n$, let $H$ be $\left\{1, r, r^2, \ldots, r^{n-1}\right\}$, the set of all rotations in $G$. Since the product of two rotations is again a rotation and the inverse of a rotation is also a rotation it follows that $H$ is a subgroup of $D_{2 n}$ of order $n$.
+\end{enumerate}
+\end{exa}
+
+
+The following result says that the subgroups of \(G\) are precisely the nonempty subsets of \(G\) that are closed under multiplication and inverses.
+
+\begin{lem}[Subgroup criterion]
+    A set \(H\) is a subgroup of \(G\) if and only if 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\varnothing\neq  H \subseteq G \), and 
+        \item \(ab^{-1}\in H\) for all \(a,b\in H\).
+    \end{enumerate}
+\end{lem}
+
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item[(\(\Rightarrow\))] This follows from the definition.
+    \item[(\(\Leftarrow\))] Suppose \((i)\) and \((ii)\) hold.
+    Asociativity of the multiplication of \(G\) holds for any subset of \(G\), so in particular it holds on \(H\).
+    Because \(H\) is nonempty, we can choose \(x\in H\) and using the second condition we see \(1_G = x x^{-1} \in H\).
+    Further, if \(a\) is any element of \(H\),  \((ii)\) implies \(a^{-1} = 1_G a^{-1}\in H\).
+    Thus \(H\) is closed under inverses.
+    Finally, note \(H\) is closed under products since \(a b = a (b^{-1})^{-1}\in H\) for any \(a,b\in H\).
+
+\end{enumerate}
+\end{proof}
+
+\begin{eje}
+    Prove that if \(H\) is a nonempty finite subgroup of \(G\) that is closed under multiplication, then \(H\) is a subgroup of \(G\).
+\end{eje}
+
+\subsection{Some important subgroups}
+
+
+
+\begin{defi}
+    Let $G$ be a group and  $A \subseteq G$.
+    \begin{enumerate}[label=(\roman*)]
+        \item \(C_G(A) = \{g \in G \mid g a g^{-1} = a \text{ for all } a \in A\}\) is the \textbf{centralizer} of $A$.
+        \item \(Z(G) = \{g \in G \mid g a = a g \text{ for all } a \in G\}\) is the center of $G$.
+        \item \(N_G(A) = \{g \in G \mid g A g^{-1} = A\}
+\) is the normalizer of $A$, where $g A g^{-1} = \{g x g^{-1} \mid x \in A\}$.
+ 
+    \end{enumerate}
+\end{defi}
+
+In words, the {centralizer} of a subset \( S \) in a group \( G \) is the set of elements in \( G \) that commute with all elements of \( S \). The {normalizer} is the set of elements that leave \( S \) fixed under conjugation. Both are subgroups of \( G \).
+
+\begin{prop}\hfill\null
+    \begin{enumerate}[label=(\roman*)]
+        \item \(C_G(A) , N_G(A), Z(G) \leq G\)
+        \item \(C_G(G) = G\)
+        \item \(C_G(A)\leq N_G(A)\)
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item Let us prove \(N_G(A) \leq G\).
+    First note \(N_G(A)\neq \varnothing\) as \(1\in N_G(A)\).
+    Now let \(x,y\in N_G(A)\).
+    We have 
+    Using \ref{}, we get 
+
+
+    \item The rest of the proof is trivial and is left to the reader.
+\end{enumerate}
+    Exercise.
+\end{proof}
+
+\begin{eje}[Classwork]
+    Assume the following to be true.
+\begin{enumerate}[label=(\roman*)]
+    \item If $G$ is a group and $N \trianglelefteq G$, then $|H| \mid |G|$.
+    \item If $H \leq G$, then $H \leq N_G(H)$.
+    \item If $H \trianglelefteq G$, then $H = C_G(H)$ if and only if $H$ is abelian.
+\end{enumerate}
+Prove that if $G = S_3$ and $A = \{(1), (1\ 2\ 3), (1\ 3\ 2)\}$, then $C_G(A) = A$ and $N_G(A) = G$.
+\end{eje}
 \end{document}

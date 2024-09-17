@@ -32,27 +32,56 @@ Whenever \(a\cong_l b\) we say \(a\) is left congruent to \(b\) module \(H\).
 
 \begin{teo}
     Let \(H\leq G\).
+    \begin{enumerate}[label=(\roman*)]
+        \item Right and left congruence module $H$ are both equivalence relations on $G$.
+    \item The equivalence class of $a \in G$ under right  congruence mod $H$ is the set
+    \[
+    Ha = \{ha \mid h \in H\}  
+    \]
+    \item The equivalence class of $a \in G$ under left congruence mod $H$ is the set
+    \[
+     aH = \{ah \mid h \in H\}
+    \]
+
+    \item \(\left|H a\right|=|H|=|a H|\) for any \(a\in G\).
+    \end{enumerate}
 \end{teo}
 
+We call \(aH\) the  left coset of \(H\) by \(a\) in \(G\), and \(Ha\) the a right coset of \(H\) by \(a\) in \(G\). 
 
 \begin{rem}
-    \(Ha\) is a right coset of \(H\) in \(G\)
+    In additive notation (that is, when we are working with an Abelian group) we write \(a+H\) instead of \(aH\) and \(H+a\) instead of \(Ha\).
+    In fact, there is no difference between left and right cosets in this case. (Why \(a+ H = H + a\) for any \(a\in G\)?)
 \end{rem}
-
+ 
 
 \begin{proof}
-    
+\begin{enumerate}[label=(\roman*)]
+    \item 
+\end{enumerate}
 \end{proof}
 
 
 \begin{cor}
-    
+Let \(H\leq G\).
+\begin{enumerate}[label=(\roman*)]
+    \item      \( G = \bigcup\limits_{a \in G} Ha = \bigcup\limits_{a \in G} aH \)
+    \item For all \(a,b\in G\) distinct, \( aH \cap bH = \emptyset \) and \( Ha \cap Hb = \emptyset \).
+    \item For all \(a,b\in G\), we have \( aH = bH \) if and only if \( a^{-1}b \in H \) (or \( b-a \in H \) in additive notation)  and \( Ha = Hb \) if and only if \( ab^{-1} \in H \) (or \( b-a a \in H \) in additive notation).
+    \item If \( \mathcal{R} = \{ Ha \mid a \in G \} \) and \( \mathcal{L} = \{ aH \mid a \in G \} \) then \(|\mathcal{R}|=|\mathcal{L}|\).
+\end{enumerate}
+ 
 \end{cor}
 
+A special name and notation have been adopted for the number of left (or right) cosets of a subgroup in a group.
 
 \begin{defi}[Index]
-    
+    The index of a subgroup $H$ in $G$ is the number of distinct left cosets of $H$ in $G$. This number is denoted by $|G: H|$. 
 \end{defi}
+
+\begin{eje}
+    Prove $|G: H|$ equals the number of distinct right cosets of $H$ in $G$.
+\end{eje}
 
 \begin{teo}
     If $K$, $H$, $G$ are groups  with $k<H<G$ then
@@ -79,7 +108,7 @@ In particular, if \( G \) is finite, the order of  any \( a \in G \) divides \( 
 
 
 \begin{teo}
-    
+    Let \(H\) and \(K\) be finite subgroups of a group \(G\). Then \[|HK| =  \frac{|H||K|}{|H\cap K|}.\]
 \end{teo}
 
 

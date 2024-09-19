@@ -16,38 +16,46 @@ Let \((G,\cdot)\) be a group.
 
 \begin{defi}
 Let \(H\leq G\) and \(a,b\in G\).
-Define \(\cong_r\) over \(G\) by 
-\[a\cong_r b\iff ab^{-1}\in H.\]
-Whenever \(a\cong_r b\) we say \(a\) right is congruent to \(b\) module \(H\).
 Define \(\cong_l\) over \(G\) by 
 \[a\cong_l b\iff a^{-1}b\in H.\]
 Whenever \(a\cong_l b\) we say \(a\) is left congruent to \(b\) module \(H\).
+Define \(\cong_r\) over \(G\) by 
+\[a\cong_r b\iff ab^{-1}\in H.\]
+Whenever \(a\cong_r b\) we say \(a\) is right congruent to \(b\) module \(H\).
 \end{defi}
 
 \begin{rem}
-    If \(G\) is Abelian, \[ab^{-1}\in H\iff a^{-1}b\in H\]
+    If \(G\) is Abelian, \[a - b\in H\iff b-a\in H\]
     for any \(a,b\in G\).
+    This is not true in general unless \(G\) is Abelian.
 \end{rem}
 
 
 \begin{teo}
     Let \(H\leq G\).
     \begin{enumerate}[label=(\roman*)]
-        \item Right and left congruence module $H$ are both equivalence relations on $G$.
+        \item Both \(\cong_l\) and \(\cong_r\) are equivalence relations on $G$.
+        
+        \item The equivalence class of $a \in G$ under left congruence mod $H$ is the set
+        \[
+         aH = \{ah \mid h \in H\}
+        \]
     \item The equivalence class of $a \in G$ under right  congruence mod $H$ is the set
     \[
-    Ha = \{ha \mid h \in H\}  
-    \]
-    \item The equivalence class of $a \in G$ under left congruence mod $H$ is the set
-    \[
-     aH = \{ah \mid h \in H\}
+    Ha = \{ha \mid h \in H\}  .
     \]
 
-    \item \(\left|H a\right|=|H|=|a H|\) for any \(a\in G\).
+
+    \item For any \(a\in G\), \(\left|H a\right|=|H|=|a H|\).
     \end{enumerate}
 \end{teo}
 
-We call \(aH\) the  left coset of \(H\) by \(a\) in \(G\), and \(Ha\) the a right coset of \(H\) by \(a\) in \(G\). 
+\begin{proof}
+    Try it yourself (or classwork).
+\end{proof}
+
+
+We call \(aH\) the  \textit{left coset} of \(H\) by \(a\) in \(G\), and \(Ha\) the a \textit{right coset} of \(H\) by \(a\) in \(G\). 
 
 \begin{rem}
     In additive notation (that is, when we are working with an Abelian group) we write \(a+H\) instead of \(aH\) and \(H+a\) instead of \(Ha\).
@@ -55,11 +63,6 @@ We call \(aH\) the  left coset of \(H\) by \(a\) in \(G\), and \(Ha\) the a righ
 \end{rem}
  
 
-\begin{proof}
-\begin{enumerate}[label=(\roman*)]
-    \item 
-\end{enumerate}
-\end{proof}
 
 
 \begin{cor}
@@ -67,7 +70,7 @@ Let \(H\leq G\).
 \begin{enumerate}[label=(\roman*)]
     \item      \( G = \bigcup\limits_{a \in G} Ha = \bigcup\limits_{a \in G} aH \)
     \item For all \(a,b\in G\) distinct, \( aH \cap bH = \emptyset \) and \( Ha \cap Hb = \emptyset \).
-    \item For all \(a,b\in G\), we have \( aH = bH \) if and only if \( a^{-1}b \in H \) (or \( b-a \in H \) in additive notation)  and \( Ha = Hb \) if and only if \( ab^{-1} \in H \) (or \( b-a a \in H \) in additive notation).
+    \item For all \(a,b\in G\), we have \( aH = bH \) if and only if \( a^{-1}b \in H \) (or \( b-a \in H \) in additive notation)  and \( Ha = Hb \) if and only if \( ab^{-1} \in H \) (or \( b-a  \in H \) in additive notation).
     \item If \( \mathcal{R} = \{ Ha \mid a \in G \} \) and \( \mathcal{L} = \{ aH \mid a \in G \} \) then \(|\mathcal{R}|=|\mathcal{L}|\).
 \end{enumerate}
  
@@ -81,7 +84,16 @@ A special name and notation have been adopted for the number of left (or right) 
 
 \begin{eje}
     Prove $|G: H|$ equals the number of distinct right cosets of $H$ in $G$.
+    Thus it does not matter whether we count left or right cosets.
 \end{eje}
+
+
+\begin{defi}
+    A \textbf{complete set of right representatives} of \(H\) is a subset \(S\) of \(G\) consisting of exactly one element from each right coset. In other words, 
+    \(S\cap Ha \) is a singleton for every \(a\in G\).
+\end{defi}
+
+Define a \textit{complete set of left representatives} in the obvious way.
 
 \begin{teo}
     If $K$, $H$, $G$ are groups  with $k<H<G$ then

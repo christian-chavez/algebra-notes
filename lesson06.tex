@@ -65,7 +65,7 @@ We call \(aH\) the  \textit{left coset} of \(H\) by \(a\) in \(G\), and \(Ha\) t
 
 
 
-\begin{cor}
+\begin{cor}\label{cor.hungerford.cor4.3}
 Let \(H\leq G\).
 \begin{enumerate}[label=(\roman*)]
     \item      \( G = \bigcup\limits_{a \in G} Ha = \bigcup\limits_{a \in G} aH \)
@@ -94,18 +94,35 @@ A special name and notation have been adopted for the number of left (or right) 
 \end{defi}
 
 Define a \textit{complete set of left representatives} in the obvious way.
+Note that such a set (either left or right) contains exactly one element of \(H\) since \(H = He\), where \(e\) is the identity of \(G\).
+(What is the cardinality of a complete set of representatives?)
+Further, if \(H=\langle e\rangle\), then \(Ha = \{a\} \) for any \(a\in G\), and \(|G:H| = |H|\), that is, there are as many left (or right) cosets as the number of elements of \(G\).
 
 \begin{teo}
-    If $K$, $H$, $G$ are groups  with $k<H<G$ then
+    If $K$, $H$, $G$ are groups  with $K<H<G$ then
 \[
-[G: k]=[G: H] \cdot[H: k]
+|G: K|=|G: H| \cdot|H: K|
 \]
 If any two of these indices are finite, so is the third.
 \end{teo}
 
-
 \begin{proof}
-    
+    Let \(\Lambda\) be a complete set of right representatives of \(H\) in \(G\).
+    By Corollary \ref{cor.hungerford.cor4.3}, \[G=\bigcup_{a \in G} Ha =  \bigcup_{a \in \Lambda} Ha.\]
+    Basically, we are joining all the equivalence classes given by right congruence modulo \(H\), and their union covers \(G\) (why?)
+    Similarly, let \(\Omega\) be a complete set of right representatives of \(K\) in \(H\) and write \[H = \bigcup_{b \in \Omega } Kb  .\]
+    Therefore, \[G = \bigcup_{a \in\Lambda} Ha =\bigcup_{a \in\Lambda} \left( \bigcup_{b \in \Omega } Kb \right)a = \bigcup_{(a,b) \in \Lambda\times \Omega} Kba\]
+    (If you are not confortable with this, you should review the definition of a union over a multiple indexed family of sets. See \href{https://en.wikipedia.org/wiki/List_of_set_identities_and_relations#Definitions}{here} and \href{https://www.gornahoor.net/library/Halmos_NaiveSetTheory.pdf}{here} (page 35).)
+    Let's now prove that the cosets \(Kba\) are mutually disjoint.
+    Suppose \(Kba = Kb'a'\).
+    Then \(ba = kb'a'\) for some \(k\in K\).
+    Since \(b,b',k\in H\), have \(Ha = H ba = H kb'a' = H a'\), whence \(a=a'\) because we are working with complete sets of representatives.
+    Thus \(b = kb'\).
+    The same reasoning gives \(Kb = Kkb' = Kb'\) whence \(b=b'\).
+    This proves the cosets \(Kba\) are pairwise disjoint.
+    Finally, it follows that \(|G:K| = |\Lambda\times \Omega|\) by definition of index, and so  \[|G:K| = |\Lambda||\Omega| = |G:H| |H:K|,\]
+    as desired.
+    The last statement of the theorem is obvious.
 \end{proof}
 
 
@@ -114,27 +131,62 @@ If any two of these indices are finite, so is the third.
 In particular, if \( G \) is finite, the order of  any \( a \in G \) divides \( |G| \).
 \end{cor}
 
+
 \begin{proof}
-    
+    Apply the last theorem with $K=\langle e\rangle$ for the first statement. The second is a special case of the first with $H=\langle a\rangle$.
 \end{proof}
 
+
+If $G$ is a group and $H, K$ are subsets of $G$, we denote by $H K$ the set $\{a b \mid a \in H, b \in K\}$. Note that a right or left coset of a subgroup is a special case of this construction.
+
+\begin{rem}
+    Careful! If $H, K$ are subgroups, $H K$ may not be a subgroup.
+\end{rem}
 
 \begin{teo}
     Let \(H\) and \(K\) be finite subgroups of a group \(G\). Then \[|HK| =  \frac{|H||K|}{|H\cap K|}.\]
 \end{teo}
 
+\begin{proof}
+    Note $C=H \cap K$ is a subgroup of $K$ of index $n=$ $|K| /|H \cap K|$ and $K$ is the disjoint union of right cosets $C k_1 \cup C k_2 \cup \ldots \cup C k_n$ for some $k_i \in K$. Since $H C=H$, this implies that $H K$ is the   union of the disjoint sets $H k_1 \cup H k_2 \cup$ $\cdots \cup H k_n$. Therefore, $|H K|=|H| \cdot n=|H||K| /|H \cap K|$.
+\end{proof}
 
-\begin{prop}
-    
-\end{prop}
+
+\noindent
+\begin{minipage}[c]{0.5\textwidth}
+\textbf{Proposition 1.9.} If \( H \) and \( K \) are subgroups of a group \( G \), then \( [H : H \cap K] \leq [G : K] \). If \( [G : K] \) is finite, then \( [H : H \cap K] = [G : K] \) if and only if \( G = HK \).
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.45\textwidth}
+\[\begin{tikzcd}
+    & G \arrow[ld, no head] \arrow[rd, no head] &                       \\
+H \arrow[rd, no head] &                                           & K \arrow[ld, no head] \\
+    & H\cap G                                   &                      
+\end{tikzcd}\]
+\end{minipage}
 
 \begin{proof}
+    Let $A$ be the set of all right cosets of $H \cap K$ in $H$ and $B$ the set of all right cosets of $K$ in $G$.
+    The map $\varphi: A \rightarrow B$ given by $(H \cap K) h \mapsto K h$, with $h \in H$, is well defined since $(H \cap K) h^{\prime}=(H \cap K) h$ implies $h^{\prime} h^{-1} \in H \cap K \subset K$ and hence $K h^{\prime}=K h$.
+    Complete the proof by following these simple steps:
+    \begin{enumerate}[label=(\roman*)]
+        \item Show that $\varphi$ is injective. Then $|H: H \cap K|=|A| \leq|B|$ $=|G: K|$.
+        \item If $|G: K|$ is finite, then show that $|H: H \cap K|=|G: K|$ if and only if $\varphi$ is surjective.
+        \item $\varphi$ is surjective if and only if $G=K H$.
+    \end{enumerate}
     
+    (Hint: note that for $h \in H$ and $k \in K$, we have $ K k h=K h$ since $(k h) h^{-1}=k \in K$.) Conclude.
 \end{proof}
 
 
 \begin{prop}
-    
+    Let \( H \) and \( K \) be subgroups of \( G \) with finite index of a group \( G \). Then \( |G : H \cap K| \) is finite and \(|G : H \cap K| \leq |G : H| |G : K| \). Furthermore, \(|G : H \cap K| = |G : H| |G : K| \) if \( G = HK \).
 \end{prop}
+
+\begin{proof}
+    Classwork.
+\end{proof}
+
+
 
 \end{document}

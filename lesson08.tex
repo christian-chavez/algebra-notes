@@ -172,6 +172,8 @@ for any \(g\in G\).
  
 We have introduced normal groups for a reason: to make the quotient set of a group by a (normal) subgroup into a group.
 In this way we can build new groups out of old.
+Regarding the quotient set \(G/N\), two elements of  \(G\), say \(g\) and \(g'\) define the same equivalence class precisely when \(g' = gn\)  for some \(n\in N\), equivalently when \(g^{-1} g'  \in N\).
+The condition that \(N\) be normal is precisely what we need to get a well-defined way of multiplying these equivalence classes.
 
 \begin{teo}
     If \(N\unlhd G\), then 
@@ -181,39 +183,108 @@ In this way we can build new groups out of old.
 \end{teo}
 
 \begin{proof}
-It suffices to show that the operation is well-defined, that is, 
+It suffices to show that the operation is well-defined, that is, whenever we multiply two equivalence classes we must always get the same result no matter the representatives chosen.
 
+If \(aN = xN\) and \(bN= yN\), then \(ax^{-1} = m \in N\) and \(by^{-1} = n \in N\) for some \(m,n\in N\).
+Our goal is to prove that \(ab N = xy N\), i.e., that \((ab)(xy)^{-1}\in N\).
+Note \[(ab)(xy)^{-1}=aby^{-1}x^{-1} = anx^{-1} = (an a^{-1})a x^{-1} =(an a^{-1}) m.\]
+Since \(N\) is normal, \(aNa^{-1} \subseteq  N\) so \(ana^{-1} \in N\); and we already knew \(m\in N\).
+Because \(N\) is closed under products, \((an a^{-1}) m \in N\).
+The proof is complete.
 \end{proof}
 
-\begin{teo}
-    
-\end{teo}
-
-
-\begin{proof}
-    
-\end{proof}
+You may want to take look at this \href{https://math.stackexchange.com/questions/14282/why-do-we-define-quotient-groups-for-normal-subgroups-only}{post}.
 
 
 \begin{rem}
-    
+In additive notation, 
+\begin{enumerate}[label=(\roman*)]
+    \item \(G/N = \left\{ g+N \mid g\in G \right\}\)
+    \item \((a+N)+(b+N) = (a+b) + N\)
+\end{enumerate}
 \end{rem}
 
-\begin{teo}
+The next result states that the kernel of any group-homomorphism is a normal subgroup, and that given normal subgroups occur as kernels.
+
+\begin{teo}\hfill
+\begin{enumerate}[label=(\roman*)]
+    \item If \( f: G \to H \) is a group-homomorphism, then \( \ker f \trianglelefteq G \).
+    \item Conversely, if \( N \trianglelefteq G \), then the map (called canonical projection) \( \pi: G \to G/N \) defined by \( a \mapsto aN \) is an surjective group-homomorphism with \[ \ker \pi = N .\]
+\end{enumerate}
     
+
+\end{teo}
+
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item If \(x\in \ker f\) and \(a\in G\), then 
+    \[f(axa^{-1}) = f(a)f(x)f(a^{-1}) = f(a)1_H f(a^{-1}) = 1_H\]
+    meaning \(axa^{-1} \in \ker f\).
+    Thus \(a \ker f a \subseteq \ker f\) for any \(a\in G\).
+
+    \item Is is clear that \(\pi\) is surjective. (Make sure it is clear to you.) Further, \(\pi (ab) = ab N = (aN)(bN) = \pi (a) \pi (b)\) so \(\pi\) is a morphism of groups.
+    Finally, 
+    \begin{align*}
+        \ker \pi &= \left\{ a\in G \mid \pi (a) = 1_{G/N} \right\}\\
+        &= \left\{ a\in G \mid aN  = N \right\}\\
+        &= N.
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+ The next results tell us how to factor a group-homomorphism.
+
+\begin{teo}
+    If \( f: G \to H \) is a group homomorphism and \( N \trianglelefteq G \) is a subgroup contained in \( \ker f \), then there is a unique group-homomorphism \(\overline{f}\colon G/N \to H\) such that \(f = \overline{f}\circ \pi\), i.e., such that   the following diagram commutes.
+    \[\begin{tikzcd}
+        G \arrow[r, "f"] \arrow[d, "\pi"'] & H \\
+        G/N \arrow[ru, "\overline{f}"']    &  
+        \end{tikzcd}\]
+    In addition, 
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\im f = \im \overline{f}\),
+        \item \(\ker \overline{f} = \ker f / N\), and 
+        \item \(\overline{f} \) is an isomorphism if and only if \(f\) is an epimorphism and \(N = \ker f\).
+    \end{enumerate}
 \end{teo}
 
 \begin{proof}
-    
+Define \(\overline{f}\colon G/N \to H: aN\mapsto f(a    )\).
+Then \(\overline{f} \) is well-defined, for if \(aN = bN\), then \(ab^{-1}\in N\leq \ker f\), whence \(f(ab^{-1}) =  1_H\) and so \(f(a) = f(b)\).
+Moreover \[\overline{f}((aN)(bN)) = \overline{f}(abN) = f(ab) = f(a)f(b) = \overline{f}(aN) \overline{f}(bN).\]
+Finally, 
+\begin{enumerate}[label=(\roman*)]
+    \item  \(f(a)\in\im f \) if and only if  \(f(a) = \overline{f}(aN)  \in \im \overline{f} \). Hence \(\im f = \im \overline{f}\).
+    % \item If \(aN \in \ker\overline{f}\), then \(\overline{f}(aN) = 1_H\), i.e, \(f(a) = 1_H\), so \(a\in \ker f\).
+    % Thus \(aN \in \ker f / N\). The converse is clear.
+\item 
+    Note 
+    \begin{align*}
+        \ker \overline{f} &= \{x\in G/N \mid \overline{f}(x) = 1_H\}\\
+        &= \left\{  aN \mid f(a) = 1_H \right\}\\
+        &= \left\{ aN \mid a\in \ker f \right\}\\
+        &= \ker f / N
+    \end{align*}
+
+    \item By (i), \(\overline{f} \) is epic if and only if \(f\) is.
+     Note 
+    \(\overline{f}\) is monic if and only if \(\ker \overline{f} = \left\{ 1_{G/N} \right\}   = \{ N\} \) if and only if \(\ker f / N  = \{N\}\) if and only if \(\ker f = N\).
+    (Keep in mind that \(N\unlhd \ker f\) by hypothesis and \(\ker f / N = N\)  implies \(aN  = N\) for all \(a \in \ker f\).) 
+    Hence the reult.
+    % Moreover,
+    % \(\overline{f} \) is an isomorphism if and only if \(\overline{f}\) is monic and epic, that is to say, 
+\end{enumerate}
+The proof is now complete.
 \end{proof}
 
 
-\begin{teo}
-    
-\end{teo}
+\begin{eje}
+    Prove that if \(|G/N| = 1\), then \(G = N\).
+\end{eje}
 
 
-\begin{proof}
+\begin{proof}[First Isomorphism Theorem]
     
 \end{proof}
 

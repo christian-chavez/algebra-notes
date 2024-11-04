@@ -1,0 +1,364 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\def\contador{Lesson 9}
+\input{title}
+%\section{Rings}
+\label{class:rings}
+
+Añadir come referencia al Atiyah.
+
+We will see, in the world of ring, that there are natural analogues brought from the world of groups. Indeed, we will generalize concepts from Group Theory as seamlessly as possible. But, a deeper engagement with the main references is needed to supplement the concepts displayed in the coming sections.
+%
+% During the rest of the course the main reference shall be \cite{pinter1}. 
+
+%%%
+\section{Definition of ring}
+
+\begin{defi}
+    A ring is a triple $(A,+,\cdot)$ that consist of a set  \(A\) and two binary operations \(+,\cdot\colon A\times A\to A\), called respectively sum and multiplication, such that 
+\begin{enumerate}[label=(\roman*)]
+    \item $(A,+)$ is an Abelian group,
+    \item $(A,\cdot)$ is a semigroup, and
+    \item \(\cdot\) distributes over \(+\), i.e., \[a \cdot (b+c) = a\cdot b + a\cdot c\quad\text{and}\quad(a+b)\cdot c= a\cdot c + b\cdot c\]
+    for all \(a,b,c \in A\).
+\end{enumerate}
+\end{defi}
+
+%
+Recall that  $(A,\cdot)$ is a semigroup if \(\cdot\) is associative.
+Thus, in the definition above, we may well have replaced (ii) by the condition that \(a\cdot(b\cdot c) = (a \cdot b)\cdot c\) for all \(a,b,c\in A\).
+The \textbf{zero} of the ring \((A,+,\cdot)\) is the  \textbf{additive neutral element} of $(A,+)$, denoted $0$.
+The \textbf{additive inverse} of an element $a\in A$ is denoted by $-a$.
+\textbf{Substraction} is the internal operation \(-\colon A\times A\to A\) on $A$ defined by
+\[
+a-b = a+(-b).
+\]
+Is \(-\) associative?
+We usually say \(A\) is a ring to we mean \((A,+,\cdot)\) is a ring when the operations \(+\) and \(\cdot\) are known.
+By convention, we write $ab$ for  $a\cdot b$.
+If there is an element \(e\in A\) such that \(e \cdot a = a \cdot e = a\) for all \(a\in A\), we say \(A\) is a ring with unity\footnote{In Spanish, we say ``con identidad' instead of ``con unidad''. (Un anillo puede tener más de una unidad.)}
+and, since such an element is unique,  denote  \(e\) by \(1_A\) or simply \(1\). 
+If \(\cdot\) is commutative, i.e., \(ab = ba\) for all \(a\in A\), we say \(A\) is a \textit{commutative ring}; and, if in addition, \(A\) has a unity, we say \(A\) is a commutative ring with unity.
+
+
+% Keep in mind that \(\cdot\) has higher precedence than \(+\): we first ``compute'' the multiplication and then the addition.
+
+
+% A ring reduced to the singleton $\{0\}$ is called the \textbf{trivial ring}, otherwise it is called \textbf{non-trivial ring}.
+%
+
+
+
+\begin{exa}
+    The basic examples of rings are \(\Z/n\Z\), $\Z$, $\Q$, $\R$, $\C$ where the operations $+$ and $\cdot$ are the usual addition and multiplication in each case.
+\end{exa}
+ 
+\begin{teo}
+% \label{teo:truillo1}
+Let $(A,+,\cdot)$ be a ring and
+$a,b \in A$. Then 
+\begin{enumerate}[label=(\roman*)]
+    \item \(a 0 = 0 a = 0\)
+    \item \(a (-b) = -a (b) = -(a b)\)
+    \item \((-a)(-b) = a b\)
+\end{enumerate}
+\end{teo} 
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item We know \(0 = 0 + 0\). By the distributivity of \(\cdot\) over \(+\), we have  
+    \[
+    a 0=a (0+0)=a 0+a 0.
+    \]
+    Adding \(-a0\) to both sides yields \(0=a0\). 
+    Similarly, we obtain \(0a=0\). 
+\item By the distributivity of \(\cdot\) over \(+\) and by (i), 
+    \[a b+a(-b)=a (b-b) = a0=0.\]
+    Additive inverses are unique, so \(-(a b)=a (-b)\). 
+    Likewise, \(-a (b)=-(a b).\)
+    \item Exercise.
+\end{enumerate}
+\end{proof}
+
+\begin{rem}
+    If \(1 = 0\), then \[a = a 1 = a 0 = 0\] for every \(a\in A\).
+    Thus, in this case, every element of \(A\) is zero, meaning \(A = \left\{ 0 \right\}\).
+    We call this ring the \textit{trivial ring}, and it is the unique ring with this property.
+    Some authors write ``$A$ is a ring with $1\neq 0$'' to express that $A\neq \adel{0}$ is ring with unity.
+\end{rem}
+
+\begin{exa}
+Let \(X\) be a nonempty set and \(A\) a ring. 
+The set \(A^X\) of all functions from \(X\) to  $A$ is  a ring with the operations given by
+\begin{align*}
+(f+g)(x) &= f(x)+g(x), \\
+(f\cdot g)(x) &= f(x)\cdot g(x), 
+\end{align*}
+for functions \(f,g\colon X\to A\) and \(x\in X\). 
+\end{exa}
+
+
+
+\section{Types of rings}
+
+Let $(A,+,\cdot)$ be a ring. We say \(a\in A\) is 
+
+\begin{enumerate}[label=(\roman*)]
+\item a \textit{zero divisor} if \(a\neq 0\) and there is \(b \in A\), \(b\neq 0\), such that \(ab = 0\) or \(ba=0\).
+\item \textit{nilpotent}  if \(a^n = 0\) for some \(n\in Z^+\).
+\item \textit{idempotent} if \(a^2 = a\)
+\end{enumerate}
+
+If \(A\) is a ring with unity, \(a\in A\) is \textit{invertible} if there is \(a'\in A\) such that \(aa' = 1\) and \(a'a=1\).
+The set of units of \(A\) is denoted \(A^\times \) or \(U(A)\). Verify that \(A^\times\) is a group under multiplication.
+
+\begin{eje}
+    Verify that a zero divisors is not invertible.
+\end{eje}
+
+We say that a ring $(A,+,\cdot)$
+is 
+\begin{enumerate}[label=(\roman*)]
+\item an \textit{integral domain} if \(A\) is a nontrivial commutative ring with unity and it has no zero divisors.
+\item a ring with the \textit{cancellation property} if for any \(a,b\in A\), if \(c\in A\) is nozero, then 
+\[
+ac=bc \;\text{ or }\; ca = cb \quad\text{ implies }\quad a=b.
+\]
+
+\item a \textit{division ring} if \(A\) is a nontrivial ring with unity and every nonzero element is invertible.
+\item a \textit{field} if it is both commutative and   a division ring. 
+\end{enumerate}
+
+\begin{eje}
+    Verify that a field is an integral domain.
+    Provide a counterexample that disproves the converse afirmation.
+\end{eje}
+
+\begin{prop} 
+A ring has the  cancellation property if and only if it has no zero divisors.
+\end{prop} 
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+\item Suppose first that $A$ is a ring with the cancellation property. Let $a,b\in A$ such that $a\neq 0$ and $ab=0$, then $ab=a0$, but this impliy that $b=0$ due to the cancellation property. Thus, $A$ has no zero divisors.
+\item Conversely, suppose that $A$ has no zero divisors. Let $ab=ac$ with $a\neq0$, then $a(b-c)=0$. Hence, $b-c=0$ and $b=c$.
+\end{enumerate}
+\end{proof}
+  
+
+\begin{exa}
+\begin{enumerate}[label=(\roman*)]
+\item \(\Z/4\Z\) is a ring with zero divisors. Note  \(2\cdot 2 \equiv 0 \bmod 4 \). 
+\item The set \(\R^X\) of   functions from a set \(X\) to \(\R\) is a commutative ring with unity. The unity is the constant function equal to \(1\in \R\). In this ring, an element is invertible if it never vanishes, i.e., \(f\colon X\to\R\) is invertible if \(f(x)\neq 0\) for every \(x\in R\).
+\item \(\R\) is a field with the usual addition and multiplication. Is \(\R^X\) a field?
+\item \(\Q\) is a field with the usual addition and multiplication.
+\item \(\Z\) is a commutative ring with unity but not a field. The only invertible elements are $1$ and $-1$.
+\item \(\Z/n\Z\) is an integral domain. .
+\item \(\Z/p\Z\) is a field if and only if \(p\in \Z^+\) is prime. This is an example of a finite field. 
+\item Let us show that there are infinitely many  fields \(F\) such that \(\Q\subsetneq F\subsetneq \R\). Let $D$ be a rational number which is not a perfect square in $\mathbb{Q}$, i.e, \(x^2 \neq D\) for any \(x\in \Q\). Then 
+\[\Q(\sqrt{D})=\{a+b\sqrt{D}\colon a,b\in \Q\}\subsetneq \R\]
+is a field with the operations:
+\begin{align*}
+(a_1+b_1\sqrt{D})+(a_2+b_2\sqrt{D})&=(a_1+a_2)+(b_1+b_2)\sqrt{D},\\
+(a_1+b_1\sqrt{D})(a_2+b_2\sqrt{D})&=(a_1a_2+b_1b_2D)+(a_1b_2+a_2b_1)\sqrt{D},
+\end{align*} 
+for $a_1,b_1,a_2$ and $b_2$ in $\Q.$  Since $D$ is not a perfect square, every element of $\Q(\sqrt{D})$ is written in a unique way. Indeed,  suppose that 
+\[a_1+b_1\sqrt{D}=a_2+b_2\sqrt{D},\]
+then 
+\[(a_1-a_2)+(b_1-b_2)\sqrt{D}=0.\]
+If $b_1\neq b_2$ then \[\sqrt{D}=\frac{a_2-a_1}{b_1-b_2}\in\Q,\]
+ a contradiction. So, $b_1=b_2,$ and then, $a_1=a_2. $ The ring $\Q(\sqrt{D})$ is called the \textbf{quadratic field.}
+ The rational number $D$ could be written in the form \[D=e^2D^{'},\] for some rational number $e$ and some rational number $D^{'},$ such that $D^{'}$ is square free, this is, $D^{'}$ is not divisible for the square of any integer greater than $1$. Then 
+\[\sqrt{D}=e\sqrt{D^{'}},\]
+and then, \[\Q(\sqrt{D})=\Q(\sqrt{D^{'}}).\]
+Therefore, it is possible to assume that in $\Q(\sqrt{D}),$ $D$ is square free. 
+
+
+\item If \(A\) is a ring, the set of square matrices with entries in \(A\) and the usual operations of addition and multiplication of matrices is a noncommutative ring with unity. Exercise: Verify that this ring has zero divisors if \(A\) does.
+\end{enumerate}
+
+\end{exa}
+   
+
+We have already mention that an integral domain need not be a field. However, if the underlying set is finite, this is true.
+
+\begin{eje}
+    Prove this assertion.
+\end{eje}
+
+This section ends up with important examples and a proposition. 
+
+\begin{exa}
+There is an important and familiar subset of $\funciones$ that is a ring with a special operation of multiplication, this is, the set of \underline{polynomial functions} $\mathscr{P}(\R)$. This set contains all the functions of the form
+\[
+\funcion{p}{\R}{\R}{x}{p(x)=a_0+a_1x+\ldots+a_nx^n,}
+\]
+for $n\in\N$. $\mathscr{P}(\R)$ is a ring with the operations inherited from  $\mathscr{F}(\R)$ which, for this particualr situation, can be seen in the following way
+\begin{align*}
+    p(x)+q(x)&= (a_0+b_0)+(a_1+b_1)x+\ldots=\sum_{i=0}^{\max{\adel{n,m}}} (a_i+b_i)x^i,\\
+    p(x)\cdot q(x)&= a_0b_0+(a_0b_1+a_1b_0)x+(a_0b_2+a_1b_1+a_2b_0)x^2+\ldots=\sum_{i=0}^{n+m} C_i x^i,
+\end{align*}
+where \[C_k=\sum_{i=0}^{k} a_ib_{k-i},\]  $b_j=0$ if $j> m$, $a_j=0$ if $j>n$, and $p(x),q(x)$ polynomial functions given by
+\begin{align*}
+p(x)&=a_0+a_1x+a_2x^2+\ldots+a_nx^n,\\
+q(x)&=b_0+b_1x+b_2x^2+\ldots+b_mx^m.\\
+\end{align*}
+
+ For example, taking $p(x),q(x)\in\mathscr{P}(\R)$, given by  $p(x)=1+2x+x^2$ and $q(x)=2-x+x^3$, then 
+\begin{align*}
+    p(x)+q(x)&=(1+2x+x^2)+(2-x+x^3)=3+x+2x^2+x^3,\\
+    p(x)\cdot q(x)&=(1+2x+x^2)\cdot(2-x+x^3)= 2+3x+2x^4+x^5.
+\end{align*}
+$p$ is called a polynomial function of degree $n$ if $a_n\neq 0$. The term $a_nx^n$ is called the leading term of $p(x).$
+
+\end{exa}
+
+\begin{exa}
+Let's recall the definition of cartesian product. Let $M\neq \emptyset$. Then 
+\begin{align*}
+    M^2&=M\times M=\adel{(a_1,a_2)/ a_1,a_2\in M}\\
+    M^3&=M\times M\times =\adel{(a_1,a_2,a_3)/ a_1,a_2\in M}\\
+    &\vdots\\
+    M^n&=M\times \ldots\times M=\adel{(a_1,a_2,\ldots,a_n)/ a_i\in M,\,\,\forall i=1,\ldots,n}
+\end{align*}
+If $A=(A,+,\cdot)$ is a ring, then $A^n$ is a ring with the componentwise operations:
+\begin{align*}
+    (a_1,a_2,\ldots,a_n)+(b_1,b_2,\ldots,b_n)&=(a_1+b_1,a_2+b_2,\ldots,a_n+b_n),\\
+(a_1,a_2,\ldots,a_n)\cdot(b_1,b_2,\ldots,b_n)&=(a_1b_1,a_2b_2,\ldots,a_nb_n).
+\end{align*}
+
+In fact, we can define the ring of all the sequences, $A^{\N}$, whose coordinates ares filled with elements of $A$, i.e, 
+\[A^{\N}=\adel{(a_n)_{n\in \N}=(a_1,\ldots,a_i,\ldots)\colon a_i\in M,\,\,\forall i\in\N},\]
+with the componentwise operations defined by
+\begin{align*}
+    (a_1,a_2,\ldots)+(b_1,b_2,\ldots)&=(a_1+b_1,a_2+b_2,\ldots),\\
+(a_1,a_2,\ldots)\cdot(b_1,b_2,\ldots)&=(a_1b_1,a_2b_2,\ldots).
+\end{align*}
+\end{exa}
+
+\begin{exa}[Important]
+    There is a special subset of $A^\N$ denoted
+\[
+A\odel{x}=\adel{(a_n)_{n\in \N} \in A^{\N} \,/\, \exists N\in \N,\forall m\geq N\colon a_m=0},
+\]
+The notation  $A\odel{x}$ is used because an arbitrary element $p(x)$ of $A\odel{x}$ is usually represented as a \underline{formal sum}:
+\[p(x)=a_o+a_1x^1+a_2x^2+
+	\ldots+a_nx^n,\]
+which means that $a_i\in A$ for each $i\in\adel{1,\ldots,n}$, $ a_n\neq 0,$ and 
+\[
+    n=\min\adel{N\in I \, / \: \forall n\geq N:\: \: a_n = 0}. 
+\]
+In this case,
+\begin{enumerate}
+    \item $p(x)$ is called a \underline{polynomial} in $x$.
+    \item $n$ is called the degree of $p(x)$ and is denoted by $\text{deg}(p(x))$, 
+    \item the term $a_nx^n$ is called the \underline{leading} term of $p(x)$,
+    \item if the leading term of $p(x)$ is $a_n=1$, then $p(x)$ is called \underline{monic.} 
+\end{enumerate} 
+
+With this representation, if $p(x)=a_o+a_1x^1+a_2x^2+
+	\ldots+a_nx^n$ and $q(x)=b_o+b_1x^1+b_2x^2+
+	\ldots+b_mx^m$, asumming that $m\leq n$, the operations in this ring are defined by
+\begin{align*}
+    p(x)+q(x)&=\sum_{i=0}^{n} (a_i+b_i)x^i,\\
+    p(x)\cdot q(x)&= \sum_{i=0}^{n+m} C_i x^i,
+\end{align*}
+where \[C_k=\sum_{i=0}^{k} a_ib_{k-i},\] $b_j=0$ if $j> m$ and $a_j=0$ if $j>n$. The ring $A[x]$ usually found in the literature as the \textbf{polynomial ring} with coefficients in $A$ and \underline{indeterminate} $x$. 
+\end{exa}
+
+\begin{rem}
+    The ring $A$ is identify in $A\odel{x}$ with the set of polynomials of degree 0, i.e, the set $A,$ is in bijective correspondence with the set of all the sequence of the form
+    \((a,0,0,\ldots),\)
+    for $a\in A.$ This observation allows us to write $A\subseteq A\odel{x},$ s a commonly accepted abuse of notation. 
+\end{rem}
+
+\begin{rem}[Polynomial function $\neq$ polynomial]
+    Although their construction is different, the rings $\mathscr{P}(\R)$ and $\R\odel{x}$ look very similar. In fact, there is a bijective correspondence between the polynomial functions and the (abstract) polynomials in $x$. 
+    This is quite obvious considering that every polynomial function of the form 
+    \[p(x)=a_0+a_1x+a_2x^2+\ldots + a_n x^n\]
+    can be viewed as the polynomial 
+    \[\overline{p}(x)=a_0+a_1x+a_2x^2+\ldots + a_n x^n\]
+    in the variable $x$. The big difference between $p(x)$ and $\overline{p}(x)$ is that we can evaluate $p(a)\in\R$, for every $a\in\R$, while $\overline{p}(a)$ has no sense.
+\end{rem}
+
+\begin{exa}
+Let's recall that for any index set $I,$ the cartesian product of an indexed family $\adel{A_i}_{i\in I}$ of set is defined by
+\[\prod_{i\in I} A_i=\adel{\func{f}{I}{\cup A_i\, /\, f(i)\in A_i,\,\, \forall i\in I }}.\]
+
+If each $A_i$ is a ring, then $\prod_{i\in I} A_i,$  is a ring with the componentwise addition and multiplication. 
+\begin{align*}
+    (f+g)(i)&=f(i)+g(i),\\
+    (fg)(i)&=f(i)g(i),
+\end{align*}
+for each $i\in I$. If $I=\mathbb{Z}^{+}\cup\adel{0},$ there is a special subset of $\prod_{i\in I} A_i,$ called the coproduct of the family $\adel{A_i}_{i\in I},$ and defined by the set of all functions $f\in \prod_{i\in I} A_i$ such that $f$ is zero except for a finite numers of elemets in $I$. This set is a ring with the componentwise addition and multiplication and is denoted by \[\coprod_{i\in I} A_i.\]
+\end{exa}
+
+\begin{exa}
+    Taking $I=\adel{1,2}$, the indexed family $\adel{A_1,A_2}$ verifies that the set
+    \[\prod_{i\in I} A_i \] is in bijection with the usual cartesian product \(A_1\times A_2.\)
+    For this, if $\func{f}{I}{A_1\cup A_2}$ is a function such that $f(1)\in A_1$ and $f(2)\in A_2$, then $f$ correspond with the element $(f(1),f(2))\in A_1\times A_2$. This correspondece is clearly a bijection. The operations defined above over $\prod_{i\in I} A_i$ in terms on usual cartesian product are
+    \begin{align*}
+    (x_1,y_1) + (x_2,y_2) &= (x_1+x_2, y_1+y_2),\\
+    (x_1,y_1) \cdot (x_2,y_2) &= (x_1 x_2, y_1 y_2).
+    \end{align*}
+ In general, if $I=\adel{1,\ldots,n},$ then \[\prod_{i\in I} A_i = A_1\times\ldots \times A_n\]
+is a ring with componentwise operations. Moreover, if $I=\N$, then 
+\[\prod_{i\in\N} A_i = A^\N.\]
+\end{exa}
+
+%\begin{rem}
+    %For an arbitary set $M$, the set $\prod_{i\in \N} M$ could be identified with the set of all sequences in $X$, denoted by $M^{\N}.$
+%\end{rem}
+
+	\begin{rem}
+	Polynomial rings are important because their structure provides them with many properties which are analogues to those of $\Z$. In particular, we can define ``primes elements'' among them and establish a generalized version of the division algorithm. It comes as no surprise then that they have many applications in multiple areas of mathematics such as algebraic geometry, number theory, and algebraic combinatorics.
+\end{rem}
+
+\begin{rem}
+ Let's give look to polynomials rings with zero divisors. 
+ \begin{enumerate}
+     \item For example, take $p(x)=x^2+1$ in $\Z_2\odel{x}$, then
+     \begin{align*}
+     p(x)+p(x)&=(x^2+1)+(x^2+1),\\
+     		  &=2x^2+2,\\
+     		  &=0, \text{ mod }2.
+     \end{align*}
+     This example shows that the sum of two polynomials does not preserve the degree of the polynomials.
+     \item Another interesting example is in the polynomial ring $\Z_6\odel{x}$. Take $p(x)=2x$ and $q(x)=3x^2+1$. If the multiplication is in $Z\odel{x}$, then \[p(x)\cdot q(x)= 6x^3+2x,\] but in the ring $\Z_6$, the operations module $6$ implies that
+ \[p(x)\cdot q(x)= 6x^3+2x=2x,  \text{ mod }6.\]
+ \end{enumerate}
+\end{rem}
+The last remark allows us to conclude that not always the degree of the sum of two polynomials is the maximum of the degree and that the degree of the product of two polynomials is not the sum of the degree, as usual in $\Z.$ The next proposition determinates when the latter happens. 
+
+\begin{prop}
+\label{IDfractions}
+Let $A$ be an integral domain and $p(x)$ and $q(x)$ polynomials in $A\odel{x}.$ Then
+\begin{enumerate}
+    \item $A\odel{x}$ is an integral domain;
+    \item $\text{deg}(p(x)\cdot q(x)) = \text{deg}(p(x))+ \text{deg}(q(x))$;
+    \item considering $A$ as the polynomials of degree 0, $(A\odel{x})^{\times}=A^{\times}.$
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+    Let $A$ be a integral domain and $p(x)$ and $q(x)$ polynomials in $A\odel{x},$ with leading term $a_nx^n$ and $b_mx^m$ respectively. The leading term of $p(x)\cdot q(x)$ is $a_nb_mx^{n+m}$, where $a_nb_m\neq 0$ because $A$ is a integral domain. Then 
+    \[\text{deg}(p(x)\cdot q(x)) = \text{deg}(p(x))+ \text{deg}(q(x)),\]
+    and $A\odel{x}$ is an integral domain, otherwise, if two polynomials $p(x)\neq 0$ and $q(x)\neq 0$, verifies that $p(x)\cdot q(x)=0$,
+    \[0 = \text{deg}(p(x))+ \text{deg}(q(x)),\]
+    therefore, $\text{deg}(p(x))= \text{deg}(q(x))=0$, and $p(x),q(x)\in A$, but this is a contracition since $A$ is an integral domain. This proves i) and ii). 
+    
+   For ii) it is easy to see that $A^{\times}\subseteq (A\odel{x})^{\times}.$ On the other hand, if $p(x)$ and $q(x)$ are invertibles in $A\odel{x}$, then $p(x)\cdot q(x)=1$, and for i),  $\text{deg}(p(x))= \text{deg}(q(x))=0$, and $p(x),q(x)\in A$, therefore, $p(x)$ and $q(x)$ are invertibles in $A$.
+\end{proof}
+
+
+
+
+%%%%%%%
+%\newpage
+
+
+\end{document}

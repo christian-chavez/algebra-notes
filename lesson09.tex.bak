@@ -42,7 +42,7 @@ Recall that  $(A,\cdot)$ is a semigroup if \(\cdot\) is associative.
 Thus, in the definition above, we may well have replaced (ii) by the condition that \(a\cdot(b\cdot c) = (a \cdot b)\cdot c\) for all \(a,b,c\in A\).
 The \textbf{zero} of the ring \((A,+,\cdot)\) is the  \textbf{additive neutral element} of $(A,+)$, denoted $0$.
 The \textbf{additive inverse} of an element $a\in A$ is denoted by $-a$.
-\textbf{Subtraction} is the internal operation \(-\colon A\times A\to A\) on $A$ defined by
+\textbf{Substraction} is the internal operation \(-\colon A\times A\to A\) on $A$ defined by
 \[
 a-b = a+(-b).
 \]
@@ -133,7 +133,7 @@ We say that a ring $(A,+,\cdot)$
 is 
 \begin{enumerate}[label=(\roman*)]
 \item an \textit{integral domain} if \(A\) is a nontrivial commutative ring with unity and it has no zero divisors.
-\item a ring with the \textit{cancellation property} if for any \(a,b\in A\), if \(c\in A\) is nonzero, then 
+\item a ring with the \textit{cancellation property} if for any \(a,b\in A\), if \(c\in A\) is nozero, then 
 \[
 ac=bc \;\text{ or }\; ca = cb \quad\text{ implies }\quad a=b.
 \]
@@ -144,7 +144,7 @@ ac=bc \;\text{ or }\; ca = cb \quad\text{ implies }\quad a=b.
 
 \begin{eje}
     Verify that a  field is an integral domain.
-    Provide a counterexample that disproves the converse affirmation.
+    Provide a counterexample that disproves the converse afirmation.
 \end{eje}
 
 \begin{prop} 
@@ -153,7 +153,7 @@ A ring has the  cancellation property if and only if it has no zero divisors.
 
 \begin{proof}
 \begin{enumerate}[label=(\roman*)]
-\item Suppose first that $A$ is a ring with the cancellation property. Let $a,b\in A$ such that $a\neq 0$ and $ab=0$, then $ab=a0$, but this imply that $b=0$ due to the cancellation property. Thus, $A$ has no zero divisors.
+\item Suppose first that $A$ is a ring with the cancellation property. Let $a,b\in A$ such that $a\neq 0$ and $ab=0$, then $ab=a0$, but this impliy that $b=0$ due to the cancellation property. Thus, $A$ has no zero divisors.
 \item Conversely, suppose that $A$ has no zero divisors. Let $ab=ac$ with $a\neq0$, then $a(b-c)=0$. Hence, $b-c=0$ and $b=c$.
 \end{enumerate}
 \end{proof}
@@ -294,7 +294,7 @@ If each $A_i$ is a ring, then $\prod_{i\in I} A_i$  is a ring with the component
     (f+g)(i)&=f(i)+g(i),\\
     (fg)(i)&=f(i)g(i),
 \end{align*}
-for each $i\in I$. There is a special subset of $\prod_{i\in I} A_i$ called the coproduct of the family $(A_i)_{i\in I}$, denoted \(\coprod_{i\in I} A_i\), defined by the set of all functions $f\in \prod_{i\in I} A_i$ such that $f$ is zero except for a finite number of elements in $I$.
+for each $i\in I$. There is a special subset of $\prod_{i\in I} A_i$ called the coproduct of the family $(A_i)_{i\in I}$, denoted \(\coprod_{i\in I} A_i\), defined by the set of all functions $f\in \prod_{i\in I} A_i$ such that $f$ is zero except for a finite numers of elemets in $I$.
 In other words, such that the set 
 \[
 \left\{ f(i) \mid f(i) \neq 0, i\in I \right\}
@@ -345,7 +345,7 @@ The preceding remark leads us to observe that the degree of the sum of two polyn
 \begin{prop}
 \label{IDfractions}
 Let $A$ be an integral domain and $p(x)$ and $q(x)$ polynomials in $A[x].$ Then
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}
     \item $A[x]$ is an integral domain;
     \item $\text{deg}(p(x)\cdot q(x)) = \text{deg}(p(x))+ \text{deg}(q(x))$;
     \item considering $A$ as the polynomials of degree 0, $(A[x])^{\times}=A^{\times}.$
@@ -357,9 +357,9 @@ Let $A$ be an integral domain and $p(x)$ and $q(x)$ polynomials in $A[x].$ Then
     \[\text{deg}(p(x)\cdot q(x)) = \text{deg}(p(x))+ \text{deg}(q(x)),\]
     and $A[x]$ is an integral domain, otherwise, if two polynomials $p(x)\neq 0$ and $q(x)\neq 0$, verifies that $p(x)\cdot q(x)=0$,
     \[0 = \text{deg}(p(x))+ \text{deg}(q(x)),\]
-    therefore, $\text{deg}(p(x))= \text{deg}(q(x))=0$, and $p(x),q(x)\in A$, but this is a contradiction since $A$ is an integral domain. This proves (i) and (ii). 
+    therefore, $\text{deg}(p(x))= \text{deg}(q(x))=0$, and $p(x),q(x)\in A$, but this is a contracition since $A$ is an integral domain. This proves i) and ii). 
     
-   For (ii) it is easy to see that $A^{\times}\subseteq (A[x])^{\times}.$ On the other hand, if $p(x)$ and $q(x)$ are invertible in $A[x]$, then $p(x)\cdot q(x)=1$, and for (i),  $\text{deg}(p(x))= \text{deg}(q(x))=0$, and $p(x),q(x)\in A$, therefore, $p(x)$ and $q(x)$ are invertible in $A$.
+   For ii) it is easy to see that $A^{\times}\subseteq (A[x])^{\times}.$ On the other hand, if $p(x)$ and $q(x)$ are invertibles in $A[x]$, then $p(x)\cdot q(x)=1$, and for i),  $\text{deg}(p(x))= \text{deg}(q(x))=0$, and $p(x),q(x)\in A$, therefore, $p(x)$ and $q(x)$ are invertibles in $A$.
 \end{proof}
 
 

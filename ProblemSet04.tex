@@ -6,65 +6,54 @@
 \input{preamble}
 
 \begin{document}
-\def\contador{Problem Set 3}
+\def\contador{Problem Set 4}
 \input{title}
 
 \begin{center}
     {\bfseries\Large
-        Cyclic Groups, Normality, Quotients  \\ and the Isomorphism Theorems}\\
-    (Lessons 6, 7, and 8)
+        Fundamental Concepts of Ring Theory}\\
+    (Lesson 9)
 \end{center}
 
 
 \begin{questions}
-    \section{Workout guide}
 
-\begin{ejercicio}
-Let $A$ be a ring with unit. Show that if $u$ is invertible in $A$ then so is $-u$.
-\end{ejercicio}
+\question
+Let $A$ be a ring with unity. Show that if $u$ is invertible in $A$ then so is $-u$.
 
-\begin{ejercicio}
- Prove that $\entire_p$ is a field iff $p$ is prime. 
- \textbf{Hint:} Prove first that $\entire_p$ is a integral domian iff $p$ is prime, then use Proposition \ref{FID}.
-\end{ejercicio}
 
-\begin{ejercicio}
-Prove point iii) of \ref{teo:truillo1}.
-\end{ejercicio}
+\question
+ Prove that   $\Z_p$ is a integral domian iff $p$ is prime.
 
-%\begin{ejercicio}
-%Prove Theorem 
-%\ref{teo:truillo2}.
-%\end{ejercicio}
-
-\begin{ejercicio}
-The \underline{direct product} of the rings $A$ and $B$ is the cartesian product $A\times B$ endowed with the operations defined by
+  
+\question
+The \emph{direct product} of the rings $A$ and $B$ is the cartesian product $A\times B$ endowed with the operations defined by
 \begin{align*}
 (x_1,y_1) + (x_2,y_2) &= (x_1+x_2, y_1+y_2),
 \\
 (x_1,y_1) \cdot (x_2,y_2) &= (x_1 x_2, y_1 y_2).
 \end{align*}
-\begin{my_enumerate}
+\begin{enumerate}[label=(\roman*)]
 \item Prove that $A\times B$ is a ring with these operations.
 \item Prove that if $A$ and $B$ are Abelian, then so is its direct product.
 \item Describe the divisors of zero of $A\times B$.
 \item Describe the invertible elements of $A\times B$.
-\item Assume that $A$ and $B$ are non trivial rings. Explain why $A\times B$ can not be an integral domain.
-\end{my_enumerate}
-\end{ejercicio}
+\item Assume that $A$ and $B$ are non trivial rings. Explain why $A\times B$ can not be an integral domain by providing a counterexample.
+\end{enumerate}
 
-\begin{ejercicio}
-Let $I$ be any nonempty index set and let $\adel{A_i}_{i\in I}$ an indexed family of rings. 
-\begin{my_enumerate}
-    \item Prove that $\prod_{i\in I} A_i$ is a ring under componentwise addition and multiplication. 
-    \item If $I=\entire^{+}\cup\adel{0},$ prove that $\coprod_{i\in I} A_i$  under componentwise addition and multiplication. 
-    \item Prove that $A\odel{x}$ is a ring. 
-\end{my_enumerate}
-\end{ejercicio}
 
-\begin{ejercicio}
+% \question
+% Let $(A_i)_{i\in I}$ be an  indexed family of rings. 
+% \begin{enumerate}
+%     \item Prove that $\prod_{i\in I} A_i$ is a ring under componentwise addition and multiplication. 
+%     \item If $I=\Z^{+}\cup\adel{0},$ prove that $\coprod_{i\in I} A_i$  under componentwise addition and multiplication. 
+%     \item Prove that $A\odel{x}$ is a ring. 
+% \end{enumerate}
+
+
+\question
 Let $(A,+,\cdot)$ be a ring.
-\begin{my_enumerate}
+\begin{enumerate}[label=(\roman*)]
 \item Prove that for any $a,b,c\in A$,
 $$
 a(b-c) = ab - ac,
@@ -75,38 +64,33 @@ $$
 $$
 (a+b)^2 = (a-b)^2 = a^2 + b^2.
 $$
-\item Assume that $A$ is an integral domain. Prove that
-\begin{align*}
-    \forall a,b\in A&:\quad a^2 = b^2 \: \Rightarrow \: (a=b\, \vee \, a=-b);\\
-    \forall x\in A&:\quad
-x = x^{-1}\: \Rightarrow \:
-x \in \{-1,1\}.
-\end{align*}
+\item Assume that $A$ is an integral domain. Prove that for all \(a,b\in A\), if \(a^2 = b^2\) then \(a=b\) or \(a=-b\).
+\item If \(A\) is an integral domain, for any \(a\in A\), if  \(a=a^{-1}\), then \(x \in \{-1,1\}\). 
 \item Prove that if $(A,+)$ is a cyclic group, then $A$ is a commutative ring.
-\end{my_enumerate}
-\end{ejercicio}
+\end{enumerate}
 
 
-\begin{ejercicio}
- Let $A$ a non-void set equipped with internal operations $+$ and $\cdot$. Assume that $(A,+)$ is a group,
- $(A,\cdot)$ is a semigroup, and that
-$$
-\forall a,b,c \in A:\quad
-a \cdot (b+c) = a\cdot b + a\cdot c
-\:\: \wedge \:\:
-(b+c)\cdot a = b\cdot a + c\cdot a;
-$$
-$$
-\exists 1\in A, \forall x\in A:\quad
-x\cdot 1 = 1\cdot x = 1.
-$$
-Prove that $A$ is a ring with unit.
-\end{ejercicio}
 
-\begin{ejercicio}
+% \question
+%  Let $A$ a non-void set equipped with internal operations $+$ and $\cdot$. Assume that $(A,+)$ is a group,
+%  $(A,\cdot)$ is a semigroup, and that
+% $$
+% \forall a,b,c \in A:\quad
+% a \cdot (b+c) = a\cdot b + a\cdot c
+% \:\: \wedge \:\:
+% (b+c)\cdot a = b\cdot a + c\cdot a;
+% $$
+% $$
+% \exists 1\in A, \forall x\in A:\quad
+% x\cdot 1 = 1\cdot x = 1.
+% $$
+% Prove that $A$ is a ring with unity.
+
+
+\question
 \label{ej:ejercicior2}
-Let $(A,+,\cdot)$ be a nontrivial ring with unit and $a,b,c\in A$.
-\begin{my_enumerate}
+Let $(A,+,\cdot)$ be a nontrivial ring with unity and $a,b,c\in A$.
+\begin{enumerate}[label=(\roman*)]
 \item Prove that if $a$ is invertible, then 
 $$
 ab = ac \: \Rightarrow \: b=c,
@@ -115,163 +99,198 @@ and that $a$ has only one multiplicative inverse.
 %
 \item Prove that if $a^2 = 0$, then $a+1$ and $a-1$ are invertible. 
 \item Prove that if $a$ and $b$ are invertible, then $ab$ is invertible.
-\item 
-\label{pto:ayuda1}
- Prove that $(A^\times,\cdot)$ is a group.
-\end{my_enumerate}
-\end{ejercicio}
+\item Prove that $(A^\times,\cdot)$ is a group.
+\end{enumerate}
 
-\begin{ejercicio}
+
+\question
 Let $(F,+,\cdot)$ be a field with $|F|=m\in \mathbb{N}$. Prove that
 \begin{equation}
 \forall x\in F\setminus \{0\}:\quad
 x^{m-1} = 1.
 \end{equation}
-\end{ejercicio}
 
-\begin{ejercicio}
+
+\question
 Let $A$ be a commutative ring and $a,b\in A$. Prove that if $ab$ is invertible, then $a$ and $b$ are both invertible.
-\end{ejercicio}
 
 
-\begin{ejercicio}
+
+\question
 Let $(A,+,\cdot)$ be a nontrivial ring and $a,b,c\in A$.
-\begin{my_enumerate}
+\begin{enumerate}
 \item Prove that if $a\notin \{-1,1\}$ and $a^2=1$, then $a+1$ and $a-1$ are zero divisors
 \item Prove that if $ab$ is a divisor of zero, then either $a$ or $b$ is a zero divisor.
-\end{my_enumerate}
-\end{ejercicio}
-
-\begin{ejercicio}
-Prove that in a nontrivial commutative ring with unit, a zero divisor cannot be invertible. 
-\end{ejercicio}
+\end{enumerate}
 
 
+\question
+Prove that in a nontrivial commutative ring with unity, a zero divisor cannot be invertible. 
 
-\begin{ejercicio}
-Consider $A = (\entire, \oplus, \odot)$ where
+
+
+
+\question
+Consider $A = (\Z, \oplus, \odot)$ where
 $$
 a\oplus b = a+b-1,
 \quad
 a\odot b = ab - (a+b) +2.
 $$
-\begin{my_enumerate}
-\item Prove that $A$ is a commutative ring with unit. Indicate the zero element, the unit, and the negative of an arbitrary $a$.
+\begin{enumerate}
+\item Prove that $A$ is a commutative ring with unity. Indicate the zero element, the unit, and the negative of an arbitrary $a$.
 \item Is $A$ an integral domain?
-\end{my_enumerate}
-\end{ejercicio}
+\end{enumerate}
 
-\begin{ejercicio}
-Consider $A = (\rational \times \rational, \oplus, \odot)$ where
+
+\question
+Consider $A = (\Q \times \Q, \oplus, \odot)$ where
 $$
 (a,b)\oplus (c,d) = (a+c,b+d),
 \quad
 (a,b)\odot (c,d) = (ac-bd,ad+bc).
 $$
-\begin{my_enumerate}
-\item Prove that $A$ is a commutative ring with unit. Indicate the zero element, the unit element, and the negative of an arbitrary $a$.
+\begin{enumerate}[label=(\roman*)]
+\item Prove that $A$ is a commutative ring with unity. Indicate the zero element, the unit element, and the negative of an arbitrary $a$.
 \item Prove that $A$ is a field and indicate the multiplicative inverse of an arbitrary nonzero element.
-\end{my_enumerate}
-\end{ejercicio}
+\end{enumerate}
 
-\begin{ejercicio}
-Consider Example \ref{cuadratico} and $A = Q(\sqrt{2})$.
-\begin{my_enumerate}
-\item Prove that $A$ is a commutative ring with unit. Indicate the zero element, the unit, and the negative of an arbitrary $a=x+y\sqrt{2}$.
-\item Prove that $A$ is a field.
-\end{my_enumerate}
-\end{ejercicio}
 
-\begin{ejercicio}
-Verify that $\funciones$ satisfies all the axioms of a commutative ring with unit. Indicate the zero element and invertible elements. Describe the zero divisors in $\funciones$. 
-Explain why $\funciones$ is neither a field nor an integral domain.
-\end{ejercicio}
+% \question
+% Consider   $A = \Q(\sqrt{2})$.
+% \begin{enumerate}[label=(\roman*)]
+% \item Prove that $A$ is a commutative ring with unity. Indicate the zero element, the unit, and the negative of an arbitrary $a=x+y\sqrt{2}$.
+% \item Prove that $A$ is a field.
+% \end{enumerate}
 
-%\begin{ejercicio}
+
+\question
+Explain why $\R^X$ is neither a field nor an integral domain.
+Describe its  zero divisors.
+Here \(X\) denotes an arbitary set.
+
+
+
+%\question
 %What kind of algebraic structure is $(\matriz[n](\real),+,\cdot)$? Explain why %$\matriz[n](\real)$ is not an integral domain.
-%\end{ejercicio}
+%
 
-\begin{ejercicio}
-Let $\Omega \neq \emptyset$ be a set and consider $A = (\parts, \Delta, \cap)$.
-\begin{my_enumerate}
-\item Prove that $A$  is a commutative ring with unit.
+\question
+Let $\Omega \neq \varnothing$ be a set and consider $A = (\mathscr{P}(\Omega), \Delta, \cap)$.
+\begin{enumerate}[label=(\roman*)]
+\item Prove that $A$  is a commutative ring with unity.
 \item Describe the zero divisors and the invertible elements of $A$.
 \item Explain why $A$ is not an integral domain.
 \item Give the tables for additiona and multiplication of $A$ for $\Omega = \{a,b,c\}$.
-\end{my_enumerate}
-\end{ejercicio}
+\end{enumerate}
 
-\begin{ejercicio}
-The set of \emph{quaternions}, $\quaternions$, can be seen as the elements of $\matriz[2](\complex)$ with the form
-\begin{equation}
-\label{eq:trium1}
-\alpha = 
-\begin{pmatrix}
-a+bi & c+di \cr
--c+di & a-bi
-\end{pmatrix},\quad a,b,c,d \in \real.
-\end{equation}
-\begin{my_enumerate}
-\item Prove that $\quaternions$ endowed with the usual addition and multiplication of matrices is a non-commutative ring with unit.
-\item Prove that $\alpha$ as given in \eqref{eq:trium1}
-can be written, in \emph{standard notation}, as
-\begin{equation}
-\label{eq:fuimr1}
-\alpha = a \mathbf{1} + b \mathbf{i} + c\mathbf{j}
-+ d \mathbf{k},
-\end{equation}
-where
-$$
-\mathbf{1} = \begin{pmatrix} 1 & 0 \cr 0 & 1    \end{pmatrix},\quad
-\mathbf{i} =
-\begin{pmatrix} i & 0 \cr 0 & -i    \end{pmatrix},\quad
-\mathbf{j}=
-\begin{pmatrix} 0 & 1 \cr -1 & 0    \end{pmatrix},\quad
-\mathbf{k} =
-\begin{pmatrix} 0 & i \cr i & 0    \end{pmatrix}.
-$$
-\item Prove that
-\begin{equation}
-\mathbf{i}^2 = \mathbf{j}^2 =
-\mathbf{k}^2 = \mathbf{1};
-\end{equation}
-\begin{equation}
-\mathbf{i} \mathbf{j} = - \mathbf{j} \mathbf{i} = \mathbf{k},\quad
-\mathbf{j} \mathbf{k} = - \mathbf{k} \mathbf{j} = \mathbf{i},\quad
-\mathbf{k} \mathbf{i} = - \mathbf{i} \mathbf{k} = \mathbf{j}.
-\end{equation}
-\item The \emph{conjugate} and \emph{norm} of the quaternion $\alpha = a \mathbf{1} + b \mathbf{i} + c\mathbf{j}
-+ d \mathbf{k}$ are, respectively,
-\begin{eqnarray}
-\overline{\alpha} = a \mathbf{1} - b \mathbf{i} - c\mathbf{j}
-- d \mathbf{k},
-\\
-\|\alpha\| = \sqrt{a^2 + b^2 + c^2 + d^2}.
-\end{eqnarray}
-Prove that 
-$$
-\alpha \overline{\alpha} = \overline{\alpha} \alpha = \|\alpha\|^2 \mathbf{1}.
-$$
-\item Prove that $\quaternions$ is a \emph{skew field} i.e., it's a (not necessarily commutative) ring with unit in which every nonzero element has a multiplication inverse.
-\end{my_enumerate}
-\end{ejercicio}
 
-\begin{ejercicio}
-Let $G$ be an additive Abelian group. An endomorphism on $G$ is a homomorphism from $G$ into $G$. Prove that $\mathrm{End}(G)$, the set of endomorphisms on $G$ becomes a ring with unit when it's endowed with addition and the composition product.
-\end{ejercicio}
+% \question
+% The set of \emph{quaternions}, $\quaternions$, can be seen as the elements of $\matriz[2](\complex)$ with the form
+% \begin{equation}
+% \label{eq:trium1}
+% \alpha = 
+% \begin{pmatrix}
+% a+bi & c+di \cr
+% -c+di & a-bi
+% \end{pmatrix},\quad a,b,c,d \in \real.
+% \end{equation}
+% \begin{enumerate}
+% \item Prove that $\quaternions$ endowed with the usual addition and multiplication of matrices is a non-commutative ring with unity.
+% \item Prove that $\alpha$ as given in \eqref{eq:trium1}
+% can be written, in \emph{standard notation}, as
+% \begin{equation}
+% \label{eq:fuimr1}
+% \alpha = a \mathbf{1} + b \mathbf{i} + c\mathbf{j}
+% + d \mathbf{k},
+% \end{equation}
+% where
+% $$
+% \mathbf{1} = \begin{pmatrix} 1 & 0 \cr 0 & 1    \end{pmatrix},\quad
+% \mathbf{i} =
+% \begin{pmatrix} i & 0 \cr 0 & -i    \end{pmatrix},\quad
+% \mathbf{j}=
+% \begin{pmatrix} 0 & 1 \cr -1 & 0    \end{pmatrix},\quad
+% \mathbf{k} =
+% \begin{pmatrix} 0 & i \cr i & 0    \end{pmatrix}.
+% $$
+% \item Prove that
+% \begin{equation}
+% \mathbf{i}^2 = \mathbf{j}^2 =
+% \mathbf{k}^2 = \mathbf{1};
+% \end{equation}
+% \begin{equation}
+% \mathbf{i} \mathbf{j} = - \mathbf{j} \mathbf{i} = \mathbf{k},\quad
+% \mathbf{j} \mathbf{k} = - \mathbf{k} \mathbf{j} = \mathbf{i},\quad
+% \mathbf{k} \mathbf{i} = - \mathbf{i} \mathbf{k} = \mathbf{j}.
+% \end{equation}
+% \item The \emph{conjugate} and \emph{norm} of the quaternion $\alpha = a \mathbf{1} + b \mathbf{i} + c\mathbf{j}
+% + d \mathbf{k}$ are, respectively,
+% \begin{eqnarray}
+% \overline{\alpha} = a \mathbf{1} - b \mathbf{i} - c\mathbf{j}
+% - d \mathbf{k},
+% \\
+% \|\alpha\| = \sqrt{a^2 + b^2 + c^2 + d^2}.
+% \end{eqnarray}
+% Prove that 
+% $$
+% \alpha \overline{\alpha} = \overline{\alpha} \alpha = \|\alpha\|^2 \mathbf{1}.
+% $$
+% \item Prove that $\quaternions$ is a \emph{skew field} i.e., it's a (not necessarily commutative) ring with unity in which every nonzero element has a multiplication inverse.
+% \end{enumerate}
 
-\begin{ejercicio}
+
+\question
+Let $G$ be an additive Abelian group. An endomorphism on $G$ is a homomorphism from $G$ into $G$. Prove that $\mathrm{End}(G)$, the set of endomorphisms on $G$ becomes a ring with unity when it's endowed with addition and the composition product.
+
+
+\question
 Let $(A,+,\cdot)$ be a ring. An element $a\in A$ is said to be \emph{nilpotent} if
 $$
 \exists n\in \mathbb{N}:\quad a^n = 0.
 $$
-\begin{my_enumerate}
+\begin{enumerate}[label=(\roman*)]
 \item Prove that if $A$ has a unit element and $a\in A$ is nilpotent, then both $a+1$ and $a-1$ are invertible.
 \item Prove that if $A$ is commutative and $a\in A$ is nilpotent, then $xa$ is nilpotent, for all $x\in A$.
 \item Prove that if $A$ is commutative and $a,b\in A$  are nilpotent, then $a+b$ is nilpotent.
-\end{my_enumerate}
-\end{ejercicio}
+\end{enumerate}
 
+\question
+Show that a ring that is cyclic under addition is commutative. 
+
+
+\question
+Let $n$ be an integer greater than 1 . In a ring in which $x^n=x$ for all $x$, show that $a b=0$ implies $b a=0$.
+
+\question
+Let $a$ belong to a ring $R$. Let $S=\{x \in R \mid a x=0\}$. Show that $S$ is a subring of $R$.
+
+\question
+Suppose that there is a positive even integer $n$ such that $a^n=a$ for all elements $a$ of some ring. Show that $-a=a$ for all $a$ in the ring.
+
+
+\question
+Let $R$ be a ring. The center of $R$ is the set $\{x \in R \mid a x=x a$ for all $a$ in $R\}$. Prove that the center of a ring is a subring.
+
+
+\question
+Suppose that $R$ is a ring and that $a^2=a$ for all $a$ in $R$. Show that $R$ is commutative.
+
+
+\question 
+Show that $4 x^2+6 x+3$ is a unit in $Z_8[x]$.
+
+
+\question
+Let $R$ be a commutative ring with more than one element. Prove that if for every nonzero element $a$ of $R$ we have $aR = R$, then $R$ has a unity and every nonzero element has an inverse.
+
+\question
+Suppose that \(R\) is a ring with no zero divisors and that \(R\) contains a nonzero element \(x\) such that \(x^2 = x\).
+Show that \(x\) is the unity of \(R\).
+
+\question
+Let \(R\) be a ring.
+Prove that \(a^2 - b^2 = (a+b)(a-b)\) for all \(a,b\in R\) if and only if \(R\) is commutative.
 \end{questions}
 
 \end{document}

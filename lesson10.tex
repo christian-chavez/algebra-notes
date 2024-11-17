@@ -239,18 +239,12 @@ Note \(\pi\) is surjective.
 \begin{enumerate}[label=(\roman*)]
 \item Let \( A = \mathbb{Z} \) and \( I = 4\mathbb{Z} \). The elements of the quotient ring \( A / I = \mathbb{Z} / 4\mathbb{Z} \)
 are the classes modulo the ideal \( I = 4\mathbb{Z} \), that is
-\[
-\overline{0} = 0 + 4\mathbb{Z} = \{4k \mid k \in \mathbb{Z}\}
-\]
-\[
-\overline{1} = 1 + 4\mathbb{Z} = \{4k + 1 \mid k \in \mathbb{Z}\}
-\]
-\[
-\overline{2} = 2 + 4\mathbb{Z} = \{4k + 2 \mid k \in \mathbb{Z}\}
-\]
-\[
-\overline{3} = 3 + 4\mathbb{Z} = \{4k + 3 \mid k \in \mathbb{Z}\}
-\]
+\begin{align*}
+\overline{0} &= 0 + 4\mathbb{Z} = \{4k \mid k \in \mathbb{Z}\},\\
+\overline{1} &= 1 + 4\mathbb{Z} = \{4k + 1 \mid k \in \mathbb{Z}\},\\
+\overline{2} &= 2 + 4\mathbb{Z} = \{4k + 2 \mid k \in \mathbb{Z}\},\quad\text{and}\\
+\overline{3} &= 3 + 4\mathbb{Z} = \{4k + 3 \mid k \in \mathbb{Z}\}.
+\end{align*} 
 \item Let \( A \) and \( B \) be two rings. We have 
 \[
 I = \{(a, 0) \mid a \in A\}
@@ -260,14 +254,12 @@ is an ideal of the product ring \( A \times B \). The elements of the quotient r
 (a, b) + I = (0, b) + I
 \]
 where \( a \in A, b \in B \). Indeed, \( (a, b) - (0, b) = (a, 0) \in I \). The addition and multiplication rules are given by
-\[
-[(0, b) + I] + [(0, b') + I] = (0, b + b') + I
-\]
-\[
-[(0, b) + I] \cdot [(0, b') + I] = (0, bb') + I
-\]
+\begin{align*}
+    [(0, b) + I] + [(0, b') + I] &= (0, b + b') + I\quad\text{and}\\
+    [(0, b) + I] \cdot [(0, b') + I] &= (0, bb') + I.
+\end{align*} 
 
-\item Let $R=\mathbb{Z}[x]$ be the ring of polynomials in $x$ with integer coefficients. Let $I$ be the collection of polynomials whose terms are of degree at least 2 (i.e., having no terms of degree 0 or degree 1 ) together with the zero polynomial. Then $I$ is an ideal: the sum of two such polynomials again has terms of degree at least 2 and the product of a polynomial whose terms are of degree at least 2 with any polynomial again only has terms of degree at least 2 . Two polynomials $p(x), q(x)$ are in the same coset of $I$ if and only if they differ by a polynomial whose terms are of degree at least 2, i.e., if and only if $p(x)$ and $q(x)$ have the same constant and first degree terms. For example, the polynomials $3+5 x+x^3+x^5$ and $3+5 x-x^4$ are in the same coset of I. It follows easily that a complete set of representatives for the quotient $R / I$ is given by the polynomials $a+b x$ of degree at most 1 .
+\item Let $R=\mathbb{Z}[x]$ be the ring of polynomials in $x$ with integer coefficients. Let $I$ be the collection of polynomials whose terms are of degree at least \(2\) (i.e., having no terms of degree 0 or degree \(1\)) together with the zero polynomial. Then $I$ is an ideal: the sum of two such polynomials again has terms of degree at least 2 and the product of a polynomial whose terms are of degree at least 2 with any polynomial again only has terms of degree at least 2. Two polynomials $p(x), q(x)$ are in the same coset of $I$ if and only if they differ by a polynomial whose terms are of degree at least 2, i.e., if and only if $p(x)$ and $q(x)$ have the same constant and first degree terms. For example, the polynomials $3+5 x+x^3+x^5$ and $3+5 x-x^4$ are in the same coset of \(I\). It follows easily that a complete set of representatives for the quotient $R / I$ is given by the polynomials $a+b x$ of degree at most \(1\).
 
 Addition and multiplication in the quotient are again performed by representatives.
 For example,
@@ -310,17 +302,16 @@ The elements of the quotient \( A/I \) are the classes of the form
 \[
 \begin{bmatrix} a & 0 \\ b & c \end{bmatrix} + I = \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} + I
 \]
-where \( a, b, c \in \mathbb{Z} \). Indeed,
+where \( a, b, c \in \mathbb{Z} \).
+Indeed,
 \[
-\begin{bmatrix} a & 0 \\ b & c \end{bmatrix} - \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ b & 0 \end{bmatrix} \in I
+\begin{bmatrix} a & 0 \\ b & c \end{bmatrix} - \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ b & 0 \end{bmatrix} \in I.
 \]
 The rules of addition and multiplication are given by
-\[
-\left( \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} + I \right) + \left( \begin{bmatrix} a' & 0 \\ 0 & c' \end{bmatrix} + I \right) = \begin{bmatrix} a + a' & 0 \\ 0 & c + c' \end{bmatrix} + I
-\]
-\[
-\left( \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} + I \right) \cdot \left( \begin{bmatrix} a' & 0 \\ 0 & c' \end{bmatrix} + I \right) = \begin{bmatrix} aa' & 0 \\ 0 & cc' \end{bmatrix} + I
-\]
+\begin{align*}
+    \left( \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} + I \right) + \left( \begin{bmatrix} a' & 0 \\ 0 & c' \end{bmatrix} + I \right) &= \begin{bmatrix} a + a' & 0 \\ 0 & c + c' \end{bmatrix} + I,\quad\text{and}\\
+    \left( \begin{bmatrix} a & 0 \\ 0 & c \end{bmatrix} + I \right) \cdot \left( \begin{bmatrix} a' & 0 \\ 0 & c' \end{bmatrix} + I \right) &= \begin{bmatrix} aa' & 0 \\ 0 & cc' \end{bmatrix} + I.
+\end{align*}
 
 \end{enumerate}
 \end{exa}
@@ -384,7 +375,6 @@ J = \bigcup_{A \in C} A.
 We first show that \( J \) is an ideal. Certainly \( J \) is nonempty because \( C \) is nonempty — specifically, \( 0 \in J \) since \( 0 \) is in every ideal \( A \). If \( a, b \in J \), then there are ideals \( A, B \in C \) such that \( a \in A \) and \( b \in B \). By definition of a chain, either \( A \subseteq B \) or \( B \subseteq A \). In either case \( a - b \in J \), so \( J \) is closed under subtraction. Since each \( A \in C \) is closed under left and right multiplication by elements of \( R \), so is \( J \). This proves \( J \) is an ideal.
 
 If \( J \) is not a proper ideal, then \( 1 \in J \). In this case, by definition of \( J \) we must have \( 1 \in A \) for some \( A \in C \). This is a contradiction because each \( A \) is a proper ideal (\( A \in C \subseteq S \)). This proves that each chain has an upper bound in \( S \). By Zorn's Lemma, \( S \) has a maximal element which is therefore a maximal (proper) ideal containing \( I \).
-
 \end{proof}
 
 % \begin{teo}

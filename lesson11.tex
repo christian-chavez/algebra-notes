@@ -125,10 +125,10 @@ Then
 \pagebreak
 \subsection{Fundamental Theorems of Isomorphism}
 
-caracterizacion primos y maximales con cocientes
+% caracterizacion primos y maximales con cocientes
+ 
 
-The proofs of the following results  are left as exercises to the reader.
-The diagrams should be used as mnemoteniques.
+The significance of the following results lies in their usefulness  to simplify computations by allowing us to replace a ring with another that is more convenient, provided a ring isomorphism can be established. The proofs of these results are left as exercises for the reader, while the accompanying diagrams serve to illustrate the concepts and serve as mnemonic aids.
 
 \begin{teo}[Fundamental Theorem on Ring-Homomorphisms]
     Let  $\psi : A \to B$ be a ring-homomorphism   and $I$   an ideal of $A$ with \(I\subseteq \ker \psi\).
@@ -168,7 +168,16 @@ A/I \arrow[ru, dashed, "\overline{\psi}"'] &
 The following corollaries are known as the fundamental theorems of ring-homomorphisms.
 Their proof follows from the fundamental theorem of ring-homomorphisms and thus we leave the details to the reader.
 
-
+\begin{cor}[First Isomorphism Theorem]
+    If $\psi  \colon A \to B$ is a ring-homomorphism, then $\psi $ induces an isomorphism of rings $A / \ker \psi  \cong \operatorname{Im} \psi $.
+    Furthermore, the following diagram commutes.
+    \[
+\begin{tikzcd}[row sep={3em}]
+A \arrow[r, "\psi"] \arrow[d, "p"'] & B \\
+A / \ker \psi \arrow[r, "\tilde{\psi}", dotted] & \operatorname{Im} \psi \arrow[u, "j"']
+\end{tikzcd}
+\]
+\end{cor}
 
 \begin{cor}[Second Isomorphism Theorem]
     Let $I$ and $J$ be ideals in a ring $A$.
@@ -181,6 +190,110 @@ Their proof follows from the fundamental theorem of ring-homomorphisms and thus 
     Then \[\frac{A/J}{I / J} \cong \frac{A}{I}.\]
 \end{cor}
 
+This corollary, also known as the diamond (or parallelogram) theorem, indicates that  the opposite sides of the parallelogram (with a slash) are isomorphic.
+\[\begin{tikzcd}
+    & I+J \arrow[ld, no head] \arrow[rd, "/" description, no head] &                       \\
+I \arrow[rd, "/" description, no head] &                                                               & J \arrow[ld, no head] \\
+    & I\cap J                                                       &                      
+\end{tikzcd}\]
 
 
+\begin{cor}[Fourth Isomorphism Theorem]
+    If $I$ is an ideal in a ring $A$, then there is a one-to-one correspondence between the set of all ideals of $A$ which contain $I$ and the set of all ideals of $A/I$, given by $J \mapsto J/I$. Hence every ideal in $A/I$ is of the form $J/I$, where $J$ is an ideal of $A$ which contains $I$.
+\end{cor}
+
+\begin{exa}
+    Let $A = \mathbb{Z}$ and $I = 12\mathbb{Z}$. By the fourth isomorphism theorem, the ideals of $A/I$ are in bijective correspondence with the ideals of \(\Z\) containing $12\mathbb{Z}$, namely with 
+    \[
+    2\mathbb{Z}, \, 3\mathbb{Z}, \, 4\mathbb{Z}, \, 6\mathbb{Z}, \, 12\mathbb{Z}.
+    \]
+    Therefore, the ideals of $A/I$ are
+    \[
+    2\mathbb{Z}/12\mathbb{Z}, \;\;\, 3\mathbb{Z}/12\mathbb{Z}, \;\;\, 4\mathbb{Z}/12\mathbb{Z}, \;\;\, 6\mathbb{Z}/12\mathbb{Z}, \;\;\, 12\mathbb{Z}/12\mathbb{Z}.
+    \]
+\end{exa}
+    
+
+\subsection{Additional properties of rings}
+
+\begin{prop} 
+If \(\psi\colon F\to A\) is a nonzero ring-homomorphism and \(F\) is a field, then \(\psi\) is injective.
+\end{prop}
+
+\begin{proof}
+Recall the kernel of any ring homomorphism is an ideal. 
+Since \(\psi\) is nonzero, its kernel cannot be \(F\).
+Because \(F\) is a field, its only ideals are \(0\) and \(F\).
+Hence \(\ker\psi = 0\).
+Therefore \(\psi\) is injective.
+\end{proof}
+
+
+\begin{teo}%[9.1]
+Let $A$ be a commutative ring and \(M\) and \(P\) two ideals of \(A\).
+\begin{enumerate}[label=(\roman*)]
+    \item  $M$ is maximal if and only if $A/M$ is a field.
+    \item  $P$ is prime if and only if $A/P$ is an integral domain.
+\end{enumerate}
+\end{teo}
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item The first part of the theorem follows from the Fourth Isomorphism Theorem (FIT) and the fact that a field has only the two trivial ideals. Indeed, by definition, the ideal $M$ is maximal if there is no ideal $J$ such that
+    \[
+    M \subsetneq J \subsetneq A.
+    \]
+    The ideals of $A$ containing $M$ correspond bijectively with the ideals of $A/M$. Therefore, $M$ is maximal if the only ideals of $A/M$ are $0$ and $A/M$. Hence,  $M$ is maximal if $A/M$ is a field.
+
+    \item Let us denote the class of $a$ in $A/P$ by $\overline{a}$.  If $P$ is a prime ideal and 
+    \[
+    \overline{a} \, \overline{b} = \overline{a b} = 0_{A/P}= P,
+    \]
+    then $ab \in P$. Since $P$ is a prime ideal,   \(a \in P \) or \(b \in P\).
+    Therefore \(\overline{a} = 0\)  or \(\overline{b} = 0\).
+    Hence, $A/P$ is an integral domain.
+
+    Conversely, if $A/P$ is an integral domain and $ab \in P$ with $a, b \in A$, then since
+    \[
+    \overline{a} \, \overline{b} = \overline{a b} = 0
+    \]
+    and $A/P$ is an integral domain, we have that
+    \[
+    \overline{a} = 0 \quad \text{or} \quad \overline{b} = 0,
+    \]
+    but this is equivalent to  \(a \in P \) or \(b \in P\). 
+    Therefore, $P$ is a prime ideal.
+\end{enumerate}
+\end{proof}
+
+\begin{prop} 
+    Let  $A$ be  a commutative ring.
+    Then  every maximal ideal of $A$ is a prime ideal.
+\end{prop}
+
+\begin{proof}
+Let   $M$ be a maximal ideal of $A$. Then  $A/M$ is a field. Every field is an integral domain. Thus, $A/M$ is an integral domain. Therefore  $M$ is a prime ideal.
+\end{proof}
+
+\begin{exa}
+\begin{enumerate}[label=(\roman*)]
+\item  The ideal $p\mathbb{Z}$ is a maximal ideal if and only if $p$ is prime since $\mathbb{Z}/p\mathbb{Z}$ is a field if and only if $p$ is prime.
+
+\item Consider the surjective evaluation homomorphism 
+    \[
+    \theta : \mathbb{Z}[x] \to \mathbb{Z}, \quad p(x) \mapsto   p(0).
+    \]
+    
+    Then
+    \[
+    \ker(\theta) = \{p(x) \in \mathbb{Z}[x] \mid p(0) = 0\} = \langle x \rangle
+    \]
+    and
+    \[
+    \mathbb{Z}[x] / \langle x \rangle \cong \mathbb{Z}.
+    \]
+    Therefore   $\langle x \rangle$ is   prime   since $\mathbb{Z}$ is an integral domain.
+\end{enumerate}
+\end{exa}
+    
 \end{document}

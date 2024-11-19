@@ -127,6 +127,59 @@ Then
 
 caracterizacion primos y maximales con cocientes
 
+The proofs of the following results  are left as exercises to the reader.
+The diagrams should be used as mnemoteniques.
+
+\begin{teo}[Fundamental Theorem on Ring-Homomorphisms]
+    Let  $\psi : A \to B$ be a ring-homomorphism   and $I$   an ideal of $A$ with \(I\subseteq \ker \psi\).
+    Then    there is a unique ring-homomorphism $\overline{\psi}\colon A/I \to B$ such that \(\psi = \overline{\psi}\circ \pi\), i.e.,  $$\overline{\psi}(a + I) = \psi(a)\quad\text{for all }a \in A.$$
+    In other words, such that  the following diagram commutes \[
+\begin{tikzcd}[row sep={3em}]
+A \arrow[r, "\psi"] \arrow[d, "\pi"'] & B \\
+A/I \arrow[ru, dashed, "\overline{\psi}"'] &
+\end{tikzcd}
+\]
+    Moreover
+    \begin{enumerate}[label=(\roman*)]
+        \item $\operatorname{Im} \overline{\psi} = \operatorname{Im} \psi$,
+        \item $\ker \overline{\psi} = (\ker \psi)/I$
+        \item $\overline{\psi}$ is an isomorphism if and only if $\psi$ is an epimorphism and $I = \ker \psi$.
+    \end{enumerate}  
+\end{teo}
+
+\begin{proof}[Proof (Sketch)]
+    Define \(\overline{\psi}\colon A/I\to B\) by \(\overline{\psi}(a+I) = \psi(a)\).
+    By using the fact that  \(I\subseteq \ker \psi\), we show \(\overline{\psi}\) is well-defined.
+    This shows the existence.
+    If \(\varphi\colon A/I\to B\) is another ring-homomorphism such that \(\psi = \varphi\circ \pi\), then 
+    \(\overline{\psi}\circ \pi = \varphi\circ\pi\).
+    Since \(\pi\) is surjective, it has a right inverse and thus  \(\overline{\psi}  = \varphi\).
+    This shows the uniqueness.
+    On the other hand, (i) $\psi(a) \in \operatorname{Im} \psi$ if and only if $\psi(a) = \overline{\psi}(a+I) \in \operatorname{Im} \overline{\psi}$. Hence $\operatorname{Im} \psi = \operatorname{Im} \overline{\psi}$. Note (ii)    \begin{align*}
+        \ker \overline{\psi} &= \{a +I\in A/I \mid \overline{\psi}(a+I) = 0\} \\
+        &= \{a+I \in A/I \mid \psi(a) = 0\} \\
+        &= \{a+I \in A/I \mid a \in \ker \psi\} \\
+        &= \ker \psi / I
+        \end{align*}
+    Finally, (i) shows \(\overline{\psi}\) is surjective if and only if \(\psi\) is, and (ii) implies \(\overline{\psi}\) is injective if \(\ker\psi = I\) since \(\ker\overline{\psi} = I/I = I\).
+    These facts imply (iii).
+\end{proof}
+
+The following corollaries are known as the fundamental theorems of ring-homomorphisms.
+Their proof follows from the fundamental theorem of ring-homomorphisms and thus we leave the details to the reader.
+
+
+
+\begin{cor}[Second Isomorphism Theorem]
+    Let $I$ and $J$ be ideals in a ring $A$.
+    Then \[\frac{I}{I\cap J} \cong \frac{I+J}{J}.\]
+\end{cor}
+
+
+\begin{cor}[Third Isomorphism Theorem]
+    Let $I$ and $J$ be ideals in a ring $A$ with \(J\subseteq I\).
+    Then \[\frac{A/J}{I / J} \cong \frac{A}{I}.\]
+\end{cor}
 
 
 

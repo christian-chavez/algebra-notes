@@ -29,7 +29,7 @@ If there is an isomorphism between \(A\) and \(B\), we say these rings are isomo
 \end{defi}
 
 Note that condition (i) means \(\psi\) is a group-homomorphism from \((A,+_A)\) to \((B,+_B)\).
-This implies that \(\psi(0_A) = 0_B\) since \(\psi(0_A) = \psi(0_A+0_A) = \psi(0_A) + \psi(0_A)\) whence \(\psi(0_A) = 0_B\) by subtraction.
+This implies that \(\psi(0_A) = 0_B\) since \(\psi(0_A) = \psi(0_A+0_A) = \psi(0_A) + \psi(0_A)\) whence \(\psi(0_A) = 0_B\) by substraction.
 A ring-homomorphism from \(A\) to \(A\) is called an \textbf{endomorphism} of \(A\).
 
 \begin{rem}

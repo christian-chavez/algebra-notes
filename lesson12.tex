@@ -4,262 +4,296 @@
 
 \begin{document}
 
-\def\contador{Lesson 12}
+\def\contador{Lesson 11}
 \input{title}
 
-\section{Some special rings}
+\section{Ring Homomorphisms and the Fundamental Theorems of Isomorphism}
 % idea: define ideales y cocientes
 % en otra lección homomorfimos y los teoremas fundamentales de iso.
 % Homomorphisms
 
-In this lecture, we introduce some special rings:
+\subsection{Ring Homomorphisms}
+
+To understand better rings and their properties we have to look at maps between ring that preserve the structure, namely that preserve both addition and multiplication.
+This maps are called ring-homomorphisms.
+
+\begin{defi}
+    Let \(A\) and \(B\) be rings.
+    A map \(\psi\colon A\to B\)  is a \textbf{ring-homomorphism} if, for all \(a,b\in A\),
 \begin{enumerate}[label=(\roman*)]
-    \item \textit{Euclidean Domains}, i.e., rings with a division algorithm;
-    \item \textit{Principal Ideal Domains (PID)}, i.e., rings where every ideal is principal; and
-    \item \textit{Unique Factorization Domains (UFD)}, i.e., rings whose elements can be factored into primes.
+    \item \(\varphi(a+b)=\varphi(a)+\varphi(b)\), and
+    \item \(\psi(a\cdot b) = \psi(a)\psi(b)\).
 \end{enumerate}
+A   bijective ring-homomorphism is called a \textbf{ring-isomorphism}. 
+If there is an isomorphism between \(A\) and \(B\), we say these rings are isomorphic, which is denoted by \(A\cong B\).
+\end{defi}
 
-The ring $\mathbb{Z}$ is the main example of such rings.
+Note that condition (i) means \(\psi\) is a group-homomorphism from \((A,+_A)\) to \((B,+_B)\).
+This implies that \(\psi(0_A) = 0_B\) since \(\psi(0_A) = \psi(0_A+0_A) = \psi(0_A) + \psi(0_A)\) whence \(\psi(0_A) = 0_B\) by subtraction.
+A ring-homomorphism from \(A\) to \(A\) is called an \textbf{endomorphism} of \(A\).
 
-\textbf{Important.} All the rings in this lecture are assumed to be commutative.
-
-\subsection{Euclidean Domains}
-
-Let $A$ be an integral domain. A \textit{norm} is a function $N : A \to \mathbb{N}_*$ such that $N(0) = 0$. If $N(a) > 0$ for every $a \in A \setminus \{0\}$, we say that $N$ is a \textit{positive norm}.
-
-\begin{exa}[10.1]
-The function $|\cdot| : \mathbb{Z} \to \mathbb{N}_*$, which is a restriction of the absolute value function, is a norm on the integral domain $\mathbb{Z}$.
-\end{exa}
-
-An \textit{Euclidean domain} $A$ is an integral domain for which a division algorithm holds, i.e., there exists a norm $N$ such that:
-\[
-\forall (a,b) \in A \times A \setminus \{0\}, \, \exists (r,q) \in A \times A \setminus \{0\} : \quad a = qb + r,
-\]
-with
-\[
-r = 0 \quad \text{or} \quad N(r) < N(b).
-\]
-
-\begin{exa}
-$\mathbb{Z}$ becomes a Euclidean Domain whenever it is equipped with the norm mentioned in Example 10.1.
-\end{exa}
-
-\begin{exa}
-For any field $F$, the polynomial ring $F[x]$ together with the norm $N$ given by the degree of a polynomial is an Euclidean domain.
-\end{exa}
-
-The existence of a division algorithm carries a very powerful implication for the integral domain $A$.
-
-
-\begin{prop}[10.1]
-Every ideal $I$ in an Euclidean Domain is principal. That is, if $I$ is any nonzero ideal of the Euclidean domain $A$, then $I = \langle d \rangle$, where $d$ is any nonzero element of $I$ of minimum norm.
-\end{prop}
-
-\begin{proof}
-Let $I$ be an ideal of $A$. If $I$ is the zero ideal, we are done.
-
-\begin{enumerate}[label=(\roman*)]
-    \item Suppose now that $d \in I$ is a nonzero element of minimum norm. This element $d$ does exist by the well-ordering principle. We have that $\langle d \rangle \subseteq I$ because $d \in I$.
-    
-    \item Let $a \in I$, generic. By the division algorithm in $A$, we can write
-    \[
-    a = qd + r
-    \]
-    with $r = 0$ or $N(r) < N(d)$. Since $r = a - qd$ and $a, q, d \in I$, we have that $r \in I$. Moreover, since $d$ is of minimum norm in $I$, we have that $r = 0$. Therefore, $qd \in \langle d \rangle$.
-\end{enumerate}
-
-From i) and ii), it follows that $I = \langle d \rangle$.
-\end{proof}
-
-An immediate result from Proposition 10.1 is that every ideal of $\mathbb{Z}$ is principal. It can also help us prove that some integral domains $A$ are not Euclidean with respect to \textit{any} norm by showing the existence of ideals that are not principal.
-
-We have used the notion of greatest common divisor in the past. Now, we can generalize this concept to general Euclidean Domains. Let $A$ be a commutative ring and let $a, b \in A$ with $b \neq 0$. The element $b$ is said to be a divisor of $a$, denoted $b \mid a$, if
-\[
-\exists x \in A : \quad a = bx.
-\]
-
-The \textit{greatest common divisor} of $a$ and $b$, denoted $\gcd(a, b)$ — or, by an abuse of notation, simply $(a, b)$ — is a nonzero element $d$ such that:
-\begin{enumerate}[label=(\roman*)]
-    \item $d$ is a \textit{common divisor} of $a$ and $b$, i.e., $d \mid a$ and $d \mid b$, and
-    \item if $d' \mid a$ and $d' \mid b$, then $d' \mid d$.
-\end{enumerate}
-
-\begin{rem}[10.1]
-These defining properties of $\gcd(a, b)$ can be translated into the language of ideals. In fact, let's denote by $I \subseteq A$ the ideal generated by $a$ and $b$, i.e., $I = \langle a, b \rangle$. Then $d = \gcd(a, b)$ if
-\begin{enumerate}[label=(\roman*)]
-    \item $I$ is contained in the principal ideal $\langle d \rangle$, and
-    \item if $\langle d' \rangle$ is any principal ideal containing $I$, then $\langle d \rangle \subseteq \langle d' \rangle$.
-\end{enumerate}
+\begin{rem}
+    If both \(A\) and \(B\) are rings with unity, a ring-homomorphism  \(\psi\colon A\to B\) must in addition satisfy \(\psi(1_A) = 1_B\).
 \end{rem}
 
-This is the content of “Caesar's Lemma” below.
+Given a homomorphism of rings \(\psi\colon A\to B\), the kernel of \(\psi\) is 
+\[\operatorname{Ker}\psi =\{x \in A \mid \varphi(x)=0\}.\]
+The image of \(\psi\) is \(\im \psi = \psi(A) \).
 
-\begin{lem}[10.1 (Caesar's Lemma — To divide is to contain)]
-It holds
+\begin{eje}
+    Prove \(\ker\psi\) is an ideal of \(A\) and \(\im\psi \) is a subring of \(B\). Why is it not necessarily true that \(\im\psi \) is an ideal  of \(B\)?
+\end{eje}
+
+\begin{exa}
+\begin{enumerate}[label=(\roman*)]
+\item If \(B\) is a subring of a ring \(A\), the canonical injection \(\iota \colon B\to A\colon b\mapsto b\) is a ring-homomorphism.
+In particular, the identity \(\text{Id}_A\colon A\to A\) is an isomorphism.
+
+\item If \(A\) is a ring and \(I\trianglelefteq A\) an ideal, the canonical projection \(\pi \colon A\to A/I\) is a surjective homomorphism of rings.
+Indeed,  we have 
+\begin{align*}
+    \pi (a_1) + \pi (a_2) & = (a_1 + I) + (a_2 + I)
+                    = (a_1 + a_2) + I
+                    = \pi (a_1 + a_2), \quad\text{and}\\
+    \pi (a_1) \pi (a_2)   & = (a_1 + I)(a_2 + I)
+                     = (a_1 a_2) + I 
+                     = \pi (a_1 a_2).
+\end{align*}
+    
+
+In particular, the projection  \(\Z\to \Z/ n\Z\) is a ring homomorphism, called \textbf{reduction modulo} \(n\).
+
+\item If \((A_\lambda)_{\lambda\in \Lambda}\) is a family of rings, the \(\alpha\)th canonical projection \(p_\alpha \colon \prod_{\lambda\in \Lambda} A_\lambda\to A_\alpha\) is a surjective ring-homomorphism.
+\item The rings \( 2\mathbb{Z} \) and \( 3\mathbb{Z} \) are not isomorphic. If there were an isomorphism
+\(
+\psi: 2\mathbb{Z} \to 3\mathbb{Z}
+\)
+such that \( \psi(2) = 3k \) for some integer  \( k \neq 0 \), then
 \[
-a \mid b \iff \langle b \rangle \subseteq \langle a \rangle.
+\psi(4) = \psi(2 + 2) = \psi(2) + \psi(2) = 6k,
 \]
-\end{lem}
+but
+\[
+\psi(4) = \psi(2 \cdot 2) = \psi(2) \cdot \psi(2) = 9k^2.
+\]
+Thus
+\(
+6k = 9k^2,
+\)
+and since \( k \neq 0 \), then \( 2 = 3k \), which is impossible. 
+Therefore \( 2\mathbb{Z} \ncong 3\mathbb{Z} \).
 
-\subsection{Principal Ideal Domains (PIDs)}
+\item Let \( A \) be a commutative ring with unity, then the map
+\[
+\psi: A[x] \to A\quad: \quad p(x) \mapsto  p(0)
+\]
+is a ring homomorphism that maps a polynomial to its constant term.
+In general, the evaluation map \(\psi_\alpha: A[x]\to A\) defined by 
+\[
+\psi_\alpha\left(a_0 + a_1x + \cdots + a_nx^n\right) = a_0 + a_1\alpha + \cdots + a_n\alpha^n,
+\] 
+where \(\alpha\in A\) is fixed,  is a homomorphism of \( A[x] \) onto \( A \). 
 
-A \textit{Principal Ideal Domain (PID)} is an integral domain where every ideal is principal. Proposition 10.1 proved that every Euclidean domain is a PID. Thus, every result for PIDs immediately holds for Euclidean domains.
-
-\begin{exa}[10.4]
-$\mathbb{Z}$ is a PID.
+\item There is no ring homomorphism \( \mathbb{Z}/n\mathbb{Z} \to \mathbb{Z} \) for any \( n \in \Z^+ \).
+\end{enumerate}
 \end{exa}
 
-\begin{exa}[10.5]
-The quadratic integer ring $\mathbb{Z}[\sqrt{-5}]$ is not a PID. In fact, the ideal $\langle 3, 1 + \sqrt{-5} \rangle$ is nonprincipal.
-\end{exa}
+\subsection{Properties of Ring Homomorphisms}
 
-\begin{rem}[10.2]
-It is possible that the product $IJ$ of two nonprincipal ideals $I$ and $J$ is principal. For example, $\langle 3, 1 + \sqrt{-5} \rangle$ and $\langle 3, 1 - \sqrt{-5} \rangle$ are nonprincipal, but their product, $\langle 3 \rangle$, is a principal domain.
-\end{rem}
+\begin{prop}
+Let \(\psi\colon A\to B\) be a morphism of rings.
+Then
+\begin{enumerate}[label=(\roman*)]
+\item \( f(-a) = -f(a) \) for all \(a\in A\)
+\item \( f(na) = nf(a) \)  for all \(a\in A\) and \(n\in \Z\)
+\item \( f(a^n) = f(a)^n \)  for all \(a\in A\) and \(n\in \Z^+\)
 
-Recall that maximal ideals are always prime ideals, but the converse is not true in general. However, every nonzero prime ideal of $\mathbb{Z}$ is a maximal ideal.
-
-\begin{prop}[10.2]
-Every nonzero prime ideal in a PID is a maximal ideal.
+\item \(\ker \psi \) is an ideal of \(A\)
+\item \(\im \psi\) is a subring of \(B\)
+\item \(\psi\) is injective if and only of \(\ker \psi = 0\)
+\item if \(a\in A\) is invertible, so is \(\psi(a)\)
+\item if \(\mathfrak{p}\) is an ideal of \(B\), then \(\psi^{-1}(\mathfrak{p})\) is an ideal of \(A\).
+\item if \(\mathfrak{p}\) is a maximal (prime) ideal of \(B\), then \(\psi^{-1}(\mathfrak{p})\) is a maximal (prime) ideal of \(A\).
+\item the composition of ring homomorphisms is a ring homomorphism
+\end{enumerate}
 \end{prop}
 
 \begin{proof}
-Let $\langle p \rangle$ be a nonzero prime ideal in a principal ideal domain $R$, and let $I = \langle m \rangle$ be any ideal containing $\langle p \rangle$. Remember that, in order to show maximality of $I$, we have to show that
-\[
-\text{either } I = \langle p \rangle \text{ or } I = R.
-\]
-
-Since $\langle p \rangle \subseteq I$, we have that $p \in \langle m \rangle$, which implies that $p = rm$ for some $r \in R$. Since $\langle p \rangle$ is prime and $rm \in \langle p \rangle$, either $r$ or $m$ must be in $\langle p \rangle$. Therefore:
-\begin{enumerate}[label=(\roman*)]
-    \item If $m \in \langle p \rangle$, then $\langle p \rangle = \langle m \rangle = I$.
-    \item If $r \in \langle p \rangle$, we can write $r = ps$ for some $s \in R$. In this case, $p = rm = psm$, so $sm = 1$ and because $m$ is an invertible element, we have that $I = R$.
-\end{enumerate}
+    Straight from the definitions and left as an exercise to the student.
 \end{proof}
 
+\pagebreak
+\subsection{Fundamental Theorems of Isomorphism}
 
-\subsection{Unique Factorization Domains (UFDs)}
+% caracterizacion primos y maximales con cocientes
+ 
 
-Throughout this lecture, we have used notions from the integers $\mathbb{Z}$ to generalize them. In the case of the integers, there is another method for determining the greatest common divisor of $a$ and $b$. Namely, the notion of \textit{factorization into primes}. This notion can be extended to a larger class of rings called \textit{Unique Factorization Domains}. Moreover, we will see that every PID is a UFD.
+The significance of the following results lies in their usefulness  to simplify computations by allowing us to replace a ring with another that is more convenient, provided a ring isomorphism can be established. The proofs of these results are left as exercises for the reader, while the accompanying diagrams serve to illustrate the concepts and serve as mnemonic aids.
 
-Let $A$ be an integral domain.
-\begin{enumerate}[label=(\roman*)]
-    \item Suppose that $r \in A \setminus \{0\}$ is \textit{not invertible}. Then $r$ is called \textit{irreducible} in $A$ if whenever $r = ab$ with $a, b \in A$, at least one of $a$ or $b$ must be invertible in $A$, i.e.,
+\begin{teo}[Fundamental Theorem on Ring-Homomorphisms]
+    Let  $\psi : A \to B$ be a ring-homomorphism   and $I$   an ideal of $A$ with \(I\subseteq \ker \psi\).
+    Then    there is a unique ring-homomorphism $\overline{\psi}\colon A/I \to B$ such that \(\psi = \overline{\psi}\circ \pi\), i.e.,  $$\overline{\psi}(a + I) = \psi(a)\quad\text{for all }a \in A.$$
+    In other words, such that  the following diagram commutes \[
+\begin{tikzcd}[row sep={3em}]
+A \arrow[r, "\psi"] \arrow[d, "\pi"'] & B \\
+A/I \arrow[ru, dashed, "\overline{\psi}"'] &
+\end{tikzcd}
+\]
+    Moreover
+    \begin{enumerate}[label=(\roman*)]
+        \item $\operatorname{Im} \overline{\psi} = \operatorname{Im} \psi$,
+        \item $\ker \overline{\psi} = (\ker \psi)/I$
+        \item $\overline{\psi}$ is an isomorphism if and only if $\psi$ is an epimorphism and $I = \ker \psi$.
+    \end{enumerate}  
+\end{teo}
+
+\begin{proof}[Proof (Sketch)]
+    Define \(\overline{\psi}\colon A/I\to B\) by \(\overline{\psi}(a+I) = \psi(a)\).
+    By using the fact that  \(I\subseteq \ker \psi\), we show \(\overline{\psi}\) is well-defined.
+    This shows the existence.
+    If \(\varphi\colon A/I\to B\) is another ring-homomorphism such that \(\psi = \varphi\circ \pi\), then 
+    \(\overline{\psi}\circ \pi = \varphi\circ\pi\).
+    Since \(\pi\) is surjective, it has a right inverse and thus  \(\overline{\psi}  = \varphi\).
+    This shows the uniqueness.
+    On the other hand, (i) $\psi(a) \in \operatorname{Im} \psi$ if and only if $\psi(a) = \overline{\psi}(a+I) \in \operatorname{Im} \overline{\psi}$. Hence $\operatorname{Im} \psi = \operatorname{Im} \overline{\psi}$. Note (ii)    \begin{align*}
+        \ker \overline{\psi} &= \{a +I\in A/I \mid \overline{\psi}(a+I) = 0\} \\
+        &= \{a+I \in A/I \mid \psi(a) = 0\} \\
+        &= \{a+I \in A/I \mid a \in \ker \psi\} \\
+        &= \ker \psi / I
+        \end{align*}
+    Finally, (i) shows \(\overline{\psi}\) is surjective if and only if \(\psi\) is, and (ii) implies \(\overline{\psi}\) is injective if \(\ker\psi = I\) since \(\ker\overline{\psi} = I/I = I\).
+    These facts imply (iii).
+\end{proof}
+
+The following corollaries are known as the fundamental theorems of ring-homomorphisms.
+Their proof follows from the fundamental theorem of ring-homomorphisms and thus we leave the details to the reader.
+
+\begin{cor}[First Isomorphism Theorem]
+    If $\psi  \colon A \to B$ is a ring-homomorphism, then $\psi $ induces an isomorphism of rings $A / \ker \psi  \cong \operatorname{Im} \psi $.
+    Furthermore, the following diagram commutes.
     \[
-    r = ab \implies \left(a \in A^\times \, \lor \, b \in A^\times\right).
-    \]
+\begin{tikzcd}[row sep={3em}]
+A \arrow[r, "\psi"] \arrow[d, "p"'] & B \\
+A / \ker \psi \arrow[r, "\tilde{\psi}", dotted] & \operatorname{Im} \psi \arrow[u, "j"']
+\end{tikzcd}
+\]
+\end{cor}
 
-    \item An element $p \in A \setminus \{0\}$ is called \textit{prime} in $A$ if the ideal $\langle p \rangle$ is prime. In other words, $p$ is prime if it is not invertible and
+\begin{cor}[Second Isomorphism Theorem]
+    Let $I$ and $J$ be ideals in a ring $A$.
+    Then \[\frac{I}{I\cap J} \cong \frac{I+J}{J}.\]
+\end{cor}
+
+
+\begin{cor}[Third Isomorphism Theorem]
+    Let $I$ and $J$ be ideals in a ring $A$ with \(J\subseteq I\).
+    Then \[\frac{A/J}{I / J} \cong \frac{A}{I}.\]
+\end{cor}
+
+This corollary, also known as the diamond (or parallelogram) theorem, indicates that  the opposite sides of the parallelogram (with a slash) are isomorphic.
+\[\begin{tikzcd}
+    & I+J \arrow[ld, no head] \arrow[rd, "/" description, no head] &                       \\
+I \arrow[rd, "/" description, no head] &                                                               & J \arrow[ld, no head] \\
+    & I\cap J                                                       &                      
+\end{tikzcd}\]
+
+
+\begin{cor}[Fourth Isomorphism Theorem]
+    If $I$ is an ideal in a ring $A$, then there is a one-to-one correspondence between the set of all ideals of $A$ which contain $I$ and the set of all ideals of $A/I$, given by $J \mapsto J/I$. Hence every ideal in $A/I$ is of the form $J/I$, where $J$ is an ideal of $A$ which contains $I$.
+\end{cor}
+
+\begin{exa}
+    Let $A = \mathbb{Z}$ and $I = 12\mathbb{Z}$. By the fourth isomorphism theorem, the ideals of $A/I$ are in bijective correspondence with the ideals of \(\Z\) containing $12\mathbb{Z}$, namely with 
     \[
-    p \mid ab \implies \left(p \mid a \, \lor \, p \mid b\right).
+    2\mathbb{Z}, \, 3\mathbb{Z}, \, 4\mathbb{Z}, \, 6\mathbb{Z}, \, 12\mathbb{Z}.
     \]
-
-    \item Two elements $a$ and $b$ are \textit{associates}, denoted by $a \sim b$, if they differ by an invertible element, i.e.,
+    Therefore, the ideals of $A/I$ are
     \[
-    \exists u \in A^\times : \quad a = ub.
+    2\mathbb{Z}/12\mathbb{Z}, \;\;\, 3\mathbb{Z}/12\mathbb{Z}, \;\;\, 4\mathbb{Z}/12\mathbb{Z}, \;\;\, 6\mathbb{Z}/12\mathbb{Z}, \;\;\, 12\mathbb{Z}/12\mathbb{Z}.
     \]
-\end{enumerate}
+\end{exa}
+    
 
-\begin{prop}[10.3]
-In an integral domain, a prime element is always irreducible.
+\subsection{Additional properties of rings}
+
+\begin{prop} 
+If \(\psi\colon F\to A\) is a nonzero ring-homomorphism and \(F\) is a field, then \(\psi\) is injective.
 \end{prop}
 
 \begin{proof}
-Let $R$ be an integral domain and $\langle p \rangle$ a nonzero prime ideal. Suppose that $p = ab$ for some $a, b \in R$. Then $ab \in \langle p \rangle$ and, by definition of a prime ideal, $a \in \langle p \rangle$ or $b \in \langle p \rangle$. Without loss of generality, let us assume that $a \in \langle p \rangle$. Then $a = ps$ for some $s \in R$. Therefore,
-\[
-p = ab = psb,
-\]
-which implies that $sb = 1$. We conclude that $p$ is irreducible.
+Recall the kernel of any ring homomorphism is an ideal. 
+Since \(\psi\) is nonzero, its kernel cannot be \(F\).
+Because \(F\) is a field, its only ideals are \(0\) and \(F\).
+Hence \(\ker\psi = 0\).
+Therefore \(\psi\) is injective.
 \end{proof}
 
-\begin{prop}[10.4]
-    In a PID, a non-zero element is prime if and only if it is irreducible.
-    \end{prop}
-    
-    \begin{proof}
-    In Proposition 10.3, we have shown that prime implies irreducible. To show the converse, take a non-zero element $p$ which is irreducible. If $M$ is any ideal containing $\langle p \rangle$, then, by hypothesis, we have that $M = \langle m \rangle$ is a principal ideal. Since $p \in \langle m \rangle$, $p = rm$ for some $r$. But $p$ is irreducible, so either $r$ or $m$ are invertible. That is, either $\langle p \rangle = \langle m \rangle$ or $\langle m \rangle = \langle 1 \rangle$, respectively. Therefore, the only ideals containing $\langle p \rangle$ are $\langle p \rangle$ or $\langle 1 \rangle$, i.e., $\langle p \rangle$ is a maximal ideal. The result follows from the fact that all maximal ideals are prime.
-    \end{proof}
-    
-    \begin{exa}[10.6]
-    The irreducible elements in $\mathbb{Z}$ are the prime numbers and their negatives.
-    \end{exa}
-    
-    A \textit{Unique Factorization Domain (UFD)} is an integral domain $A$ where every nonzero element $r \in A \setminus A^\times$ has the following properties:
-    \begin{enumerate}[label=(\roman*)]
-        \item $r$ can be written as a finite product of irreducibles $p_i$ of $A$, i.e.,
-        \[
-        r = p_1 p_2 \cdots p_n,
-        \]
-        where the $p_i$'s are not necessarily distinct.
-        \item The decomposition above is unique up to associates, i.e., if
-        \[
-        r = q_1 q_2 \cdots q_m,
-        \]
-        then $n = m$ and there is some renumbering of the factors so that $p_i$ is associate to $q_i$ for $i = 1, 2, \dots, n$.
-    \end{enumerate}
-    
-    \begin{prop}[10.5]
-    In a UFD, a nonzero element is prime if and only if it is irreducible.
-    \end{prop}
-    
-    \begin{proof}
-    The proof is left as an exercise for the reader.
-    \end{proof}
-    
-    \begin{teo}[10.1]
-    Every PID is a UFD. In particular, every Euclidean Domain is a UFD.
-    \end{teo}
-    
-    \begin{proof}
-    Note that the second assertion is a direct result of the first since Euclidean Domains are PIDs.
-    
-    Let $A$ be a PID and let $r \in A \setminus A^\times$ be nonzero. To prove the first assertion we need to check two things:
-    \begin{enumerate}[label=(\roman*)]
-        \item that any $r$ has a finite decomposition of irreducibles in $A$,
-        \item this decomposition is unique up to invertible elements.
-    \end{enumerate}
-    
-    If $r$ is irreducible, we are done. If not, we can rewrite $r$ as a product
+
+\begin{teo}%[9.1]
+Let $A$ be a commutative ring and \(M\) and \(P\) two ideals of \(A\).
+\begin{enumerate}[label=(\roman*)]
+    \item  $M$ is maximal if and only if $A/M$ is a field.
+    \item  $P$ is prime if and only if $A/P$ is an integral domain.
+\end{enumerate}
+\end{teo}
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item The first part of the theorem follows from the Fourth Isomorphism Theorem (FIT) and the fact that a field has only the two trivial ideals. Indeed, by definition, the ideal $M$ is maximal if there is no ideal $J$ such that
     \[
-    r = r_1 r_2,
+    M \subsetneq J \subsetneq A.
     \]
-    with neither $r_1$ nor $r_2$ being invertible. If both of them are irreducible, we are done as we produced a decomposition of $r$ into irreducibles. If not, suppose $r_1$ is reducible and proceed to find its decomposition and so forth. But we must verify that this process actually finishes, that is, that after a finite amount of steps we have found a proper decomposition of $r$ into irreducibles.
+    The ideals of $A$ containing $M$ correspond bijectively with the ideals of $A/M$. Therefore, $M$ is maximal if the only ideals of $A/M$ are $0$ and $A/M$. Hence,  $M$ is maximal if $A/M$ is a field.
+
+    \item Let us denote the class of $a$ in $A/P$ by $\overline{a}$.  If $P$ is a prime ideal and 
+    \[
+    \overline{a} \, \overline{b} = \overline{a b} = 0_{A/P}= P,
+    \]
+    then $ab \in P$. Since $P$ is a prime ideal,   \(a \in P \) or \(b \in P\).
+    Therefore \(\overline{a} = 0\)  or \(\overline{b} = 0\).
+    Hence, $A/P$ is an integral domain.
+
+    Conversely, if $A/P$ is an integral domain and $ab \in P$ with $a, b \in A$, then since
+    \[
+    \overline{a} \, \overline{b} = \overline{a b} = 0
+    \]
+    and $A/P$ is an integral domain, we have that
+    \[
+    \overline{a} = 0 \quad \text{or} \quad \overline{b} = 0,
+    \]
+    but this is equivalent to  \(a \in P \) or \(b \in P\). 
+    Therefore, $P$ is a prime ideal.
+\end{enumerate}
+\end{proof}
+
+\begin{prop} 
+    Let  $A$ be  a commutative ring.
+    Then  every maximal ideal of $A$ is a prime ideal.
+\end{prop}
+
+\begin{proof}
+Let   $M$ be a maximal ideal of $A$. Then  $A/M$ is a field. Every field is an integral domain. Thus, $A/M$ is an integral domain. Therefore  $M$ is a prime ideal.
+\end{proof}
+
+\begin{exa}
+\begin{enumerate}[label=(\roman*)]
+\item  The ideal $p\mathbb{Z}$ is a maximal ideal if and only if $p$ is prime since $\mathbb{Z}/p\mathbb{Z}$ is a field if and only if $p$ is prime.
+
+\item Consider the surjective evaluation homomorphism 
+    \[
+    \theta : \mathbb{Z}[x] \to \mathbb{Z}, \quad p(x) \mapsto   p(0).
+    \]
     
-    Suppose for a contradiction that this is not the case. From the factorization $r = r_1 r_2$ we obtain a proper infinite ascending chain of ideals
+    Then
     \[
-    \langle r \rangle \subset \langle r_1 \rangle \subset \langle r_{11} \rangle \subset \cdots \subset R.
+    \ker(\theta) = \{p(x) \in \mathbb{Z}[x] \mid p(0) = 0\} = \langle x \rangle
     \]
-    The Axiom of Choice ensures that such a chain exists. But now we will show that any ascending chain $I_1 \subset I_2 \subset \cdots \subset R$ of ideals in a principal ideal domain eventually stabilizes, i.e., there is some positive integer $n$ such that
+    and
     \[
-    I_k = I_n, \quad k \geq n.
+    \mathbb{Z}[x] / \langle x \rangle \cong \mathbb{Z}.
     \]
-    There is no possible way of having a chain like this where all containments are proper. Let
-    \[
-    I = \bigcup_{i=1}^\infty I_i.
-    \]
-    Then $I$ is an ideal. Since $R$ is a PID, $I = \langle a \rangle$ for some $a \in R$. This implies $I_n \subseteq I = \langle a \rangle \subseteq I_n$. So the chain becomes stationary.
-    
-    To prove uniqueness of the above decomposition, we proceed by induction on the number $n$ of irreducible factors. If $n = 0$, then $r$ is invertible. If we had some other factorization $r = qc$ for some irreducible factor $q$, then $q$ would divide an invertible element and would itself be an invertible element. A contradiction. Now, suppose that $n \geq 1$ and we have two factorizations for $r$,
-    \[
-    r = p_1 p_2 \cdots p_n = q_1 q_2 \cdots q_m, \quad m \geq n,
-    \]
-    where the $p_i$ and $q_j$ are not necessarily distinct irreducibles. Since then $p_1$ divides the product on the right, then it must divide one of the factors. Renumbering if necessary, $p_1 \sim q_1$. So, $p_1 \sim q_1$. Cancelling $p_1$, we obtain the following equality
-    \[
-    p_2 \cdots p_n = uq_2 \cdots q_m = uq_2' \cdots q_m, \quad m \geq n,
-    \]
-    where $q_2' = uq_2$ is again irreducible. By induction on $n$, we have that each of the factors on the left matches with the factors on the right up to associates. Since we already showed $p_1 \sim q_1$ after the initial renumbering, this concludes the induction step and the proof.
-    \end{proof}
-    
-    \begin{cor}[10.1 (Fundamental Theorem of Arithmetic)]
-    The set $\mathbb{Z}$ is a UFD.
-    \end{cor}
-    
-    \begin{proof}
-    The integers $\mathbb{Z}$ are an Euclidean Domain and thus, by Theorem 10.1, a Unique Factorization Domain.
-    \end{proof}
-    
-    To finish this section, we provide the following diagram summarizing the inclusion among domains we have developed:
-    \[
-    \text{Fields}\;\, \subset\;\, \text{Euclidean Domains} \;\,\subset\;\, \text{PIDs} \;\,\subset\;\, \text{UFDs} \;\,\subset\;\, \text{Integral Domains}.
-    \]
+    Therefore   $\langle x \rangle$ is   prime   since $\mathbb{Z}$ is an integral domain.
+\end{enumerate}
+\end{exa}
     
 \end{document}

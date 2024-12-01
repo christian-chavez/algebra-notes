@@ -4,5 +4,5 @@ This repository contains the source files of the lecture notes used in the Abstr
 The course was taught during last semester of 2024 by Professor Pablo Rosero.
 
 ## Contributors
-- Professor Pablo Rosero - Course Instructor
+- Pablo Rosero - Course Instructor
 - Christian Chávez - Teaching Assistant and notes compiler
